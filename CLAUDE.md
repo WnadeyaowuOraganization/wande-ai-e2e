@@ -19,6 +19,15 @@
 
 ---
 
+## GitHub 身份
+
+> **你使用 `wandeyaowu` 个人账号身份操作 GitHub。**
+>
+> 编程CC（backend/front仓库）使用 GitHub App（wande-auto-code-agent）创建PR。
+> 你作为测试CC使用不同身份（wandeyaowu），因此可以审批和合并编程CC创建的PR。
+>
+> GH_TOKEN 已由调用方在启动时通过环境变量注入，无需你自行设置。---
+
 ## 目录结构
 
 ```
