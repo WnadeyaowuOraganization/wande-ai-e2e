@@ -1,12 +1,12 @@
 {
   "version": "1.0",
-  "description": "需求追踪矩阵 — Issue与测试用例的双向映射",
+  "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
   "updated_at": "2026-03-21",
   "mappings": [
     {
       "issue": "TEMPLATE",
       "repo": "wande-ai-backend",
-      "title": "Issue标题示例",
+      "title": "Issue 标题示例",
       "module": "tender",
       "test_files": [
         "tests/api/tender.spec.ts::should list tenders with pagination",
@@ -15,6 +15,37 @@
       "coverage": "full",
       "last_tested": null,
       "last_result": null
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#255",
+      "repo": "wande-ai-backend",
+      "title": "GPU Monitor API",
+      "module": "gpu-monitor",
+      "test_files": [
+        "tests/api/gpu-monitor.spec.ts::should get GPU realtime data",
+        "tests/api/gpu-monitor.spec.ts::should get GPU summary data",
+        "tests/api/gpu-monitor.spec.ts::should get GPU alerts",
+        "tests/api/gpu-monitor.spec.ts::should get GPU health status",
+        "tests/api/gpu-monitor.spec.ts::should reject unauthenticated requests"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-20T19:54:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#124",
+      "repo": "wande-ai-front",
+      "title": "GPU Monitor Page",
+      "module": "gpu-monitor",
+      "test_files": [
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has no console errors",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page route exists",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has refresh functionality"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-20T19:54:00",
+      "last_result": "passed"
     }
   ],
   "modules": {
@@ -31,7 +62,7 @@
       "test_files": ["tests/api/tender.spec.ts", "tests/smoke/pages-load.spec.ts"]
     },
     "crm": {
-      "description": "CRM客户管理",
+      "description": "CRM 客户管理",
       "test_tags": ["@crm"],
       "api_prefix": "/wande/crm",
       "test_files": ["tests/api/crm.spec.ts"]
@@ -59,6 +90,12 @@
       "test_tags": ["@system"],
       "api_prefix": "/system",
       "test_files": []
+    },
+    "gpu-monitor": {
+      "description": "GPU 性能监控",
+      "test_tags": ["@gpu-monitor"],
+      "api_prefix": "/api/monitor/gpu",
+      "test_files": ["tests/api/gpu-monitor.spec.ts", "tests/smoke/gpu-monitor-page.spec.ts"]
     }
   },
   "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
