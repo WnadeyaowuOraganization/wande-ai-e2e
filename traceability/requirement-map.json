@@ -1,0 +1,65 @@
+{
+  "version": "1.0",
+  "description": "需求追踪矩阵 — Issue与测试用例的双向映射",
+  "updated_at": "2026-03-21",
+  "mappings": [
+    {
+      "issue": "TEMPLATE",
+      "repo": "wande-ai-backend",
+      "title": "Issue标题示例",
+      "module": "tender",
+      "test_files": [
+        "tests/api/tender.spec.ts::should list tenders with pagination",
+        "tests/e2e/tender-crud.spec.ts::should create and view tender"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null
+    }
+  ],
+  "modules": {
+    "auth": {
+      "description": "认证与登录",
+      "test_tags": ["@auth"],
+      "api_prefix": "/auth",
+      "test_files": ["tests/api/auth.spec.ts", "tests/e2e/login-flow.spec.ts"]
+    },
+    "tender": {
+      "description": "招投标管理",
+      "test_tags": ["@tender"],
+      "api_prefix": "/wande/tender",
+      "test_files": ["tests/api/tender.spec.ts", "tests/smoke/pages-load.spec.ts"]
+    },
+    "crm": {
+      "description": "CRM客户管理",
+      "test_tags": ["@crm"],
+      "api_prefix": "/wande/crm",
+      "test_files": ["tests/api/crm.spec.ts"]
+    },
+    "opportunity": {
+      "description": "商机管理",
+      "test_tags": ["@opportunity"],
+      "api_prefix": "/wande/opportunity",
+      "test_files": []
+    },
+    "competitor": {
+      "description": "竞品分析",
+      "test_tags": ["@competitor"],
+      "api_prefix": "/wande/competitor",
+      "test_files": []
+    },
+    "dashboard": {
+      "description": "仪表盘",
+      "test_tags": ["@dashboard"],
+      "api_prefix": "/wande/dashboard",
+      "test_files": []
+    },
+    "system": {
+      "description": "系统管理（用户/角色/菜单）",
+      "test_tags": ["@system"],
+      "api_prefix": "/system",
+      "test_files": []
+    }
+  },
+  "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
+}

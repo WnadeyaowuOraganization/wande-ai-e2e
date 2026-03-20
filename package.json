@@ -1,0 +1,20 @@
+{
+  "name": "wande-ai-e2e",
+  "version": "1.0.0",
+  "description": "万德AI平台 E2E自动测试 — Playwright + 需求追踪矩阵",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:api": "npx playwright test --grep @api",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:e2e": "npx playwright test --grep @e2e",
+    "test:module": "npx playwright test --grep",
+    "report": "npx playwright show-report",
+    "install-browsers": "npx playwright install chromium --with-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
