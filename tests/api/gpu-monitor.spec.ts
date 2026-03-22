@@ -39,7 +39,7 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
 
     const body = await response.json();
     // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect([200, 500, 503]).toContain(body.code);
+    expect(body.code).toBe(200);
 
     if (body.code === 200) {
       expect(body.data).toBeDefined();
@@ -76,7 +76,7 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
 
     const body = await response.json();
     // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect([200, 500, 503]).toContain(body.code);
+    expect(body.code).toBe(200);
     // 服务不可用时可能没有 data 字段
     if (body.code === 200) {
       expect(body.data).toBeDefined();
@@ -95,7 +95,7 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
 
     const body = await response.json();
     // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect([200, 500, 503]).toContain(body.code);
+    expect(body.code).toBe(200);
     // 返回的应该是告警列表（可能为空）
     // 服务不可用时可能没有 data 字段
     if (body.code === 200) {
@@ -111,7 +111,7 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
     });
 
     // 健康检查接口应始终可用
-    expect([200, 503]).toContain(response.status());
+    expect(response.status()).toBe(200);
 
     if (response.status() === 200) {
       const body = await response.json();
@@ -126,7 +126,7 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
     // 未认证应返回 401 或 code 401
     const status = response.status();
     const body = await response.json();
-    expect([401, 403, 200]).toContain(status);
+    expect(status).toBe(200);
     // 如果返回 200，body 中应有 code 401
     if (status === 200) {
       expect(body.code).toBe(401);
