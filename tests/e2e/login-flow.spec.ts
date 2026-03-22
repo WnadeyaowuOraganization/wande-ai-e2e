@@ -32,9 +32,8 @@ test.describe('Login Flow E2E @e2e @auth', () => {
     await passwordInput.fill(TEST_USER.password);
 
     // 点击登录按钮
-    const loginButton = page.getByRole('button', { name: /登录|登 录|Login|Sign in/i }).or(
-      page.locator('button[type="submit"]').first()
-    );
+    // 用 aria-label="login" 精确定位主登录按钮（页面有多个按钮：登录/手机号登录/扫码登录）
+    const loginButton = page.locator('button[aria-label="login"]');
     await loginButton.click();
 
     // 等待导航完成（登录成功应跳转离开登录页）
@@ -72,9 +71,8 @@ test.describe('Login Flow E2E @e2e @auth', () => {
     await usernameInput.fill('admin');
     await passwordInput.fill('wrong_password_test_12345');
 
-    const loginButton = page.getByRole('button', { name: /登录|登 录|Login|Sign in/i }).or(
-      page.locator('button[type="submit"]').first()
-    );
+    // 用 aria-label="login" 精确定位主登录按钮（页面有多个按钮：登录/手机号登录/扫码登录）
+    const loginButton = page.locator('button[aria-label="login"]');
     await loginButton.click();
 
     // 等待错误提示出现

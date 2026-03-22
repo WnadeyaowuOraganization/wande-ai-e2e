@@ -1,5 +1,29 @@
 # CLAUDE.md — 万德AI自动测试机器人操作手册
 
+
+## 后端认证响应规范（重要）
+
+本项目后端使用 Spring Boot + Sa-Token，**认证拦截不会改变 HTTP 状态码**：
+
+- HTTP 状态码始终为 `200`
+- 认证结果在 JSON body 的 `code` 字段中：
+  - `{"code": 200, ...}` — 请求成功
+  - `{"code": 401, "msg": "认证失败，无法访问系统资源"}` — 未认证/token无效
+  - `{"code": 500, "msg": "..."}` — 服务端错误
+
+**编写测试时**：
+- 检查认证状态用 `body.code`，不用 `response.status()`
+- `response.status()` 始终为 200，不能用于判断认证是否通过
+- 正确写法：`const body = await response.json(); expect(body.code).toBe(401);`
+- 错误写法：`expect(response.status()).toBe(401);` ← 永远不会通过
+
+## Playwright 浏览器环境
+
+- Chromium 安装路径（ubuntu 用户）：`/home/ubuntu/.cache/ms-playwright/chromium-1208`
+- root 用户路径：`/root/.cache/ms-playwright/chromium-1208`
+- CI/CD Runner 使用 ubuntu 用户，测试必须确保 ubuntu 下有浏览器
+- 安装命令：`sudo -u ubuntu npx playwright install chromium`
+
 ## 角色定义
 
 你是**测试机器人** — 独立于编程机器人的Claude Code进程。你的职责是扫描待测试的PR，执行Playwright自动化测试，根据结果审批或打回PR。

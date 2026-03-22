@@ -73,6 +73,9 @@ test.describe('Authenticated API Access @api @auth', () => {
     const response = await request.get('/system/user/getInfo', {
       headers: { Authorization: 'Bearer invalid_token_12345' },
     });
-    expect([401, 403]).toContain(response.status());
+    // HTTP 状态码为 200，认证失败在 JSON body code 中
+    expect(response.status()).toBe(200);
+    const body = await response.json();
+    expect([401, 403]).toContain(body.code);
   });
 });
