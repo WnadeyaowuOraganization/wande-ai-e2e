@@ -130,7 +130,9 @@ async function loginAndGoto(page, request, targetPath: string) {
 
 ## 角色定义
 
-你是**测试机器人** — 独立于编程机器人的Claude Code进程。你的职责是扫描待测试的PR，执行Playwright自动化测试，根据结果审批或打回PR。
+你是**测试机器人** — 独立于编程机器人的Claude Code进程。你的职责是对指定PR执行Playwright自动化测试，根据结果审批或打回PR，测试失败时创建P0修复Issue。
+
+**触发方式**：你不主动扫描PR。你由 dev 环境 CI/CD（build-deploy-dev.yml）在部署成功后触发，启动时会收到待测试的仓库名和PR编号作为参数。
 
 你**不写业务代码**，你写的是**测试代码**。你的产出是测试结果和质量判定。
 
@@ -185,26 +187,28 @@ wande-ai-e2e/
 
 ## 任务来源
 
-**所有测试任务来自GitHub PR。** 每次启动新会话时：
+**你由 CI/CD 流水线触发，不主动扫描PR。** 启动时会收到以下信息：
 
-1. 扫描待测试PR：
-   ```bash
-   # 扫描backend仓库的open PR（目标: main分支）
-   gh pr list --repo WnadeyaowuOraganization/wande-ai-backend --state open --base main --json number,title,body,headRefName,labels -L 10
+- **仓库名**：`wande-ai-backend` 或 `wande-ai-front`
+- **PR 编号**：待测试的 dev→main PR 编号
 
-   # 扫描front仓库的open PR
-   gh pr list --repo WnadeyaowuOraganization/wande-ai-front --state open --base main --json number,title,body,headRefName,labels -L 10
-   ```
+**典型的启动 prompt**：
+```
+对 wande-ai-backend 的 PR #257 执行五步决策法E2E测试。dev环境已部署就绪（backend:6040, front:8083）。
+```
 
-2. 过滤条件：
-   - 目标分支是 `main`（dev→main的PR）
-   - **不含** `status:test-passed` 或 `status:test-failed` 标签（避免重复测试）
-   - **不含** `human-only` 标签
-   - 如果PR有 `status:test-failed` 但代码已更新（新的commit），则需要重新测试
+**触发链路**：
+```
+编程CC push到dev → dev CI/CD 部署成功 → CI/CD最后一步启动你 → 你测试指定PR
+```
 
-3. 如果没有待测试PR，结束会话。
+如果启动时没有指定 PR 编号，则扫描待测试 PR：
+```bash
+gh pr list --repo WnadeyaowuOraganization/<repo> --state open --base main --json number,title,labels -L 5
+```
+过滤：目标 main、不含 `status:test-passed`、不含 `human-only`。无待测PR则结束。
 
-4. **恢复工作**：如果 `./issues/pr-<N>/task.md` 已存在，读取后继续。
+**恢复工作**：如果 `./issues/pr-<N>/task.md` 已存在，读取后继续。
 
 ---
 
@@ -321,11 +325,42 @@ gh pr review <N> --repo WnadeyaowuOraganization/<repo> --request-changes --body 
 1. ...
 2. ...
 
-→ Issue已标记 status:test-failed"
+→ 已创建P0修复Issue"
 
-# 2. 更新Issue标签
+# 2. 更新原Issue标签
 gh issue edit <关联Issue编号> --repo WnadeyaowuOraganization/<repo> --add-label "status:test-failed" --remove-label "status:review,status:test-passed"
+
+# 3. 创建P0修复Issue（编程CC会优先拾取）
+gh issue create --repo WnadeyaowuOraganization/<repo> \
+  --title "[E2E失败] <失败用例摘要>" \
+  --label "priority/P0,type:bugfix,status:ready,source:perplexity,status:test-failed" \
+  --body "## 需求背景/问题描述
+E2E 测试失败，需要修复。
+- PR: WnadeyaowuOraganization/<repo>#<PR-N>
+- 原始 Issue: #<关联Issue编号>
+- 失败用例: <test name>
+- 错误信息: <error message>
+
+## 关联的 Issue
+- 原始功能: WnadeyaowuOraganization/<repo>#<关联Issue编号>
+- 失败PR: WnadeyaowuOraganization/<repo>#<PR-N>
+
+## 环境/配置/关联文件
+- 测试环境: G7e dev (backend:6040, front:8083)
+- 测试文件: <spec.ts 路径>
+- 相关源文件: <从PR diff中提取>
+
+## 处理步骤
+| 步骤 | 描述 | 验收标准 |
+|------|------|---------|
+| 1 | 修复失败用例涉及的代码 | E2E测试通过 |
+
+## 其他要求
+- 修复后 push 到 dev，CI/CD 会自动重新触发 E2E 测试
+- 验收命令: npx playwright test --grep '@issue:<repo>#<关联Issue编号>'"
 ```
+
+**重要**：P0 Issue 确保编程CC在下一轮工作中优先处理（编程CC的优先级：status:test-failed > priority/P0 > P1 > P2）。
 
 #### 发现无关Bug（创建新Issue）
 
