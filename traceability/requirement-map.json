@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-22T09:07:22",
+  "updated_at": "2026-03-22T12:00:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#2",
@@ -62,7 +62,7 @@
         "tests/api/gpu-monitor.spec.ts::should reject unauthenticated requests"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-20T19:54:00",
+      "last_tested": "2026-03-22T12:00:00",
       "last_result": "passed"
     },
     {
@@ -74,10 +74,11 @@
         "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
         "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has no console errors",
         "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page route exists",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has expected layout elements",
         "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has refresh functionality"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-20T19:54:00",
+      "last_tested": "2026-03-22T12:00:00",
       "last_result": "passed"
     }
   ],

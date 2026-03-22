@@ -1,38 +1,35 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * GPU Monitor API测试
+ * GPU Monitor API 测试
  * 验证 GPU 性能监控接口的正确性
  *
  * 关联 Issue: backend#255
  * PR: WnadeyaowuOraganization/wande-ai-backend#256
  */
 
-const TEST_USER = {
-  username: process.env.TEST_USERNAME || 'admin',
-  password: process.env.TEST_PASSWORD || 'admin123',
-};
+const API_BASE = process.env.BASE_URL_API || 'http://localhost:6040';
 
 test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
-  let token: string;
+  let globalToken: string;
 
   test.beforeAll(async ({ request }) => {
-    const response = await request.post('/auth/login', {
+    const response = await request.post(`${API_BASE}/auth/login`, {
       data: {
-        username: TEST_USER.username,
-        password: TEST_USER.password,
+        username: 'admin',
+        password: 'admin123',
       },
     });
     const body = await response.json();
     expect(body.code).toBe(200);
-    token = body.data?.token || body.token || '';
+    globalToken = body.data?.access_token || body.data?.token || '';
   });
 
   test('should get GPU realtime data', { tag: ['@api', '@gpu-monitor', '@issue:backend#255'] }, async ({ request }) => {
-    test.skip(!token, 'No token available');
+    test.skip(!globalToken, 'No token available');
 
     const response = await request.get('/api/monitor/gpu/realtime', {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${globalToken}` },
     });
 
     // 接口应存在且返回 JSON
@@ -68,10 +65,10 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
   });
 
   test('should get GPU summary data', { tag: ['@api', '@gpu-monitor', '@issue:backend#255'] }, async ({ request }) => {
-    test.skip(!token, 'No token available');
+    test.skip(!globalToken, 'No token available');
 
     const response = await request.get('/api/monitor/gpu/summary', {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${globalToken}` },
     });
 
     // 接口应存在
@@ -87,10 +84,10 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
   });
 
   test('should get GPU alerts', { tag: ['@api', '@gpu-monitor', '@issue:backend#255'] }, async ({ request }) => {
-    test.skip(!token, 'No token available');
+    test.skip(!globalToken, 'No token available');
 
     const response = await request.get('/api/monitor/gpu/alerts', {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${globalToken}` },
     });
 
     // 接口应存在
@@ -107,10 +104,10 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
   });
 
   test('should get GPU health status', { tag: ['@api', '@gpu-monitor', '@issue:backend#255'] }, async ({ request }) => {
-    test.skip(!token, 'No token available');
+    test.skip(!globalToken, 'No token available');
 
     const response = await request.get('/api/monitor/gpu/health', {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${globalToken}` },
     });
 
     // 健康检查接口应始终可用
