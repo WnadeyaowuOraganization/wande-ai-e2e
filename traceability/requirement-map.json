@@ -1,8 +1,41 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-21",
+  "updated_at": "2026-03-22",
   "mappings": [
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#2",
+      "repo": "wande-ai-backend",
+      "title": "新增 Perplexity Credit 消耗统计 API",
+      "module": "credit-usage",
+      "test_files": [
+        "tests/api/credit-usage.spec.ts::credit usage list API requires authentication",
+        "tests/api/credit-usage.spec.ts::credit usage summary API requires authentication",
+        "tests/api/credit-usage.spec.ts::credit usage daily stats API requires authentication",
+        "tests/api/credit-usage.spec.ts::should get credit usage list with valid token",
+        "tests/api/credit-usage.spec.ts::should get credit usage summary with valid token",
+        "tests/api/credit-usage.spec.ts::should get credit usage daily stats with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#2",
+      "repo": "wande-ai-front",
+      "title": "新增 Perplexity Credit 消耗统计页面",
+      "module": "credit-usage",
+      "test_files": [
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page loads successfully",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page has no critical console errors",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page route exists",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page has expected UI elements",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page refresh works"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null
+    },
     {
       "issue": "TEMPLATE",
       "repo": "wande-ai-backend",
@@ -96,6 +129,12 @@
       "test_tags": ["@gpu-monitor"],
       "api_prefix": "/api/monitor/gpu",
       "test_files": ["tests/api/gpu-monitor.spec.ts", "tests/smoke/gpu-monitor-page.spec.ts"]
+    },
+    "credit-usage": {
+      "description": "Perplexity Credit 消耗统计",
+      "test_tags": ["@credit-usage"],
+      "api_prefix": "/wande/credit-usage",
+      "test_files": ["tests/api/credit-usage.spec.ts", "tests/smoke/credit-usage-page.spec.ts"]
     }
   },
   "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
