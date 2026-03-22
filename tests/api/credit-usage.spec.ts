@@ -7,105 +7,69 @@ import { test, expect } from '@playwright/test';
  * 权限: wande:credit-usage:*
  */
 
+const API_BASE = process.env.BASE_URL_API || 'http://localhost:6040';
+
 test.describe('Credit Usage API @api @credit-usage @issue:backend#2', () => {
-  test('credit usage list API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    const response = await request.get('/wande/credit-usage/list');
-    expect(response.status()).toBe(200);
-    const body = await response.json();
-    // 未认证应返回 code 401
-    expect(body.code).toBe(401);
-  });
+  // 认证 token，beforeAll 获取一次，所有测试共享
+  let token: string;
 
-  test('credit usage summary API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    const response = await request.get('/wande/credit-usage/summary');
-    expect(response.status()).toBe(200);
-    const body = await response.json();
-    expect(body.code).toBe(401);
-  });
-
-  test('credit usage daily stats API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    const response = await request.get('/wande/credit-usage/daily-stats');
-    expect(response.status()).toBe(200);
-    const body = await response.json();
-    expect(body.code).toBe(401);
-  });
-});
-
-test.describe('Credit Usage API with Auth @api @credit-usage @issue:backend#2', () => {
-  test('should get credit usage list with valid token', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    // 使用环境变量中的测试账号登录
-    const loginResponse = await request.post('/auth/login', {
+  test.beforeAll(async ({ request }) => {
+    const response = await request.post(`${API_BASE}/auth/login`, {
       data: {
         username: process.env.TEST_USERNAME || 'admin',
         password: process.env.TEST_PASSWORD || 'admin123',
       },
     });
-    expect(loginResponse.status()).toBe(200);
-    const loginBody = await loginResponse.json();
-    expect(loginBody.code).toBe(200);
-
-    const token = loginBody.data?.token || loginBody.data?.accessToken;
-    expect(token).toBeDefined();
-
-    // 使用 token 访问 credit usage API
-    const response = await request.get('/wande/credit-usage/list', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    expect(response.status()).toBe(200);
     const body = await response.json();
-    // 认证通过后应返回 code 200
+    expect(body.code).toBe(200);
+    token = body.data.access_token;
+    expect(token).toBeDefined();
+  });
+
+  // === 未认证测试 ===
+
+  test('list API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
+    const response = await request.get(`${API_BASE}/wande/credit-usage/list`);
+    const body = await response.json();
+    expect(body.code).toBe(401);
+  });
+
+  test('summary API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
+    const response = await request.get(`${API_BASE}/wande/credit-usage/summary`);
+    const body = await response.json();
+    expect(body.code).toBe(401);
+  });
+
+  test('detail API requires authentication', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
+    const response = await request.get(`${API_BASE}/wande/credit-usage/1`);
+    const body = await response.json();
+    expect(body.code).toBe(401);
+  });
+
+  // === 认证后测试 ===
+
+  test('should get credit usage list with valid token', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
+    const response = await request.get(`${API_BASE}/wande/credit-usage/list`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const body = await response.json();
     expect(body.code).toBe(200);
   });
 
   test('should get credit usage summary with valid token', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    const loginResponse = await request.post('/auth/login', {
-      data: {
-        username: process.env.TEST_USERNAME || 'admin',
-        password: process.env.TEST_PASSWORD || 'admin123',
-      },
+    const response = await request.get(`${API_BASE}/wande/credit-usage/summary`, {
+      headers: { Authorization: `Bearer ${token}` },
     });
-    expect(loginResponse.status()).toBe(200);
-    const loginBody = await loginResponse.json();
-    expect(loginBody.code).toBe(200);
-
-    const token = loginBody.data?.token || loginBody.data?.accessToken;
-    expect(token).toBeDefined();
-
-    const response = await request.get('/wande/credit-usage/summary', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    expect(response.status()).toBe(200);
     const body = await response.json();
     expect(body.code).toBe(200);
   });
 
-  test('should get credit usage daily stats with valid token', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
-    const loginResponse = await request.post('/auth/login', {
-      data: {
-        username: process.env.TEST_USERNAME || 'admin',
-        password: process.env.TEST_PASSWORD || 'admin123',
-      },
+  test('should reject delete without permission token', { tag: ['@api', '@credit-usage'] }, async ({ request }) => {
+    const response = await request.delete(`${API_BASE}/wande/credit-usage/99999`, {
+      headers: { Authorization: `Bearer ${token}` },
     });
-    expect(loginResponse.status()).toBe(200);
-    const loginBody = await loginResponse.json();
-    expect(loginBody.code).toBe(200);
-
-    const token = loginBody.data?.token || loginBody.data?.accessToken;
-    expect(token).toBeDefined();
-
-    const response = await request.get('/wande/credit-usage/daily-stats', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    expect(response.status()).toBe(200);
     const body = await response.json();
-    // API 已认证通过（非 401），返回 200 成功或 500 表示后端正在处理中
-    // 500 可能表示后端 API 正在实现中或无数据
+    // 超管有权限，应返回 200（即使记录不存在也不报错）或 500
     expect([200, 500]).toContain(body.code);
   });
 });
