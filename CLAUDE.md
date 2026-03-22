@@ -17,6 +17,110 @@
 - 正确写法：`const body = await response.json(); expect(body.code).toBe(401);`
 - 错误写法：`expect(response.status()).toBe(401);` ← 永远不会通过
 
+
+## 页面路由规则（重要，测试必读）
+
+本项目前端使用 **后端菜单驱动模式**（`accessMode: backend`），页面路由由以下两部分合并：
+
+1. `localMenuList`（前端本地固定路由）：Dashboard、Profile 等少量页面
+2. 后端 `/system/menu/getRouters` 返回的动态菜单（由 `sys_menu` 表驱动）
+
+### 路由路径如何确定
+
+**前端 `router/routes/modules/wande.ts` 中的静态路由定义不决定最终 URL**。最终 URL 由后端 `sys_menu` 表的 `path` 字段拼接而成：
+
+```
+一级目录 path（parent_id=0）+ / + 二级菜单 path
+```
+
+示例（通过查询数据库确认）：
+
+| 一级目录 | 一级 path | 二级菜单 | 二级 path | 最终浏览器路径 |
+|---------|-----------|---------|-----------|--------------|
+| CRM客户管理 | wande-crm | 客户列表 | client | /wande-crm/client |
+| 招投标中心 | wande-tender | 招投标管理 | tender | /wande-tender/tender |
+| 研发管控 | wande-dev | 系统监控 | monitor | /wande-dev/monitor |
+| 研发管控 | wande-dev | G7e监控 | gpu-monitor | /wande-dev/gpu-monitor |
+| 运营工具 | wande-ops | Credit消耗统计 | credit-usage | /wande-ops/credit-usage |
+
+**编写页面测试前，必须查询数据库确认实际路径**：
+```sql
+SELECT p.path AS parent_path, c.path AS child_path,
+       CONCAT('/', p.path, '/', c.path) AS full_url
+FROM sys_menu c
+JOIN sys_menu p ON c.parent_id = p.menu_id
+WHERE c.component LIKE '%要测试的组件%';
+```
+
+### E2E 登录与页面访问
+
+前端使用 pinia persist 将 token 存储在 localStorage 中：
+
+- **存储 key**：`vben-web-antd-1.2.3-prod-core-access`
+- **存储格式**：`{"accessToken":"...","refreshToken":"...","accessCodes":[]}`
+
+**登录并访问页面的标准流程**：
+
+```typescript
+const API_BASE = process.env.BASE_URL_API || 'http://localhost:6040';
+const STORAGE_KEY = 'vben-web-antd-1.2.3-prod-core-access';
+
+async function loginAndGoto(page, request, targetPath: string) {
+  // 1. API 登录获取 token
+  const res = await request.post(`${API_BASE}/auth/login`, {
+    data: { username: 'admin', password: 'admin123' },
+  });
+  const token = (await res.json()).data.access_token;
+
+  // 2. 注入 token 到 localStorage
+  await page.goto('/');
+  await page.waitForLoadState('domcontentloaded');
+  await page.evaluate(
+    ({ key, token }) => {
+      localStorage.setItem(key, JSON.stringify({
+        accessToken: token, refreshToken: token, accessCodes: [],
+      }));
+    },
+    { key: STORAGE_KEY, token },
+  );
+
+  // 3. 导航到目标页面
+  await page.goto(targetPath);
+  await page.waitForLoadState('networkidle');
+
+  // 4. 如果被重定向到登录页，降级为 UI 登录
+  if (page.url().includes('/auth/login')) {
+    await page.getByPlaceholder('请输入用户名').fill('admin');
+    await page.getByPlaceholder('密码').fill('admin123');
+    await page.locator('button[aria-label="login"]').click();
+    await page.waitForLoadState('networkidle');
+    await page.goto(targetPath);
+    await page.waitForLoadState('networkidle');
+  }
+}
+```
+
+**注意**：token 注入 localStorage 后，pinia store 可能不会立即从 localStorage 恢复状态。如果页面仍被重定向到 `/auth/login`，降级为 UI 登录方式（通过 `getByPlaceholder` + `button[aria-label="login"]`）。
+
+### 登录页 DOM 选择器（2026-03-22 确认）
+
+- URL：`/auth/login`
+- 用户名：`page.getByPlaceholder('请输入用户名')`（注意 type=null，不是 type="text"）
+- 密码：`page.getByPlaceholder('密码')`
+- 登录按钮：`page.locator('button[aria-label="login"]')`
+- 其他按钮：手机号登录、扫码登录（不要用模糊匹配 `getByRole('button', { name: /登录/ })`，会匹配到多个）
+
+### 菜单未注册时的页面行为
+
+如果 `sys_menu` 表中没有对应菜单记录：
+- 后端 `getRouters` 不会返回该路由
+- 前端不会渲染该页面，访问时显示 "哎呀！未找到页面"（404）
+- **即使前端 `wande.ts` 中有静态路由定义也没用**
+
+测试编写策略：
+- 如果页面菜单已注册 → 正常测试页面内容（容器、表格列、Card 等）
+- 如果页面菜单未注册 → 只测 API 接口，页面测试标记 `test.skip` 并注释原因
+
 ## Playwright 浏览器环境
 
 - Chromium 安装路径（ubuntu 用户）：`/home/ubuntu/.cache/ms-playwright/chromium-1208`
