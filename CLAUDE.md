@@ -467,3 +467,67 @@ npx playwright test --grep "@tender"
 # 查看报告
 npx playwright show-report
 ```
+
+
+## Issue 提交规范
+
+当测试发现 bug 或需要后端/前端修复时，测试 CC 应自主创建 Issue。
+
+### 规范文档位置
+
+- **Issue 创建 SOP**：`https://github.com/WnadeyaowuOraganization/.github/blob/main/docs/ISSUE_CREATION_SOP.md`
+- **标签规范**：`https://github.com/WnadeyaowuOraganization/.github/blob/main/docs/WANDE_LABEL.md`
+
+### 创建 Issue 的标准流程
+
+1. **确定目标仓库**：
+   - API 接口问题 → `WnadeyaowuOraganization/wande-ai-backend`
+   - 页面渲染问题 → `WnadeyaowuOraganization/wande-ai-front`
+   - 菜单/权限缺失 → `WnadeyaowuOraganization/wande-ai-backend`（sys_menu 在后端管理）
+
+2. **标签（至少3个）**：
+   - 优先级：`priority/P0`（阻塞测试）/ `priority/P1`（核心功能）/ `priority/P2`（增强）
+   - 类型：`type:bugfix`（测试发现的 bug）/ `type:feature`（缺失功能）
+   - 状态：`status:ready`
+   - 来源：`source:perplexity`
+
+3. **Issue 内容模板（5个Section）**：
+   ```markdown
+   ## 需求背景/问题描述
+   E2E 测试发现：<描述问题>
+   测试文件：<spec.ts 路径>
+   失败用例：<test name>
+
+   ## 关联的 Issue
+   - 原始功能 Issue：WnadeyaowuOraganization/<repo>#<N>
+
+   ## 环境/配置/关联文件
+   - 测试环境：G7e dev（backend:6040, front:8083）
+   - 相关文件：<列出涉及的源文件>
+
+   ## 处理步骤
+   | 步骤 | 描述 | 验收标准 |
+   |------|------|---------|
+   | 1 | <修复内容> | <如何验证> |
+
+   ## 其他要求
+   - 修复后需通过 E2E 测试：`npx playwright test <相关spec>`
+   ```
+
+4. **创建命令**：
+   ```bash
+   gh issue create --repo WnadeyaowuOraganization/<target-repo> \
+     --title "[E2E] <问题描述>" \
+     --label "priority/P1,type:bugfix,status:ready,source:perplexity" \
+     --body "<Issue内容>"
+   ```
+
+### 何时创建 Issue
+
+| 场景 | 动作 |
+|------|------|
+| API 返回非预期 code（非认证问题） | 创建 backend Issue |
+| 页面元素缺失或渲染异常 | 创建 front Issue |
+| 菜单未注册导致页面 404 | 创建 backend Issue（需增量 SQL） |
+| 测试环境配置问题（端口/服务未启动） | 不创建 Issue，在测试报告中标注 |
+| 测试用例本身的 bug | 直接修复测试代码，不创建 Issue |
