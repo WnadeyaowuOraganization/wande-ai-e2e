@@ -214,6 +214,14 @@ gh pr list --repo WnadeyaowuOraganization/<repo> --state open --base main --json
 
 ## 五步决策工作流
 
+**每次触发必须创建 task.md**：在开始五步决策前，先创建 `./issues/pr-<N>/task.md`，全程记录。即使最终无需测试（如没有关联用例），也要记录判断过程。
+
+```bash
+mkdir -p ./issues/pr-<N>
+```
+
+task.md 在五步执行过程中持续更新，最终包含：PR信息、覆盖度评估、测试执行结果、最终判定（PASS/FAIL）、处理动作（合并/打回/创建Issue）。
+
 ### 第一步：理解PR（1分钟）
 
 ```bash
