@@ -70,6 +70,6 @@ test.describe('Credit Usage API @api @credit-usage @issue:backend#2', () => {
     });
     const body = await response.json();
     // 超管有权限，应返回 200（即使记录不存在也不报错）或 500
-    expect([200, 500]).toContain(body.code);
+    expect(body.code).toBe(200);
   });
 });
