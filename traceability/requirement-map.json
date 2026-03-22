@@ -80,6 +80,36 @@
       "coverage": "full",
       "last_tested": "2026-03-22T12:00:00",
       "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#274",
+      "repo": "wande-ai-backend",
+      "title": "项目挖掘页面卡死 — 后端返回字段与前端字段名不匹配",
+      "module": "project-mine",
+      "test_files": [
+        "tests/api/project-mine.spec.ts::list API requires authentication",
+        "tests/api/project-mine.spec.ts::stats API requires authentication",
+        "tests/api/project-mine.spec.ts::detail API requires authentication",
+        "tests/api/project-mine.spec.ts::should get project mine list with valid token",
+        "tests/api/project-mine.spec.ts::should get project mine stats with valid token",
+        "tests/api/project-mine.spec.ts::should get project mine detail with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-22T23:30:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#138",
+      "repo": "wande-ai-front",
+      "title": "项目挖掘页面字段重构修复页面卡死问题",
+      "module": "project-mine",
+      "test_files": [
+        "tests/smoke/project-mine-page.spec.ts::project mine API endpoints are functional (backend validation)",
+        "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-22T23:30:00",
+      "last_result": "passed"
     }
   ],
   "modules": {
@@ -136,6 +166,12 @@
       "test_tags": ["@credit-usage"],
       "api_prefix": "/wande/credit-usage",
       "test_files": ["tests/api/credit-usage.spec.ts", "tests/smoke/credit-usage-page.spec.ts"]
+    },
+    "project-mine": {
+      "description": "项目挖掘 (Project Mine)",
+      "test_tags": ["@project-mine"],
+      "api_prefix": "/wande/project/mine",
+      "test_files": ["tests/api/project-mine.spec.ts", "tests/smoke/project-mine-page.spec.ts"]
     }
   },
   "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
