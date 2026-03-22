@@ -32,14 +32,15 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
       headers: { Authorization: `Bearer ${globalToken}` },
     });
 
-    // 接口应存在且返回 JSON
-    // 200 + code 200 = GPU 监控正常
-    // 200 + code 500/503 = API 正常但 GPU 服务不可用（G7e 环境可能没有 GPU）
+    // HTTP 200 表示接口存在
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect(body.code).toBe(200);
+    // code 200 = GPU 服务正常，code 500 = GPU 服务不可达（dev环境预期行为）
+    // 绝不应该是 401（认证问题）或 404（接口不存在）
+    expect([200, 500]).toContain(body.code);
+    expect(body.code).not.toBe(401);
+    expect(body.code).not.toBe(404);
 
     if (body.code === 200) {
       expect(body.data).toBeDefined();
@@ -71,12 +72,12 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
       headers: { Authorization: `Bearer ${globalToken}` },
     });
 
-    // 接口应存在
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect(body.code).toBe(200);
+    // code 200 = 正常，code 500 = GPU 服务不可达（dev环境预期）
+    expect([200, 500]).toContain(body.code);
+    expect(body.code).not.toBe(401);
     // 服务不可用时可能没有 data 字段
     if (body.code === 200) {
       expect(body.data).toBeDefined();
@@ -90,12 +91,12 @@ test.describe('GPU Monitor API @api @gpu-monitor @issue:backend#255', () => {
       headers: { Authorization: `Bearer ${globalToken}` },
     });
 
-    // 接口应存在
     expect(response.status()).toBe(200);
 
     const body = await response.json();
-    // API 存在应返回 code（200 成功或 500/503 服务不可用）
-    expect(body.code).toBe(200);
+    // code 200 = 正常，code 500 = GPU 服务不可达（dev环境预期）
+    expect([200, 500]).toContain(body.code);
+    expect(body.code).not.toBe(401);
     // 返回的应该是告警列表（可能为空）
     // 服务不可用时可能没有 data 字段
     if (body.code === 200) {
