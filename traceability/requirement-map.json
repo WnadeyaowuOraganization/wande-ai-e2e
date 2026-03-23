@@ -110,6 +110,21 @@
       "coverage": "partial",
       "last_tested": "2026-03-22T23:30:00",
       "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#164",
+      "repo": "wande-ai-front",
+      "title": "ResizeObserver 无限循环导致页面高度无限扩充问题",
+      "module": "layout",
+      "test_files": [
+        "tests/smoke/pages-load.spec.ts::login page loads successfully",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
+        "tests/smoke/credit-usage-page.spec.ts::frontend serves correctly",
+        "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-23T16:30:00",
+      "last_result": "passed"
     }
   ],
   "modules": {
