@@ -69,85 +69,46 @@
 
 ### 4. CRM 客户管理模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 9 | `/wande/client/{id}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-
-**问题分析**:
-- 数据库字段 `create_time` 不存在，可能是 `created_at`
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
 ---
 
 ### 5. 商机管理模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 10 | `/wande/opportunity/{id}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-
-**问题分析**:
-- 数据库字段 `create_time` 不存在
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
 ---
 
 ### 6. 竞品分析模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 29 | `/wande/competitor/{id}` | GET | 200 | 500 | `ERROR: column "create_dept" does not exist` |
-| 30 | `/wande/competitor/{id}/profile` | GET | 200 | 500 | `ERROR: function group_concat does not exist` |
-| 31 | `/wande/competitor/compare` | GET | 200 | 500 | `ERROR: function group_concat does not exist` |
-| 32 | `POST /wande/competitor` | POST | 200 | 500 | `cannot find converter from CompetitorBo to Competitor` |
-| 33 | `PUT /wande/competitor` | PUT | 200 | 500 | `cannot find converter from CompetitorBo to Competitor` |
-| 34 | `POST /wande/competitor/export` | POST | 200 | 500 | `ERROR: column "create_dept" does not exist` |
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
-**问题分析**:
-- 数据库字段 `create_dept` 不存在（应改为 `created_at`）
-- PostgreSQL 不支持 `group_concat` 函数（应改为 `string_agg`）
-- Object 转换器缺失：`CompetitorBo` 到 `Competitor` 的转换未注册
-
----
+**剩余问题**:
+- 数据库字段 `create_dept` 不存在（序号 29, 34）
+- PostgreSQL 不支持 `group_concat` 函数（应改为 `string_agg`）（序号 30, 31）
+- Object 转换器缺失：`CompetitorBo` 到 `Competitor` 的转换未注册（序号 32, 33）
 
 ### 7. 研发管控模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 13 | `/wande/dev/list` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-| 14 | `/wande/dev/{id}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-| 15 | `/wande/dev/status/{status}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-| 16 | `/wande/dev/project/{project}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-| 17 | `/wande/worklog/list` | GET | 200 | 500 | `Error evaluating expression 'bo.startDate != null'. Cause: NoSuchPropertyException: WorkLogBo.startDate` |
-| 18 | `/wande/worklog/user/{userName}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
-**问题分析**:
-- 数据库字段 `create_time` 不存在
-- `WorkLogBo` 类缺少 `startDate` 属性
+**剩余问题**:
+- `WorkLogBo` 类缺少 `startDate` 属性（序号 17）
 
 ---
 
 ### 8. 企微集成模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 19 | `/wande/wecom/stat/list` | GET | 200 | 500 | `Error evaluating expression 'bo.startDate != null'. NoSuchPropertyException: WecomDailyStatBo.startDate` |
-| 20 | `/wande/wecom/stat/{id}` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-| 21 | `/wande/wecom/log/list` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
-**问题分析**:
-- `WecomDailyStatBo` 类缺少 `startDate` 属性
-- 数据库字段 `create_time` 不存在
+**剩余问题**:
+- `WecomDailyStatBo` 类缺少 `startDate` 属性（序号 19）
 
 ---
 
 ### 9. 运营驾驶舱模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 22 | `/wande/cockpit/config/all` | GET | 200 | 500 | `ERROR: column "update_time" does not exist` |
-| 23 | `/wande/cockpit/config/list` | GET | 200 | 500 | `ERROR: column "update_time" does not exist` |
-| 24 | `/wande/cockpit/news/list` | GET | 200 | 500 | `ERROR: column "create_time" does not exist` |
-
-**问题分析**:
-- 数据库字段 `update_time` / `create_time` 不存在
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
 ---
 
@@ -178,40 +139,19 @@
 
 ### 12. 竞品告警模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 36 | `/wande/competitor-alert/{id}` | GET | 200 | 500 | `ERROR: column "create_dept" does not exist` |
-| 37 | `/wande/competitor-alert/competitor/{competitorId}` | GET | 200 | 500 | `ERROR: column create_time does not exist` |
-| 38 | `POST /wande/competitor-alert` | POST | 200 | 500 | `cannot find converter from CompetitorAlertBo to CompetitorAlert` |
-| 39 | `PUT /wande/competitor-alert` | PUT | 200 | 500 | `cannot find converter from CompetitorAlertBo to CompetitorAlert` |
-| 40 | `PUT /wande/competitor-alert/{id}/read` | PUT | 200 | 500 | `Required request parameter 'isRead' for method parameter type Boolean is not present` |
-| 41 | `PUT /wande/competitor-alert/batch-read` | PUT | 200 | 500 | `Required request parameter 'ids' for method parameter type List is not present` |
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
-**问题分析**:
-- 数据库字段 `create_dept` 不存在
-- 数据库字段 `create_time` 不存在
-- Object 转换器缺失：`CompetitorAlertBo` 到 `CompetitorAlert` 的转换未注册
-- `{id}/read` 接口需要 `isRead` 参数
-- `batch-read` 接口需要 `ids` 参数（List 类型）
-
----
+**剩余问题**:
+- Object 转换器缺失：`CompetitorAlertBo` 到 `CompetitorAlert` 的转换未注册（序号 38, 39）
+- `{id}/read` 接口需要 `isRead` 参数（序号 40）
+- `batch-read` 接口需要 `ids` 参数（List 类型）（序号 41）
 
 ### 13. 竞品投标模块
 
-| 序号 | 接口 | 方法 | HTTP 状态 | 业务 code | 错误信息 |
-|------|------|------|----------|----------|----------|
-| 42 | `/wande/competitor-bid/{id}` | GET | 200 | 500 | `ERROR: column "create_dept" does not exist` |
-| 43 | `/wande/competitor-bid/competitor/{competitorId}` | GET | 200 | 500 | `ERROR: column create_time does not exist` |
-| 44 | `POST /wande/competitor-bid` | POST | 200 | 500 | `cannot find converter from CompetitorBidBo to CompetitorBid` |
-| 45 | `PUT /wande/competitor-bid` | PUT | 200 | 500 | `cannot find converter from CompetitorBidBo to CompetitorBid` |
-| 46 | `POST /wande/competitor-bid/export` | POST | 200 | 500 | `ERROR: column "create_dept" does not exist` |
+**状态**: ✅ `create_time`/`update_time` 字段问题已修复（2026-03-23）
 
-**问题分析**:
-- 数据库字段 `create_dept` 不存在
-- 数据库字段 `create_time` 不存在
+**剩余问题**:
 - Object 转换器缺失：`CompetitorBidBo` 到 `CompetitorBid` 的转换未注册
-
----
 
 ### 14. 监控告警模块
 
@@ -229,13 +169,15 @@
 
 | 错误类型 | 数量 | 占比 | 主要影响模块 |
 |---------|------|------|-------------|
-| 数据库字段不存在 | 30 | 43% | CRM、商机、研发管控、企微、驾驶舱、竞品模块 |
+| 数据库字段不存在 | 4 | 10% | 竞品分析、竞品告警、竞品投标（`create_dept`） |
 | 数据库表不存在 | 14 | 20% | 项目挖掘、AI 人类 |
 | Object 转换器缺失 | 6 | 9% | 竞品、竞品告警、竞品投标 |
 | MyBatis 表达式错误 | 4 | 6% | 工作日志、企微统计 |
 | 接口参数缺失 | 6 | 9% | 竞品对比、工作流、竞品告警、项目挖掘 |
 | 认证问题 | 1 | 1% | 健康检查 |
 | 其他 | 8 | 12% | date 列名冲突、group_concat 函数不存在、二进制响应 |
+
+> **注**: `create_time`/`update_time` 字段映射问题已于 2026-03-23 修复（数据库字段从 `created_at`/`updated_at` 改为 `create_time`/`update_time`）
 
 ---
 
@@ -315,7 +257,7 @@
 
 ### P0 - 阻塞性问题
 1. **数据库表缺失**: `wdpp_discovered_projects`, `aihuman_real_config`
-2. **字段名映射错误**: `create_time` → `created_at`, `update_time` → `updated_at`, `create_dept` → `created_at`
+2. **字段名映射错误**: `create_dept` → `created_at`（`create_time`/`update_time` 已修复）
 
 ### P1 - 核心功能问题
 3. **Object 转换器缺失**: `CompetitorBo` → `Competitor`, `CompetitorAlertBo` → `CompetitorAlert`, `CompetitorBidBo` → `CompetitorBid`
@@ -356,6 +298,26 @@ npx playwright test tests/api/mine-competitor-api.spec.ts
 ---
 
 ## 测试更新日志
+
+### 2026-03-23 第三次测试 - 数据库字段更新
+
+**更新内容**: 数据库字段从 `created_at`/`updated_at` 统一更新为 `create_time`/`update_time`
+
+**修复的接口**:
+- CRM 客户管理模块：`/wande/client/{id}` ✅
+- 商机管理模块：`/wande/opportunity/{id}` ✅
+- 研发管控模块：`/wande/dev/list`, `/wande/dev/{id}`, `/wande/dev/status/{status}`, `/wande/dev/project/{project}`, `/wande/worklog/user/{userName}` ✅
+- 企微集成模块：`/wande/wecom/stat/{id}`, `/wande/wecom/log/list` ✅
+- 运营驾驶舱模块：`/wande/cockpit/config/all`, `/wande/cockpit/config/list`, `/wande/cockpit/news/list` ✅
+- 竞品告警模块：`/wande/competitor-alert/competitor/{competitorId}` ✅
+- 竞品投标模块：`/wande/competitor-bid/competitor/{competitorId}` ✅
+
+**剩余问题**:
+- `create_dept` 字段仍不存在（竞品分析、竞品告警、竞品投标模块）
+- WorkLogBo/WecomDailyStatBo 缺少 startDate 属性
+- Object 转换器缺失问题
+
+---
 
 ### 2026-03-23 第二次测试
 
