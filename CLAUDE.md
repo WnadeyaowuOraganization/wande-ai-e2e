@@ -190,7 +190,7 @@ wande-ai-e2e/
 **你由 CI/CD 流水线触发，不主动扫描PR。** 启动时会收到以下信息：
 
 - **仓库名**：`wande-ai-backend` 或 `wande-ai-front`
-- **PR 编号**：待测试的 dev→main PR 编号
+- **PR 编号**：待测试的 feature→main PR 编号
 
 **典型的启动 prompt**：
 ```
@@ -199,8 +199,10 @@ wande-ai-e2e/
 
 **触发链路**：
 ```
-编程CC push到dev → dev CI/CD 部署成功 → CI/CD最后一步启动你 → 你测试指定PR
+编程CC 本地merge feature到dev → push dev → dev CI/CD 部署成功 → CI/CD查找目标为main的open PR → 启动你 → 你测试指定PR
 ```
+
+**注意**：新流程下，编程CC创建的是 feature→main 的PR（不再是 dev→main）。你读取这个PR了解变更上下文，测试通过后直接 approve + merge 该PR到main。
 
 如果启动时没有指定 PR 编号，则扫描待测试 PR：
 ```bash
