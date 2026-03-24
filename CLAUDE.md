@@ -1360,3 +1360,395 @@ Step 4: 检查菜单是否注册
   → 菜单不存在 → 创建 backend Issue（需增量SQL）
   → 菜单存在但component不匹配 → 根据情况创建对应仓库Issue
 ```
+
+---
+
+## Dev 环境部署架构（编程CC的工作环境）
+
+测试CC必须理解dev环境的部署架构，才能正确判断问题归属（前端 vs 后端 vs 配置）。
+
+### 整体架构
+
+```
+G7e 服务器 (3.211.167.122)
+├── 前端 (nginx)              → localhost:8083
+│   ├── 静态文件目录: /apps/wande-ai-front/
+│   ├── nginx配置: /etc/nginx/sites-available/wande-dev
+│   └── /prod-api/ 反向代理 → 127.0.0.1:6040
+├── 后端 (java -jar)          → localhost:6040
+│   ├── jar包: /apps/wande-ai-backend/ruoyi-admin.jar
+│   ├── 启动脚本: /apps/wande-ai-backend/start.sh
+│   ├── 日志: /apps/logs/backend-dev.log
+│   └── Spring profiles: dev
+├── PostgreSQL (Docker容器)   → localhost:5433
+│   ├── 容器名: wande-postgres-dev
+│   ├── 用户: wande / 密码: wande_dev_2026
+│   ├── 数据库1: ruoyi_ai（框架表 + sys_menu菜单）
+│   └── 数据库2: wande_ai（万德业务表）
+└── Redis (Docker容器)        → localhost:6380
+    ├── 容器名: wande-redis-dev
+    └── 密码: redis_dev_2026
+```
+
+### CI/CD 触发链路
+
+```
+编程CC push feature分支 → 创建 feature→dev PR → 合并到dev
+→ dev CI/CD (build-deploy-dev.yml) 触发
+  → 后端: mvn package → cp jar → java -jar 重启(:6040)
+  → 前端: pnpm build → rsync到/apps/wande-ai-front/ → nginx reload(:8083)
+  → CI/CD执行增量SQL到dev数据库
+→ 部署完成 → CI/CD最后一步启动测试CC
+```
+
+### 请求处理流程（测试排障必读）
+
+```
+浏览器请求 http://localhost:8083/wande-crm/crm
+  → nginx(:8083) → /apps/wande-ai-front/index.html (Vue SPA)
+  → Vue Router 匹配路由 → 渲染页面组件
+  → 页面组件发起API请求 /prod-api/wande/client/list
+  → nginx /prod-api/ 代理 → 后端 127.0.0.1:6040/wande/client/list
+  → Spring Boot Controller → MyBatis Plus → PostgreSQL
+  → 返回JSON → 前端渲染表格
+```
+
+---
+
+## 双数据库架构
+
+后端使用 dynamic-datasource 多数据源切换，两个数据库职责不同：
+
+### ruoyi_ai 数据库（框架库，@DS("master") 或不加注解）
+
+| 关键表 | 用途 | 对测试的影响 |
+|--------|------|-------------|
+| `sys_menu` | 菜单定义（决定页面路由） | 菜单缺失 → 页面404 |
+| `sys_role_menu` | 角色-菜单绑定 | 角色未绑定 → 菜单不显示 |
+| `sys_user` | 用户表 | 登录/认证测试 |
+| `sys_role` | 角色表 | 权限测试 |
+| `sys_dict_type/data` | 字典表 | 下拉选项数据 |
+| `chat_config` | AI对话配置 | AI功能测试 |
+| `chat_model` | AI模型配置 | 模型列表测试 |
+
+### wande_ai 数据库（业务库，所有万德Mapper必须加 @DS("wande")）
+
+| 表名 | 对应模块 | 后端Controller路径 |
+|------|---------|-------------------|
+| `clients` | CRM客户管理 | `/wande/client/*` |
+| `follow_ups` | 跟进记录 | `/wande/followup/*` |
+| `wdpp_tender_data` | 招投标数据 | `/wande/tender/*` |
+| `tender_evaluations` | 招标AI评估 | `/wande/tender/evaluation/*` |
+| `crawler_configs/logs` | 爬虫配置 | `/wande/tender/crawler/*` |
+| `wdpp_discovered_projects` | 项目挖掘 | `/wande/project/mine/*` |
+| `project_reviews` | 项目复盘 | `/wande/project/review/*` |
+| `project_feedback` | 项目反馈 | `/wande/project/feedback/*` |
+| `business_opportunities` | 商机管理 | `/wande/opportunity/*` |
+| `competitors` | 竞品分析 | `/wande/competitor/*` |
+| `competitor_alerts` | 竞品告警 | `/wande/competitor-alert/*` |
+| `competitor_bids` | 竞品投标 | `/wande/competitor-bid/*` |
+| `wecom_conversation_logs` | 企微日志 | `/wande/wecom/*` |
+| `work_logs` | 工作日志 | `/wande/worklog/*` |
+| `task_queue/task_logs` | 任务调度 | `/wande/task/*` |
+| `dev_progress` | 研发进度 | `/wande/dev/*` |
+| `monitor_alerts` | 系统监控 | `/wande/monitor/*` |
+| `cockpit_config` | Cockpit配置 | `/wande/cockpit/*` |
+| `perplexity_credit_usage` | Credit统计 | `/wande/credit-usage/*` |
+
+### 查询数据库（排障用）
+
+```bash
+# 连接 ruoyi_ai（查菜单/权限）
+docker exec wande-postgres-dev psql -U wande -d ruoyi_ai
+
+# 连接 wande_ai（查业务数据）
+docker exec wande-postgres-dev psql -U wande -d wande_ai
+
+# 查看指定菜单的完整路径
+docker exec wande-postgres-dev psql -U wande -d ruoyi_ai -c \
+  "SELECT p.path AS parent_path, c.path AS child_path, c.component,
+          CONCAT('/', p.path, '/', c.path) AS full_url
+   FROM sys_menu c JOIN sys_menu p ON c.parent_id = p.menu_id
+   WHERE c.menu_name LIKE '%关键词%';"
+```
+
+---
+
+## 万德业务菜单完整路由表（2026-03-24 从 sys_menu 导出）
+
+**这是页面测试的唯一权威来源。** 前端 `router/routes/modules/wande.ts` 中的静态路由不决定最终URL。
+
+| 一级目录 (menu_id) | 一级path | 二级菜单 | 二级path | 最终浏览器路径 | 前端组件(component) | 后端API前缀 |
+|-------------------|----------|---------|----------|---------------|-------------------|------------|
+| CRM客户管理 (20000) | wande-crm | 客户列表 | crm | `/wande-crm/crm` | wande/crm/index | `/wande/client/*` |
+| CRM客户管理 (20000) | wande-crm | 跟进记录 | followup | `/wande-crm/followup` | wande/followup/index | `/wande/followup/*` |
+| 项目矿场 (20100) | wande-project | 项目挖掘 | project | `/wande-project/project` | wande/project/index | `/wande/project/mine/*` |
+| 项目矿场 (20100) | wande-project | 商机管理 | opportunity | `/wande-project/opportunity` | wande/opportunity/index | `/wande/opportunity/*` |
+| 招投标中心 (20200) | wande-tender | 招投标管理 | tender | `/wande-tender/tender` | wande/tender/index | `/wande/tender/*` |
+| 招投标中心 (20200) | wande-tender | AI评估 | evaluation | `/wande-tender/evaluation` | wande/tender/evaluation/index | `/wande/tender/evaluation/*` |
+| 招投标中心 (20200) | wande-tender | 采集源 | crawler | `/wande-tender/crawler` | wande/tender/crawler/index | `/wande/tender/crawler/*` |
+| 竞品情报 (20300) | wande-competitor | 竞品分析 | competitor | `/wande-competitor/competitor` | wande/competitor/index | `/wande/competitor/*` |
+| 竞品情报 (20300) | wande-competitor | 竞品告警 | alert | `/wande-competitor/alert` | wande/competitor/alert/index | `/wande/competitor-alert/*` |
+| 竞品情报 (20300) | wande-competitor | 投标记录 | bid | `/wande-competitor/bid` | wande/competitor/bid/index | `/wande/competitor-bid/*` |
+| 运营工具 (20400) | wande-ops | 企微管理 | wecom | `/wande-ops/wecom` | wande/wecom/index | `/wande/wecom/*` |
+| 运营工具 (20400) | wande-ops | 工作日志 | worklog | `/wande-ops/worklog` | wande/worklog/index | `/wande/worklog/*` |
+| 运营工具 (20400) | wande-ops | 仪表盘 | dashboard | `/wande-ops/dashboard` | wande/dashboard/index | `/wande/dashboard/*` |
+| 运营工具 (20400) | wande-ops | Credit消耗统计 | credit-usage | `/wande-ops/credit-usage` | wande/credit-usage/index | `/wande/credit-usage/*` |
+| 研发管控 (20500) | wande-dev | 研发进度 | dev | `/wande-dev/dev` | wande/dev/index | `/wande/dev/*` |
+| 研发管控 (20500) | wande-dev | 任务调度 | task | `/wande-dev/task` | wande/task/index | `/wande/task/*` |
+| 研发管控 (20500) | wande-dev | 系统监控 | monitor | `/wande-dev/monitor` | wande/monitor/index | `/wande/monitor/*` |
+| 研发管控 (20500) | wande-dev | Cockpit看板 | cockpit | `/wande-dev/cockpit` | wande/cockpit/index | `/wande/cockpit/*` |
+| 研发管控 (20500) | wande-dev | G7e监控 | gpu-monitor | `/wande-dev/gpu-monitor` | wande/monitor/index | `/api/monitor/gpu/*` |
+| 研发管控 (20500) | wande-dev | 驾驶舱 | cockpit-dashboard | `/wande-dev/cockpit-dashboard` | dashboard/cockpit/index | `/api/dashboard/*` |
+
+---
+
+## 前端项目技术细节（wande-ai-front）
+
+### 技术栈
+- **框架**: Vue 3 + TypeScript（Composition API, `<script setup>` 语法）
+- **UI库**: Ant Design Vue
+- **基座**: vue-vben-admin v2.0.0（monorepo: pnpm + turbo）
+- **构建**: Vite
+- **状态管理**: Pinia（token持久化到localStorage）
+- **CSS**: Tailwind CSS
+- **主应用目录**: `apps/web-antd/`
+
+### 路由机制（测试必知）
+- 使用 **后端菜单驱动模式**（`accessMode: backend`）
+- 页面菜单由后端 `/system/menu/getRouters` API 动态返回
+- 后端查询 `sys_menu` + `sys_role_menu` 表生成菜单树
+- 最终路由 = `localMenuList`（本地固定路由，如Dashboard/Profile）+ 后端动态菜单
+- **前端 `wande.ts` 中的静态路由定义不能决定页面是否可访问**
+
+### 关键目录
+```
+apps/web-antd/src/
+├── api/wande/              # 万德业务API封装
+│   ├── tender.ts           # 招投标
+│   ├── project.ts          # 项目挖掘
+│   ├── opportunity.ts      # 商机
+│   ├── crm.ts              # CRM
+│   ├── competitor.ts       # 竞品
+│   ├── wecom.ts            # 企微
+│   └── dashboard.ts        # 仪表盘
+├── views/wande/            # 万德页面组件
+│   ├── tender/             # 招投标（含evaluation/crawler子页面）
+│   ├── project/            # 项目挖掘
+│   ├── opportunity/        # 商机
+│   ├── crm/                # CRM
+│   ├── competitor/         # 竞品（含alert/bid子页面）
+│   ├── wecom/              # 企微
+│   ├── dashboard/          # 仪表盘
+│   ├── worklog/            # 工作日志
+│   ├── cockpit/            # Cockpit看板
+│   ├── task/               # 任务调度
+│   ├── dev/                # 研发进度
+│   ├── monitor/            # 系统监控
+│   ├── credit-usage/       # Credit统计
+│   └── followup/           # 跟进记录
+└── router/routes/modules/
+    └── wande.ts            # 万德路由模块（静态定义，最终由后端菜单覆盖）
+```
+
+### 页面渲染流程
+```
+1. 用户登录 → 获取token
+2. 调用 /system/menu/getRouters → 后端返回菜单树(JSON)
+3. 前端 backMenuToVbenMenu() 转换为Vue Router路由
+4. 菜单中 component 字段(如 "wande/crm/index") → 映射到 views/wande/crm/index.vue
+5. 用户点击菜单 → Vue Router导航到对应路径 → 渲染组件
+```
+
+### 常见页面问题根因（测试排障参考）
+
+| 现象 | 可能原因 | 归属 | 排查命令 |
+|------|---------|------|---------|
+| 页面404"未找到页面" | sys_menu表缺少菜单记录 | **后端(需增量SQL)** | 查询sys_menu表 |
+| 页面空白无报错 | Vue组件文件不存在或路径不匹配 | **前端** | 检查views/wande/目录 |
+| 页面报"获取用户信息失败" | token无效或过期 | **测试代码**(登录流程) | 检查localStorage token |
+| 表格无数据 | API返回500/后端@DS注解缺失 | **后端** | curl测试API |
+| 控制台"未找到组件xxx" | component字段路径与views/不匹配 | **后端(sys_menu)或前端** | 对比component和views/ |
+
+---
+
+## 后端项目技术细节（wande-ai-backend）
+
+### 技术栈
+- **框架**: Spring Boot 3.4.4 + MyBatis Plus 3.5.11
+- **认证**: Sa-Token 1.34.0（HTTP状态码始终200，业务码在body.code中）
+- **多数据源**: dynamic-datasource 4.3.1（master=ruoyi_ai, wande=wande_ai）
+- **Java**: 17
+- **构建**: Maven（父POM版本管理，revision=1.0.0）
+- **服务器**: Undertow（端口6040 dev / 6039 prod）
+
+### 模块结构
+```
+ruoyi-admin/                     # 启动入口（端口6040/6039）
+ruoyi-common/                    # 公共模块
+  ├── ruoyi-common-satoken/      # Sa-Token认证
+  └── ruoyi-common-core/         # BaseEntity, R<T>, PageQuery
+ruoyi-system/                    # 系统管理（sys_*表）
+ruoyi-modules/
+  ├── ruoyi-system-api/          # 系统API（@DS不加=master）
+  └── wande-ai/                  # ★万德业务模块（@DS("wande")必须加）
+      └── src/main/java/org/ruoyi/wande/
+          ├── controller/        # REST Controller
+          │   ├── crm/           # CRM: ClientController, FollowUpController
+          │   ├── tender/        # 招投标: TenderDataController, TenderEvaluationController, CrawlerController
+          │   ├── project/       # 项目: ProjectMineController, ProjectReviewController, DevProgressController
+          │   ├── competitor/    # 竞品: CompetitorController, CompetitorAlertController, CompetitorBidController
+          │   ├── worklog/       # 工作日志: WorkLogController
+          │   ├── wecom/         # 企微: WecomLogController
+          │   ├── task/          # 任务: TaskQueueController
+          │   ├── monitor/       # 监控: MonitorController, GpuMonitorController
+          │   └── config/        # 配置: CockpitController
+          ├── domain/            # Entity/Bo/Vo
+          ├── mapper/            # MyBatis Mapper（必须@DS("wande")）
+          └── service/           # Service层
+```
+
+### API响应格式（测试断言的依据）
+```json
+// 成功
+{"code": 200, "msg": "操作成功", "data": {...}}
+// 认证失败（HTTP status仍然是200！）
+{"code": 401, "msg": "认证失败，无法访问系统资源"}
+// 服务端错误
+{"code": 500, "msg": "具体错误信息"}
+// 分页列表
+{"code": 200, "data": {"rows": [...], "total": 100}}
+```
+
+### 增量SQL管理
+- 增量SQL目录: `script/sql/update/wande_ai/` 和 `script/sql/update/ruoyi_ai/`
+- CI/CD自动执行: push到main后，由run-sql-updates.sh按日期顺序执行
+- 菜单注册SQL: `script/sql/update/ruoyi_ai/*-menu.sql`
+- 初始化脚本: `script/sql/ruoyi-ai-pg.sql`(框架表) + `script/sql/wande-ai-pg.sql`(业务表)
+
+---
+
+## Issue 提交规范（重大更新 — 必须遵守）
+
+### 核心原则：前后端问题必须分离
+
+**一个Issue只解决一个仓库的问题。** 混合前后端内容的Issue会导致编程CC无法执行。
+
+### 仓库路由决策（精确版）
+
+| 问题类型 | 目标仓库 | 判断依据 |
+|---------|---------|---------|
+| API接口返回500/异常 | `wande-ai-backend` | curl测试API，看后端日志 |
+| 页面404（菜单未注册） | `wande-ai-backend` | 查sys_menu表，需增量SQL |
+| 页面404（组件缺失） | `wande-ai-front` | views/wande/下无对应目录 |
+| 页面空白/渲染异常 | `wande-ai-front` | 浏览器控制台报组件错误 |
+| API权限/认证问题 | `wande-ai-backend` | body.code=401 |
+| @DS注解缺失导致表找不到 | `wande-ai-backend` | 后端日志报Table not found |
+| component路径与views不匹配 | 看情况 | 如果views有文件→改sys_menu(backend)；如果views没文件→创建组件(front) |
+| 表格列/按钮等UI细节 | `wande-ai-front` | 纯前端渲染问题 |
+
+### Issue关联规范（严格执行）
+
+**关联Issue必须是真实存在且相关的Issue。** 具体规则：
+
+1. **不要凭编号猜测关联** — 必须用 `gh issue view <N> --repo <repo>` 确认Issue标题和内容
+2. **不要关联不相关的Issue** — 如果没有明确的上游功能Issue，关联字段写"无"
+3. **跨仓库引用格式** — `WnadeyaowuOraganization/wande-ai-backend#<N>`
+4. **关联到Project看板** — 创建Issue后执行: `gh project item-add 2 --owner WnadeyaowuOraganization --url <Issue URL>`
+
+### Issue内容模板（给编程CC的精确指令）
+
+**后端Issue模板（API问题/菜单缺失/数据问题）**：
+```markdown
+## 需求背景/问题描述
+E2E测试发现：<具体现象>
+- 测试环境：G7e dev (backend:6040, front:8083)
+- 测试文件：<spec.ts路径>
+- 失败用例：<test name>
+
+## 错误详情
+- 请求：<HTTP方法> <URL>
+- 响应：<HTTP状态码> / body.code=<值>
+- 后端日志关键信息：<从/apps/logs/backend-dev.log提取>
+
+## 关联的Issue
+<只写经过验证的真实关联，没有就写"无">
+
+## 环境/配置/关联文件
+- 数据库：<ruoyi_ai 或 wande_ai>
+- Controller: <具体Controller文件路径>
+- 相关表：<涉及的数据库表名>
+
+## 处理步骤
+| 步骤 | 操作内容 | 涉及文件/路径 | 验收标准 |
+|------|---------|-------------|---------|
+| 1 | <具体修复内容> | <具体文件路径> | <验证方法> |
+
+## 测试验收标准
+- [ ] `curl http://localhost:6040/<API路径>` 返回 code=200
+- [ ] E2E测试通过：`npx playwright test --grep '<标签>'`
+
+## 其他要求
+按 CLAUDE.md 开发规范操作
+```
+
+**前端Issue模板（组件缺失/渲染异常/UI问题）**：
+```markdown
+## 需求背景/问题描述
+E2E测试发现：<具体现象>
+- 测试环境：G7e dev (backend:6040, front:8083)
+- 测试文件：<spec.ts路径>
+- 浏览器路径：<完整URL，如/wande-crm/crm>
+
+## 错误详情
+- 页面状态：<404/空白/报错>
+- 控制台错误：<Vue warn/组件未找到/JS错误>
+- 截图：<如有>
+
+## 关联的Issue
+<只写经过验证的真实关联，没有就写"无">
+
+## 环境/配置/关联文件
+- 前端组件路径：apps/web-antd/src/views/wande/<模块>/index.vue
+- 路由定义：apps/web-antd/src/router/routes/modules/wande.ts
+- API封装：apps/web-antd/src/api/wande/<模块>.ts
+- sys_menu component字段值：<从数据库查询>
+
+## 处理步骤
+| 步骤 | 操作内容 | 涉及文件/路径 | 验收标准 |
+|------|---------|-------------|---------|
+| 1 | <具体修复内容> | <具体文件路径> | <验证方法> |
+
+## 测试验收标准
+- [ ] 页面正常加载，无控制台报错
+- [ ] `pnpm build` 构建通过
+- [ ] E2E测试通过：`npx playwright test --grep '<标签>'`
+
+## 其他要求
+按 CLAUDE.md 开发规范操作
+```
+
+### 问题排障流程（创建Issue前必须执行）
+
+发现测试失败后，**先排障定位根因**，再创建Issue：
+
+```
+Step 1: 确认页面URL是否正确
+  → 查询 sys_menu 表获取正确的 /<parent_path>/<child_path>
+  → 错误URL → 修复测试代码，不创建Issue
+
+Step 2: 测试API是否正常
+  → curl http://localhost:6040/<API路径> -H "Authorization: Bearer <token>"
+  → API返回500 → 创建 backend Issue
+  → API正常 → 继续排查前端
+
+Step 3: 检查前端组件是否存在
+  → ls /home/ubuntu/projects/wande-ai-front/apps/web-antd/src/views/wande/<模块>/
+  → 目录不存在 → 创建 front Issue
+  → 目录存在 → 检查组件代码和路由配置
+
+Step 4: 检查菜单是否注册
+  → 查询 sys_menu 表
+  → 菜单不存在 → 创建 backend Issue（需增量SQL）
+  → 菜单存在但component不匹配 → 根据情况创建对应仓库Issue
+```
