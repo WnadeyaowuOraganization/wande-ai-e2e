@@ -3,7 +3,7 @@
 
 ## 后端认证响应规范（重要）
 
-本项目后端使用 Spring Boot + Sa-Token，**认证拦截不会改变 HTTP 状态码**：
+新平台后端使用 Spring Boot + Sa-Token，**认证拦截不会改变 HTTP 状态码**：
 
 - HTTP 状态码始终为 `200`
 - 认证结果在 JSON body 的 `code` 字段中：
@@ -971,3 +971,34 @@ Step 4: 检查菜单是否注册
 
 ---
 
+
+## 数据库列名规范（新旧表差异 — 重要）
+
+### BaseEntity 字段映射
+
+后端 `BaseEntity` 定义了以下公共字段，MyBatis Plus 自动驼峰转下划线映射：
+
+| Java字段 | 映射到数据库列 | 说明 |
+|----------|-------------|------|
+| `createTime` | `create_time` | 创建时间（自动填充） |
+| `updateTime` | `update_time` | 更新时间（自动填充） |
+| `createBy` | `create_by` | 创建者ID |
+| `updateBy` | `update_by` | 更新者ID |
+| `createDept` | `create_dept` | 创建部门ID |
+
+所有万德业务 Entity 都继承 `BaseEntity`，因此**数据库表必须有 `create_time` / `update_time` 列**才能正常工作。
+
+### 新旧表列名差异
+
+| 表类型 | 示例 | 时间列名 | 是否兼容BaseEntity |
+|--------|------|---------|------------------|
+| **新规范表（wdpp_开头）** | wdpp_tender_data, wdpp_discovered_projects | `create_time` / `update_time` | 兼容 |
+| **老表（已迁移/混合）** | competitors, competitor_alerts, competitor_bids | 同时有 `created_at` + `create_time` | 兼容（有冗余列） |
+| **老表（未迁移）** | wecom_conversation_logs, task_queue, work_logs, clients, follow_ups 等 | 仅 `created_at` / `updated_at` | **不兼容 — 查询报错** |
+
+### 新建/修改表的强制规范
+
+1. **新建表必须使用 `create_time` / `update_time` / `create_by` / `update_by` / `create_dept`**（与 BaseEntity 一致）
+2. **表名前缀用 `wdpp_`**（万德平台专用，与 ruoyi 框架表区分）
+3. **老表如果 Entity 继承了 BaseEntity，必须通过增量 SQL 添加 `create_time` / `update_time` 列**（或在 Entity 中用 `@TableField(exist = false)` 忽略 BaseEntity 的时间字段，并自行用 `@TableField("created_at")` 映射）
+4. **迁移老表时**：建议创建增量 SQL，添加 `create_time` / `update_time` / `create_by` / `update_by` 列，并从 `created_at` / `updated_at` 回填数据
