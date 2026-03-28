@@ -6,7 +6,7 @@ import { test, expect } from '@playwright/test';
  * PR: wande-ai-front#249
  *
  * 前端路由（从 getRouters API 确认）：
- * - /tool/detail - 工具详情主页面
+ * - /wande/tool-detail - 工具详情主页面
  */
 
 const API_BASE = process.env.BASE_URL_API || 'http://localhost:6040';
@@ -39,7 +39,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
   test.describe('Tool Detail Index Page', () => {
     test('tool-detail page loads successfully', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
       // 使用工具 ID 1 进行测试（假设存在）
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证页面容器
@@ -48,7 +48,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays basic info', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证工具基本信息（名称、描述、图标等）
@@ -58,7 +58,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays statistics panel', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证统计面板（使用次数、收藏数、评分等）
@@ -68,7 +68,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays markdown content', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证 Markdown 渲染内容
@@ -78,7 +78,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays FAQ section', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证 FAQ 折叠面板
@@ -88,7 +88,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays version history', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证版本历史时间线
@@ -98,7 +98,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays video tutorial', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证视频教程嵌入区域
@@ -108,7 +108,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays feedback button', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证反馈按钮
@@ -118,7 +118,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays action buttons', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证操作按钮（收藏、分享、使用等）
@@ -128,7 +128,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail page displays back button', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 验证返回按钮
@@ -140,7 +140,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
 
   test.describe('Tool Detail Drawer', () => {
     test('tool-detail drawer opens when triggered', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找打开详情的按钮并点击
@@ -160,7 +160,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays basic info tab', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -179,7 +179,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays specs tab', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -198,7 +198,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays markdown preview', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -217,7 +217,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays FAQ section', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -236,7 +236,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays version history', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -255,7 +255,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays video tutorial', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
@@ -274,7 +274,7 @@ test.describe('Tool Detail Page (PR #249) @smoke @tool-detail @issue:front#249',
     });
 
     test('tool-detail drawer displays feedback entry', { tag: ['@smoke', '@tool-detail', '@issue:front#249'] }, async ({ page, request }) => {
-      await loginAndGoto(page, request, '/tool/detail');
+      await loginAndGoto(page, request, '/wande/tool-detail');
       await page.waitForTimeout(2000);
 
       // 查找第一个详情按钮并点击
