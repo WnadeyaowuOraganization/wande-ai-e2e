@@ -1,8 +1,26 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-22T12:00:00",
+  "updated_at": "2026-03-24T14:30:00",
   "mappings": [
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#162",
+      "repo": "wande-ai-front",
+      "title": "项目配合单位管理功能",
+      "module": "counterpart",
+      "test_files": [
+        "tests/smoke/counterpart-management.spec.ts::counterpart management API requires authentication",
+        "tests/smoke/counterpart-management.spec.ts::project detail page loads with counterpart tab",
+        "tests/smoke/counterpart-management.spec.ts::counterpart management tab exists in project detail",
+        "tests/smoke/counterpart-management.spec.ts::counterpart management has role groupings",
+        "tests/smoke/counterpart-management.spec.ts::counterpart add button exists",
+        "tests/smoke/counterpart-management.spec.ts::counterpart role types dropdown has expected options",
+        "tests/smoke/counterpart-management.spec.ts::counterpart list displays expected fields"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null
+    },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#2",
       "repo": "wande-ai-backend",
@@ -137,6 +155,20 @@
       "coverage": "partial",
       "last_tested": "2026-03-23T16:30:00",
       "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#44",
+      "repo": "wande-ai-backend",
+      "title": "SysNoticeController 未授权访问漏洞修复",
+      "module": "system",
+      "test_files": [
+        "tests/api/system-notice.spec.ts::notice list API requires authentication",
+        "tests/api/system-notice.spec.ts::notice detail API requires authentication",
+        "tests/api/system-notice.spec.ts::notice list API works with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T17:00:00",
+      "last_result": "passed"
     }
   ],
   "modules": {
@@ -199,6 +231,12 @@
       "test_tags": ["@project-mine"],
       "api_prefix": "/wande/project/mine",
       "test_files": ["tests/api/project-mine.spec.ts", "tests/smoke/project-mine-page.spec.ts"]
+    },
+    "counterpart": {
+      "description": "项目配合单位管理",
+      "test_tags": ["@counterpart"],
+      "api_prefix": "/wande/project/counterpart",
+      "test_files": ["tests/smoke/counterpart-management.spec.ts"]
     }
   },
   "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
