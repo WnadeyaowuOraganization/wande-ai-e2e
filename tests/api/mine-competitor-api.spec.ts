@@ -214,9 +214,15 @@ test.describe('竞品情报模块 - 完整接口测试 @competitor', () => {
       headers: { Authorization: `Bearer ${token}` },
       data: {},
     });
-    const body = await response.json();
-    console.log('[导出竞品] HTTP:', response.status(), 'Code:', body.code, 'Msg:', body.msg?.substring(0, 100));
+    // 导出接口返回Excel文件，不能解析为JSON
     expect(response.status()).toBe(200);
+    const contentType = response.headers()['content-type'] || '';
+    expect(contentType).toContain('application');
+    const buffer = await response.body();
+    expect(buffer.length).toBeGreaterThan(0);
+    expect(buffer[0]).toBe(0x50); // 'P' - ZIP/Excel文件开头
+    expect(buffer[1]).toBe(0x4b); // 'K'
+    console.log('[导出竞品] HTTP:', response.status(), 'Content-Type:', contentType, 'Size:', buffer.length);
   });
 
   // === 删除竞品接口 ===
@@ -331,9 +337,15 @@ test.describe('竞品告警模块 - 完整接口测试 @competitor', () => {
       headers: { Authorization: `Bearer ${token}` },
       data: {},
     });
-    const body = await response.json();
-    console.log('[导出告警] HTTP:', response.status(), 'Code:', body.code, 'Msg:', body.msg?.substring(0, 100));
+    // 导出接口返回Excel文件，不能解析为JSON
     expect(response.status()).toBe(200);
+    const contentType = response.headers()['content-type'] || '';
+    expect(contentType).toContain('application');
+    const buffer = await response.body();
+    expect(buffer.length).toBeGreaterThan(0);
+    expect(buffer[0]).toBe(0x50); // 'P' - ZIP/Excel文件开头
+    expect(buffer[1]).toBe(0x4b); // 'K'
+    console.log('[导出告警] HTTP:', response.status(), 'Content-Type:', contentType, 'Size:', buffer.length);
   });
 
   // === 删除告警接口 ===
@@ -414,9 +426,15 @@ test.describe('竞品投标模块 - 完整接口测试 @competitor', () => {
       headers: { Authorization: `Bearer ${token}` },
       data: {},
     });
-    const body = await response.json();
-    console.log('[导出投标] HTTP:', response.status(), 'Code:', body.code, 'Msg:', body.msg?.substring(0, 100));
+    // 导出接口返回Excel文件，不能解析为JSON
     expect(response.status()).toBe(200);
+    const contentType = response.headers()['content-type'] || '';
+    expect(contentType).toContain('application');
+    const buffer = await response.body();
+    expect(buffer.length).toBeGreaterThan(0);
+    expect(buffer[0]).toBe(0x50); // 'P' - ZIP/Excel文件开头
+    expect(buffer[1]).toBe(0x4b); // 'K'
+    console.log('[导出投标] HTTP:', response.status(), 'Content-Type:', contentType, 'Size:', buffer.length);
   });
 
   // === 删除投标接口 ===
