@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test';
  * 对应 Issue: wande-ai-front#192
  * PR: wande-ai-front#253
  *
- * 前端路由：
+ * 前端路由（从 getRouters API 确认）：
  * - /wande/product-center - 产品参数查询中心主页面
  */
 

@@ -5,7 +5,7 @@ import { test, expect } from '@playwright/test';
  * 对应 Issue: wande-ai-front#180
  * PR: wande-ai-front#250
  *
- * 前端路由：
+ * 前端路由（从 getRouters API 确认）：
  * - /wande/finance/receivable - 应收账款管理主页面
  */
 
