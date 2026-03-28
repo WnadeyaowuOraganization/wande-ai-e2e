@@ -176,14 +176,12 @@
       "title": "AI渲染助手工作台",
       "module": "ai-render",
       "test_files": [
-        "tests/smoke/ai-render.spec.ts::ai-render page loads successfully",
-        "tests/smoke/ai-render.spec.ts::ai-render page displays mode selector",
-        "tests/smoke/ai-render.spec.ts::ai-render page displays image upload component"
+        "tests/smoke/ai-render.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:30:00",
+      "last_tested": "2026-03-28T21:35:00",
       "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu"
+      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#192",
@@ -191,13 +189,12 @@
       "title": "产品参数查询中心",
       "module": "product-center",
       "test_files": [
-        "tests/smoke/product-center.spec.ts::product-center page loads successfully",
-        "tests/smoke/product-center.spec.ts::product-center page displays statistics panel"
+        "tests/smoke/product-center.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:30:00",
+      "last_tested": "2026-03-28T21:35:00",
       "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu"
+      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#180",
@@ -205,13 +202,12 @@
       "title": "应收账款管理",
       "module": "receivable",
       "test_files": [
-        "tests/smoke/receivable.spec.ts::receivable page loads successfully",
-        "tests/smoke/receivable.spec.ts::receivable page displays statistics panel"
+        "tests/smoke/receivable.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:30:00",
+      "last_tested": "2026-03-28T21:35:00",
       "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu"
+      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#242",
@@ -219,12 +215,12 @@
       "title": "工具详情页面",
       "module": "tool-detail",
       "test_files": [
-        "tests/smoke/tool-detail.spec.ts::tool-detail page loads successfully"
+        "tests/smoke/tool-detail.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:30:00",
+      "last_tested": "2026-03-28T21:35:00",
       "last_result": "failed",
-      "failure_reason": "page redirects to login"
+      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
     }
   ],
   "modules": {
