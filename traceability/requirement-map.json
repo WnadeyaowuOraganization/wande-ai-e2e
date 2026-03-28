@@ -179,9 +179,9 @@
         "tests/smoke/ai-render.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:35:00",
-      "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed",
+      "notes": "Core page load tests passed. History page route not configured correctly."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#192",
@@ -192,9 +192,8 @@
         "tests/smoke/product-center.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:35:00",
-      "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#180",
@@ -205,9 +204,8 @@
         "tests/smoke/receivable.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:35:00",
-      "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#242",
@@ -218,9 +216,8 @@
         "tests/smoke/tool-detail.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-28T21:35:00",
-      "last_result": "failed",
-      "failure_reason": "menu not registered in sys_menu, blocked by backend#671"
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
     }
   ],
   "modules": {
