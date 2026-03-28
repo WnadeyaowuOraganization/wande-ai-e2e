@@ -169,6 +169,62 @@
       "coverage": "full",
       "last_tested": "2026-03-28T17:00:00",
       "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#187",
+      "repo": "wande-ai-front",
+      "title": "AI渲染助手工作台",
+      "module": "ai-render",
+      "test_files": [
+        "tests/smoke/ai-render.spec.ts::ai-render page loads successfully",
+        "tests/smoke/ai-render.spec.ts::ai-render page displays mode selector",
+        "tests/smoke/ai-render.spec.ts::ai-render page displays image upload component"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T21:30:00",
+      "last_result": "failed",
+      "failure_reason": "menu not registered in sys_menu"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#192",
+      "repo": "wande-ai-front",
+      "title": "产品参数查询中心",
+      "module": "product-center",
+      "test_files": [
+        "tests/smoke/product-center.spec.ts::product-center page loads successfully",
+        "tests/smoke/product-center.spec.ts::product-center page displays statistics panel"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T21:30:00",
+      "last_result": "failed",
+      "failure_reason": "menu not registered in sys_menu"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#180",
+      "repo": "wande-ai-front",
+      "title": "应收账款管理",
+      "module": "receivable",
+      "test_files": [
+        "tests/smoke/receivable.spec.ts::receivable page loads successfully",
+        "tests/smoke/receivable.spec.ts::receivable page displays statistics panel"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T21:30:00",
+      "last_result": "failed",
+      "failure_reason": "menu not registered in sys_menu"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#242",
+      "repo": "wande-ai-front",
+      "title": "工具详情页面",
+      "module": "tool-detail",
+      "test_files": [
+        "tests/smoke/tool-detail.spec.ts::tool-detail page loads successfully"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T21:30:00",
+      "last_result": "failed",
+      "failure_reason": "page redirects to login"
     }
   ],
   "modules": {
@@ -237,6 +293,30 @@
       "test_tags": ["@counterpart"],
       "api_prefix": "/wande/project/counterpart",
       "test_files": ["tests/smoke/counterpart-management.spec.ts"]
+    },
+    "ai-render": {
+      "description": "AI 渲染助手工作台",
+      "test_tags": ["@ai-render"],
+      "api_prefix": "/api/ai/render",
+      "test_files": ["tests/smoke/ai-render.spec.ts"]
+    },
+    "product-center": {
+      "description": "产品参数查询中心",
+      "test_tags": ["@product-center"],
+      "api_prefix": "/wande/product",
+      "test_files": ["tests/smoke/product-center.spec.ts"]
+    },
+    "receivable": {
+      "description": "应收账款管理",
+      "test_tags": ["@receivable"],
+      "api_prefix": "/wande/receivable",
+      "test_files": ["tests/smoke/receivable.spec.ts"]
+    },
+    "tool-detail": {
+      "description": "工具详情页面",
+      "test_tags": ["@tool-detail"],
+      "api_prefix": "/wande/tool",
+      "test_files": ["tests/smoke/tool-detail.spec.ts"]
     }
   },
   "uncovered_modules": ["cockpit", "worklog", "wecom", "knowledge"]
