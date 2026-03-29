@@ -39,6 +39,7 @@ async function loginAndGoto(page: Page, request: Request, targetPath: string): P
         accessToken: token,
         refreshToken: token,
         accessCodes: [],
+        roles: ['admin'],
       }));
     },
     { key: STORAGE_KEY, token },

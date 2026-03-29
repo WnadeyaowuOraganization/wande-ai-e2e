@@ -1,0 +1,175 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - complementary [ref=e5]:
+    - img [ref=e7] [cursor=pointer]
+    - link "RuoYi AI RuoYi AI" [ref=e11] [cursor=pointer]:
+      - /url: javascript:void 0
+      - img "RuoYi AI" [ref=e14]
+      - generic [ref=e15]: RuoYi AI
+    - menu [ref=e18]:
+      - listitem [ref=e19]:
+        - generic [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+          - generic [ref=e22]: 概览
+          - img [ref=e23]
+      - listitem [ref=e25]:
+        - generic [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+          - generic [ref=e29]: 数字人管理
+          - img [ref=e30]
+      - listitem [ref=e32]:
+        - generic [ref=e33] [cursor=pointer]:
+          - img [ref=e34]
+          - generic [ref=e36]: 流程管理
+          - img [ref=e37]
+      - listitem [ref=e39]:
+        - generic [ref=e40] [cursor=pointer]:
+          - img [ref=e41]
+          - generic [ref=e47]: 运营管理
+          - img [ref=e48]
+      - listitem [ref=e50]:
+        - generic [ref=e51] [cursor=pointer]:
+          - img [ref=e52]
+          - generic [ref=e55]: 系统管理
+          - img [ref=e56]
+      - listitem [ref=e58]:
+        - generic [ref=e59] [cursor=pointer]:
+          - img [ref=e60]
+          - generic [ref=e63]: 在线开发
+          - img [ref=e64]
+      - listitem [ref=e66]:
+        - generic [ref=e67] [cursor=pointer]:
+          - img [ref=e68]
+          - generic [ref=e70]: 图谱管理
+          - img [ref=e71]
+      - listitem [ref=e73]:
+        - generic [ref=e74] [cursor=pointer]:
+          - img [ref=e75]
+          - generic [ref=e79]: CRM客户管理
+          - img [ref=e80]
+      - listitem [ref=e82]:
+        - generic [ref=e83] [cursor=pointer]:
+          - img [ref=e84]
+          - generic [ref=e88]: 项目矿场
+          - img [ref=e89]
+      - listitem [ref=e91]:
+        - generic [ref=e92] [cursor=pointer]:
+          - img [ref=e93]
+          - generic [ref=e97]: 招投标中心
+          - img [ref=e98]
+      - listitem [ref=e100]:
+        - generic [ref=e101] [cursor=pointer]:
+          - img [ref=e102]
+          - generic [ref=e107]: 竞品情报
+          - img [ref=e108]
+      - listitem [ref=e110]:
+        - generic [ref=e111] [cursor=pointer]:
+          - img [ref=e112]
+          - generic [ref=e114]: 运营工具
+          - img [ref=e115]
+        - list [ref=e117]:
+          - menuitem "企微管理" [ref=e118] [cursor=pointer]:
+            - generic [ref=e119]:
+              - img [ref=e120]
+              - generic [ref=e122]: 企微管理
+          - menuitem "工作日志" [ref=e123] [cursor=pointer]:
+            - generic [ref=e124]:
+              - img [ref=e125]
+              - generic [ref=e129]: 工作日志
+          - menuitem "仪表盘" [ref=e130] [cursor=pointer]:
+            - generic [ref=e131]:
+              - img [ref=e132]
+              - generic [ref=e134]: 仪表盘
+          - menuitem "Credit消耗统计" [ref=e135] [cursor=pointer]:
+            - generic [ref=e136]:
+              - img [ref=e137]
+              - generic [ref=e139]: Credit消耗统计
+          - menuitem "Gateway 子账户管理" [ref=e140] [cursor=pointer]:
+            - generic [ref=e141]:
+              - img [ref=e142]
+              - generic [ref=e144]: Gateway 子账户管理
+      - listitem [ref=e145]:
+        - generic [ref=e146] [cursor=pointer]:
+          - img [ref=e147]
+          - generic [ref=e149]: 研发管控
+          - img [ref=e150]
+      - listitem [ref=e152]:
+        - generic [ref=e153] [cursor=pointer]:
+          - img [ref=e154]
+          - generic [ref=e155]: 人事管理
+          - img [ref=e156]
+      - listitem [ref=e158]:
+        - generic [ref=e159] [cursor=pointer]:
+          - img [ref=e160]
+          - generic [ref=e161]: 支持中心
+          - img [ref=e162]
+      - listitem [ref=e164]:
+        - generic [ref=e165] [cursor=pointer]:
+          - img [ref=e166]
+          - generic [ref=e168]: 万德业务
+          - img [ref=e169]
+    - img [ref=e173] [cursor=pointer]
+  - generic [ref=e176]:
+    - generic [ref=e177]:
+      - banner [ref=e178]:
+        - button [ref=e179] [cursor=pointer]:
+          - img [ref=e180]
+        - button [ref=e181] [cursor=pointer]:
+          - img [ref=e182]
+        - navigation "breadcrumb" [ref=e186]:
+          - list [ref=e187]:
+            - listitem [ref=e188]:
+              - link "运营工具" [ref=e189] [cursor=pointer]:
+                - /url: javascript:void 0
+                - generic [ref=e190]:
+                  - img [ref=e191]
+                  - text: 运营工具
+              - listitem [ref=e193]:
+                - img [ref=e194]
+            - listitem [ref=e196]:
+              - link "Gateway 子账户管理" [disabled] [ref=e197]:
+                - generic [ref=e198]:
+                  - img [ref=e199]
+                  - text: Gateway 子账户管理
+        - generic [ref=e202]:
+          - generic [ref=e204] [cursor=pointer]:
+            - img [ref=e205]
+            - generic [ref=e208]: 搜索
+            - generic [ref=e209]: Ctrl K
+          - button [ref=e212] [cursor=pointer]:
+            - img [ref=e213]
+          - button "dark" [ref=e217] [cursor=pointer]:
+            - img [ref=e218]
+          - button [ref=e226] [cursor=pointer]:
+            - img [ref=e227]
+          - button [ref=e231] [cursor=pointer]:
+            - img [ref=e232]
+          - button [ref=e237] [cursor=pointer]:
+            - button [ref=e239]:
+              - img [ref=e240]
+          - button "IN" [ref=e243] [cursor=pointer]:
+            - generic [ref=e248]: IN
+      - generic [ref=e250]:
+        - generic [ref=e257] [cursor=pointer]:
+          - generic [ref=e258]:
+            - img [ref=e260]
+            - img [ref=e262]
+          - generic [ref=e265]:
+            - img [ref=e266]
+            - generic [ref=e268]: Gateway 子账户管理
+        - generic [ref=e269]:
+          - button [ref=e270] [cursor=pointer]:
+            - img [ref=e272]
+          - img [ref=e275] [cursor=pointer]
+    - main [ref=e281]:
+      - generic [ref=e283]:
+        - img [ref=e284]
+        - generic [ref=e321]:
+          - paragraph [ref=e322]: 哎呀！未找到页面
+          - paragraph [ref=e323]: 抱歉，我们无法找到您要找的页面。
+          - button "返回首页" [ref=e324] [cursor=pointer]:
+            - img [ref=e325]
+            - text: 返回首页
+```
