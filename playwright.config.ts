@@ -32,19 +32,19 @@ export default defineConfig({
   projects: [
     {
       name: 'api-tests',
-      testMatch: /tests\/api\/.*\.spec\.ts/,
+      testMatch: /tests\/.*\/api\/.*\.spec\.ts/,
       use: {
         baseURL: process.env.BASE_URL_API || 'http://localhost:6040',
       },
     },
     {
       name: 'smoke-tests',
-      testMatch: /tests\/smoke\/.*\.spec\.ts/,
+      testMatch: /tests\/.*\/smoke\/.*\.spec\.ts/,
       use: { ...devices['Desktop Chrome'] },
     },
     {
       name: 'e2e-tests',
-      testMatch: /tests\/e2e\/.*\.spec\.ts/,
+      testMatch: /tests\/.*\/e2e\/.*\.spec\.ts/,
       use: { ...devices['Desktop Chrome'] },
       dependencies: ['api-tests'],
     },
