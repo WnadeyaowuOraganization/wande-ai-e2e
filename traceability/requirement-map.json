@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-30T16:30:00",
+  "updated_at": "2026-03-30T18:00:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -64,8 +64,8 @@
         "tests/e2e/tender-crud.spec.ts::should create and view tender"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "passed"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#255",
@@ -380,9 +380,9 @@
         "tests/backend/api/dashboard-claude-session.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
@@ -393,9 +393,9 @@
         "tests/backend/api/dashboard-blocker.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#46",
@@ -406,9 +406,9 @@
         "tests/backend/api/dashboard-approval-wecom.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#248",
@@ -419,9 +419,9 @@
         "tests/backend/api/dashboard-cron.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#10",
@@ -445,9 +445,9 @@
         "tests/backend/api/crm-international.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. PR only has task.md, API not yet deployed."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#8",
@@ -458,9 +458,8 @@
         "tests/backend/api/project-mine-crawler.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "passed"
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#38",
@@ -484,9 +483,9 @@
         "tests/front/smoke/cron-management-page.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "Menu not registered in sys_menu. API-only tests + frontend base load."
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#234",
@@ -608,9 +607,9 @@
         "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle with invalid id returns error"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Backend API unavailable (ECONNREFUSED)"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#601",
@@ -629,9 +628,9 @@
         "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats with invalid id"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Backend API unavailable (ECONNREFUSED)"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#211",
@@ -668,9 +667,9 @@
       "module": "crm",
       "test_files": [],
       "coverage": "none",
-      "last_tested": null,
-      "last_result": null,
-      "notes": "POM fix only, related CRM tests exist in crm-international.spec.ts"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#599",
@@ -681,9 +680,9 @@
         "tests/backend/api/dashboard-claude-session.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Existing tests cover base endpoints"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#249",
@@ -694,9 +693,9 @@
         "tests/backend/api/dashboard-claude-session.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Covered by existing dashboard-claude-session.spec.ts"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
@@ -707,9 +706,9 @@
         "tests/backend/api/dashboard-blocker.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Covered by existing dashboard-blocker.spec.ts"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#45",
@@ -720,9 +719,9 @@
         "tests/backend/api/dashboard-command.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-30T16:30:00",
-      "last_result": "skipped",
-      "notes": "Covered by existing dashboard-command.spec.ts"
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#241",
