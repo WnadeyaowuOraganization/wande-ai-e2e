@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-30T14:35:00",
+  "updated_at": "2026-03-30T16:30:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -591,6 +591,164 @@
       "last_tested": null,
       "last_result": null,
       "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#576",
+      "repo": "wande-ai-backend",
+      "title": "API网关子账户管理 — 预算管理引擎",
+      "module": "gateway-budget",
+      "test_files": [
+        "tests/backend/api/gateway-budget.spec.ts::PUT budget requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::GET alert-config requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::PUT alert-config requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::GET alert-config returns data or permission error",
+        "tests/backend/api/gateway-budget.spec.ts::PUT budget with invalid accountId returns error",
+        "tests/backend/api/gateway-budget.spec.ts::PUT alert-config validates input",
+        "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle with invalid id returns error"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Backend API unavailable (ECONNREFUSED)"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#601",
+      "repo": "wande-ai-backend",
+      "title": "Claude Office 2.0 线路管理REST API",
+      "module": "line-management",
+      "test_files": [
+        "tests/backend/api/line-management.spec.ts::GET /status requires authentication",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause requires authentication",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume requires authentication",
+        "tests/backend/api/line-management.spec.ts::POST /{lineId}/assign requires authentication",
+        "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats requires authentication",
+        "tests/backend/api/line-management.spec.ts::GET /status returns line list",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause with invalid id",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume with invalid id",
+        "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats with invalid id"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Backend API unavailable (ECONNREFUSED)"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#211",
+      "repo": "wande-ai-front",
+      "title": "账号池监控页面",
+      "module": "model-pool",
+      "test_files": [
+        "tests/front/smoke/model-pool-page.spec.ts::frontend serves correctly",
+        "tests/front/smoke/model-pool-page.spec.ts::dashboard API is accessible",
+        "tests/front/smoke/model-pool-page.spec.ts::page loads without crash",
+        "tests/front/smoke/model-pool-page.spec.ts::page has expected UI elements",
+        "tests/front/smoke/model-pool-page.spec.ts::page has no critical console errors"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Frontend available but backend API down"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#691",
+      "repo": "wande-ai-backend",
+      "title": "修复 G7eServiceConfig Bean名称冲突",
+      "module": "system",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Config fix only, no new API endpoints"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#55",
+      "repo": "wande-ai-backend",
+      "title": "修复pom.xml引用 + 国际贸易客户数据库准备",
+      "module": "crm",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "POM fix only, related CRM tests exist in crm-international.spec.ts"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#599",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控 — GitHub同步修复+增强",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Existing tests cover base endpoints"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#249",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控API",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Covered by existing dashboard-claude-session.spec.ts"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
+      "repo": "wande-ai-backend",
+      "title": "外部工具管理 — 企微告警推送+驾驶舱首页卡片数据API",
+      "module": "blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Covered by existing dashboard-blocker.spec.ts"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#45",
+      "repo": "wande-ai-backend",
+      "title": "快捷指令执行引擎",
+      "module": "dashboard-command",
+      "test_files": [
+        "tests/backend/api/dashboard-command.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Covered by existing dashboard-command.spec.ts"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#241",
+      "repo": "wande-ai-front",
+      "title": "工具中心 — 内部工具管理页面",
+      "module": "tool-center",
+      "test_files": [
+        "tests/front/smoke/tool-detail.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Partially covered by tool-detail tests"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#210",
+      "repo": "wande-ai-front",
+      "title": "外部工具管理 — 工具总览+手动录入页面",
+      "module": "ext-tools",
+      "test_files": [
+        "tests/front/smoke/tool-detail.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T16:30:00",
+      "last_result": "skipped",
+      "notes": "Partially covered by tool-detail tests"
     }
   ],
   "modules": {
