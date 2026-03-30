@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-29T16:00:00",
+  "updated_at": "2026-03-30T14:35:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -370,152 +370,530 @@
       "last_tested": "2026-03-29T16:00:00",
       "last_result": "passed",
       "notes": "No HTTP endpoints to test directly. Verified via backend API data integrity."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控API",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
+      "repo": "wande-ai-backend",
+      "title": "开发阻塞主动提醒",
+      "module": "blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#46",
+      "repo": "wande-ai-backend",
+      "title": "统一审批队列+企微通知控制台",
+      "module": "approval-wecom",
+      "test_files": [
+        "tests/backend/api/dashboard-approval-wecom.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#248",
+      "repo": "wande-ai-backend",
+      "title": "定时任务操作API",
+      "module": "cron",
+      "test_files": [
+        "tests/backend/api/dashboard-cron.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#10",
+      "repo": "wande-ai-backend",
+      "title": "运营仪表盘API (微信集成)",
+      "module": "wechat",
+      "test_files": [
+        "tests/backend/api/wechat-mp.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#56",
+      "repo": "wande-ai-backend",
+      "title": "国际贸易客户CRUD API",
+      "module": "crm-intl",
+      "test_files": [
+        "tests/backend/api/crm-international.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. PR only has task.md, API not yet deployed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#8",
+      "repo": "wande-ai-backend",
+      "title": "爬虫状态API增强",
+      "module": "project-mine",
+      "test_files": [
+        "tests/backend/api/project-mine-crawler.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#38",
+      "repo": "wande-ai-backend",
+      "title": "角色权限扩展",
+      "module": "execution",
+      "test_files": [
+        "tests/backend/api/execution-permission.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Regression tests only. No new API endpoints - permission changes tested via existing APIs."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#118",
+      "repo": "wande-ai-front",
+      "title": "定时任务总览页",
+      "module": "cron",
+      "test_files": [
+        "tests/front/smoke/cron-management-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered in sys_menu. API-only tests + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#234",
+      "repo": "wande-ai-front",
+      "title": "Kanban看板面板",
+      "module": "kanban",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. API tests for claude sessions + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#233",
+      "repo": "wande-ai-front",
+      "title": "像素办公室升级",
+      "module": "pixel-office",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#251",
+      "repo": "wande-ai-front",
+      "title": "排程Tab",
+      "module": "schedule",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#32",
+      "repo": "wande-ai-front",
+      "title": "运维监控中心+快捷指令终端",
+      "module": "ops-center",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Command API test + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#248",
+      "repo": "wande-ai-front",
+      "title": "API网关使用记录",
+      "module": "gateway-usage",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Credit usage API test + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#252",
+      "repo": "wande-ai-front",
+      "title": "排程调度中心",
+      "module": "schedule-center",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#31",
+      "repo": "wande-ai-front",
+      "title": "开发者动态+部署管理页面",
+      "module": "dev-activity",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#30",
+      "repo": "wande-ai-front",
+      "title": "Issue看板页面",
+      "module": "issue-kanban",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": null,
+      "last_result": null,
+      "notes": "Menu not registered. Frontend base load test only."
     }
   ],
   "modules": {
     "auth": {
       "description": "认证与登录",
-      "test_tags": ["@auth"],
+      "test_tags": [
+        "@auth"
+      ],
       "api_prefix": "/auth",
-      "test_files": ["tests/api/auth.spec.ts", "tests/e2e/login-flow.spec.ts"]
+      "test_files": [
+        "tests/api/auth.spec.ts",
+        "tests/e2e/login-flow.spec.ts"
+      ]
     },
     "tender": {
       "description": "招投标管理",
-      "test_tags": ["@tender"],
+      "test_tags": [
+        "@tender"
+      ],
       "api_prefix": "/wande/tender",
-      "test_files": ["tests/api/tender.spec.ts", "tests/smoke/pages-load.spec.ts"]
+      "test_files": [
+        "tests/api/tender.spec.ts",
+        "tests/smoke/pages-load.spec.ts"
+      ]
     },
     "crm": {
       "description": "CRM 客户管理",
-      "test_tags": ["@crm"],
+      "test_tags": [
+        "@crm"
+      ],
       "api_prefix": "/wande/crm",
-      "test_files": ["tests/api/crm.spec.ts"]
+      "test_files": [
+        "tests/api/crm.spec.ts"
+      ]
     },
     "opportunity": {
       "description": "商机管理",
-      "test_tags": ["@opportunity"],
+      "test_tags": [
+        "@opportunity"
+      ],
       "api_prefix": "/wande/opportunity",
       "test_files": []
     },
     "competitor": {
       "description": "竞品分析",
-      "test_tags": ["@competitor"],
+      "test_tags": [
+        "@competitor"
+      ],
       "api_prefix": "/wande/competitor",
       "test_files": []
     },
     "dashboard": {
       "description": "仪表盘",
-      "test_tags": ["@dashboard"],
+      "test_tags": [
+        "@dashboard"
+      ],
       "api_prefix": "/wande/dashboard",
       "test_files": []
     },
     "system": {
       "description": "系统管理（用户/角色/菜单）",
-      "test_tags": ["@system"],
+      "test_tags": [
+        "@system"
+      ],
       "api_prefix": "/system",
       "test_files": []
     },
     "gpu-monitor": {
       "description": "GPU 性能监控",
-      "test_tags": ["@gpu-monitor"],
+      "test_tags": [
+        "@gpu-monitor"
+      ],
       "api_prefix": "/api/monitor/gpu",
-      "test_files": ["tests/api/gpu-monitor.spec.ts", "tests/smoke/gpu-monitor-page.spec.ts"]
+      "test_files": [
+        "tests/api/gpu-monitor.spec.ts",
+        "tests/smoke/gpu-monitor-page.spec.ts"
+      ]
     },
     "credit-usage": {
       "description": "Perplexity Credit 消耗统计",
-      "test_tags": ["@credit-usage"],
+      "test_tags": [
+        "@credit-usage"
+      ],
       "api_prefix": "/wande/credit-usage",
-      "test_files": ["tests/api/credit-usage.spec.ts", "tests/smoke/credit-usage-page.spec.ts"]
+      "test_files": [
+        "tests/api/credit-usage.spec.ts",
+        "tests/smoke/credit-usage-page.spec.ts"
+      ]
     },
     "project-mine": {
       "description": "项目挖掘 (Project Mine)",
-      "test_tags": ["@project-mine"],
+      "test_tags": [
+        "@project-mine"
+      ],
       "api_prefix": "/wande/project/mine",
-      "test_files": ["tests/api/project-mine.spec.ts", "tests/smoke/project-mine-page.spec.ts"]
+      "test_files": [
+        "tests/api/project-mine.spec.ts",
+        "tests/smoke/project-mine-page.spec.ts"
+      ]
     },
     "counterpart": {
       "description": "项目配合单位管理",
-      "test_tags": ["@counterpart"],
+      "test_tags": [
+        "@counterpart"
+      ],
       "api_prefix": "/wande/project/counterpart",
-      "test_files": ["tests/smoke/counterpart-management.spec.ts"]
+      "test_files": [
+        "tests/smoke/counterpart-management.spec.ts"
+      ]
     },
     "ai-render": {
       "description": "AI 渲染助手工作台",
-      "test_tags": ["@ai-render"],
+      "test_tags": [
+        "@ai-render"
+      ],
       "api_prefix": "/api/ai/render",
-      "test_files": ["tests/smoke/ai-render.spec.ts"]
+      "test_files": [
+        "tests/smoke/ai-render.spec.ts"
+      ]
     },
     "product-center": {
       "description": "产品参数查询中心",
-      "test_tags": ["@product-center"],
+      "test_tags": [
+        "@product-center"
+      ],
       "api_prefix": "/wande/product",
-      "test_files": ["tests/smoke/product-center.spec.ts"]
+      "test_files": [
+        "tests/smoke/product-center.spec.ts"
+      ]
     },
     "receivable": {
       "description": "应收账款管理",
-      "test_tags": ["@receivable"],
+      "test_tags": [
+        "@receivable"
+      ],
       "api_prefix": "/wande/receivable",
-      "test_files": ["tests/smoke/receivable.spec.ts"]
+      "test_files": [
+        "tests/smoke/receivable.spec.ts"
+      ]
     },
     "tool-detail": {
       "description": "工具详情页面",
-      "test_tags": ["@tool-detail"],
+      "test_tags": [
+        "@tool-detail"
+      ],
       "api_prefix": "/wande/tool",
-      "test_files": ["tests/smoke/tool-detail.spec.ts"]
+      "test_files": [
+        "tests/smoke/tool-detail.spec.ts"
+      ]
     },
     "brand": {
       "description": "品牌中心管理",
-      "test_tags": ["@brand"],
+      "test_tags": [
+        "@brand"
+      ],
       "api_prefix": "/wande/brand",
-      "test_files": ["tests/backend/api/brand.spec.ts"]
+      "test_files": [
+        "tests/backend/api/brand.spec.ts"
+      ]
     },
     "brand-publish": {
       "description": "品牌发布调度",
-      "test_tags": ["@brand", "@execution"],
+      "test_tags": [
+        "@brand",
+        "@execution"
+      ],
       "api_prefix": "/wande/brand/publish",
-      "test_files": ["tests/backend/api/brand.spec.ts"]
+      "test_files": [
+        "tests/backend/api/brand.spec.ts"
+      ]
     },
     "execution": {
       "description": "项目执行管理",
-      "test_tags": ["@execution"],
+      "test_tags": [
+        "@execution"
+      ],
       "api_prefix": "/wande/execution",
-      "test_files": ["tests/backend/api/brand.spec.ts", "tests/backend/api/menu-route-fix.spec.ts"]
+      "test_files": [
+        "tests/backend/api/brand.spec.ts",
+        "tests/backend/api/menu-route-fix.spec.ts"
+      ]
     },
     "collab": {
       "description": "协作设计",
-      "test_tags": ["@collab"],
+      "test_tags": [
+        "@collab"
+      ],
       "api_prefix": "/api/collab",
-      "test_files": ["tests/backend/api/collab-document-permission.spec.ts"]
+      "test_files": [
+        "tests/backend/api/collab-document-permission.spec.ts"
+      ]
     },
     "feedback": {
       "description": "用户反馈",
-      "test_tags": ["@feedback"],
+      "test_tags": [
+        "@feedback"
+      ],
       "api_prefix": "/wande/user-feedback",
-      "test_files": ["tests/backend/api/user-feedback.spec.ts"]
+      "test_files": [
+        "tests/backend/api/user-feedback.spec.ts"
+      ]
     },
     "asset-library": {
       "description": "素材库",
-      "test_tags": ["@asset-library"],
+      "test_tags": [
+        "@asset-library"
+      ],
       "api_prefix": "/wande/asset",
-      "test_files": ["tests/front/smoke/asset-detail.spec.ts"]
+      "test_files": [
+        "tests/front/smoke/asset-detail.spec.ts"
+      ]
     },
     "pipeline": {
       "description": "数据管道",
-      "test_tags": ["@pipeline"],
+      "test_tags": [
+        "@pipeline"
+      ],
       "api_prefix": "",
-      "test_files": ["tests/pipeline/api/pipeline-health.spec.ts"]
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ]
     },
     "ppt-finance": {
       "description": "PPT插件与财务",
-      "test_tags": ["@ppt", "@finance"],
+      "test_tags": [
+        "@ppt",
+        "@finance"
+      ],
       "api_prefix": "/api/ppt-plugin",
-      "test_files": ["tests/backend/api/finance-weekly-report.spec.ts"]
+      "test_files": [
+        "tests/backend/api/finance-weekly-report.spec.ts"
+      ]
     },
     "menu": {
       "description": "菜单路由",
-      "test_tags": ["@menu"],
+      "test_tags": [
+        "@menu"
+      ],
       "api_prefix": "/system/menu",
-      "test_files": ["tests/backend/api/menu-route-fix.spec.ts"]
+      "test_files": [
+        "tests/backend/api/menu-route-fix.spec.ts"
+      ]
+    },
+    "claude-session": {
+      "description": "Claude Code会话监控",
+      "test_tags": [
+        "@claude-session"
+      ],
+      "api_prefix": "/api/dashboard/claude",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ]
+    },
+    "blocker": {
+      "description": "阻塞项管理",
+      "test_tags": [
+        "@blocker"
+      ],
+      "api_prefix": "/wande/dashboard/blockers",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ]
+    },
+    "approval-wecom": {
+      "description": "审批队列+企微通知",
+      "test_tags": [
+        "@approval",
+        "@wecom"
+      ],
+      "api_prefix": "/wande/cockpit/approvals",
+      "test_files": [
+        "tests/backend/api/dashboard-approval-wecom.spec.ts"
+      ]
+    },
+    "cron": {
+      "description": "定时任务管理",
+      "test_tags": [
+        "@cron"
+      ],
+      "api_prefix": "/wande/dashboard/cron",
+      "test_files": [
+        "tests/backend/api/dashboard-cron.spec.ts"
+      ]
+    },
+    "wechat": {
+      "description": "微信公众号集成",
+      "test_tags": [
+        "@wechat"
+      ],
+      "api_prefix": "/wx/mp",
+      "test_files": [
+        "tests/backend/api/wechat-mp.spec.ts"
+      ]
+    },
+    "crm-intl": {
+      "description": "国际贸易客户CRM",
+      "test_tags": [
+        "@crm-intl"
+      ],
+      "api_prefix": "/wande/crm/international",
+      "test_files": [
+        "tests/backend/api/crm-international.spec.ts"
+      ]
     }
   },
   "uncovered_modules": []
