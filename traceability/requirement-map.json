@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T06:45:00",
+  "updated_at": "2026-03-31T12:17:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1378,9 +1378,9 @@
         "tests/backend/api/dealer.spec.ts::4 unauthenticated + 4 base authenticated + 3 Phase3 = 11 tests"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-31T11:35:00",
+      "last_tested": "2026-03-31T12:17:00",
       "last_result": "failed",
-      "notes": "Phase3 new APIs (3/3 passed). Base list APIs fail: TIMESTAMPTZ type mismatch + Mapper XML missing. P0 fix issue #840 created."
+      "notes": "Phase3 APIs 3/3 passed. Base list APIs still 500: TIMESTAMPTZ mismatch + Mapper XML missing. Issue #840 still OPEN, no fix PR."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#212",
