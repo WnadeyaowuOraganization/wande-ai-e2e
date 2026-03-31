@@ -1,46 +1,35 @@
-# PR #909 中层测试记录
+# PR #909 测试任务
 
 ## PR信息
 - **仓库**: wande-ai-backend
-- **分支**: feature-issue-886
 - **标题**: feat(审计日志): 全平台操作审计日志API — 操作记录存储+查询+统计+导出 #886
+- **分支**: feature-issue-886 → dev
+- **作者**: wandeyaowu
 
 ## 变更范围
-- 新增审计日志领域模型 (AuditLog, AuditLogBo, AuditLogVo等)
-- 新增Token Pool相关实体
-- 新增API端点: GET /audit-log/list, GET /audit-log/stats, GET /audit-log/timeline, POST /audit-log/export
+- 新增审计日志模块：Entity/Bo/Vo/Mapper/Service/Controller
+- 新增Token Pool模块（与#907共享部分代码）
+- SQL迁移: 2026-03-31-create-audit-log-table.sql
 
-## 测试执行记录
+## 测试结果
+**状态**: ❌ 阻塞
 
-### 2026-03-31 22:04 测试
-**状态**: 记录显示PASSED，但GitHub Token权限不足无法merge
-
-### 2026-03-31 22:30 测试
-**状态**: 阻塞 (API未部署)
-
-**测试结果**:
-```bash
-$ curl http://localhost:6040/audit-log/list
-{"code":500,"msg":"No static resource audit-log/list."}
+### 失败原因
+```
+GET /audit-log/list → code: 500
+错误: 数据库表 wdpp_audit_log 不存在
 ```
 
-**分析**: PR代码尚未部署到G7e dev环境，审计日志API返回404/500错误。
+### 测试详情
+- audit-log.spec.ts: 5/6 失败
+- 唯一通过: POST /audit-log/export (返回200但无实际导出)
 
-**阻塞原因**: 后端API未部署，无法执行有效测试。需要部署后重新测试。
+## 阻塞原因
+PR包含SQL迁移文件，但测试环境未执行迁移，导致数据库表缺失。
 
-## 2026-03-31 23:05 测试记录
-**状态**: 阻塞 (API未部署)
+## 需要执行的操作
+1. 执行SQL迁移: `script/sql/update/wande_ai/2026-03-31-create-audit-log-table.sql`
+2. 重新运行测试
 
-**测试结果**:
-```bash
-$ curl http://localhost:6040/audit-log/list
-{"code":500,"msg":"No static resource audit-log/list."}
-```
-
-**分析**: PR代码尚未部署到G7e dev环境。
-
-**阻塞原因**: 后端API未部署，无法执行有效测试。需要部署后重新测试。
-
-## 下一步行动
-- [ ] 确认PR是否已合并部署
-- [ ] 部署后重新执行: `npx playwright test tests/backend/api/audit-log.spec.ts`
+## 关联Issue
+- #886

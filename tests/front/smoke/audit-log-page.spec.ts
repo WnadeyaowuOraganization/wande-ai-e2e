@@ -12,7 +12,7 @@ test.describe('审计日志页面', () => {
     await page.goto('http://localhost:8083/login');
     await page.getByPlaceholder('用户名').fill('admin');
     await page.getByPlaceholder('密码').fill('admin123');
-    await page.getByRole('button', { name: '登录' }).click();
+    await page.getByRole('button', { name: '手机号登录' }).click();
     await page.waitForURL('**/cockpit');
   });
 

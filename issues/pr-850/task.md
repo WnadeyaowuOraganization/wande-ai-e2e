@@ -1,37 +1,30 @@
-# PR #850 中层测试记录
+# PR #850 测试任务
 
-**测试时间**: 2026-03-31 22:15（重测）
-**仓库**: wande-ai-backend
-**关联 Issue**: #485
-**PR 标题**: feat(dashboard): 修复开发阻塞主动提醒功能代码结构 #485
+## PR信息
+- **仓库**: wande-ai-backend
+- **标题**: feat(dashboard): 修复开发阻塞主动提醒功能代码结构 #485
+- **分支**: feature-issue-485 → dev
+- **作者**: david-hwp
 
-## 覆盖度评估
-- 已有 tests/backend/api/dashboard-blocker.spec.ts，但 PR 变更涉及新表结构与 G7eStatsMapper（B级）。
+## 变更范围
+- 开发阻塞提醒功能修复
+- SQL迁移: 2026-03-30-add-dashboard-blockers.sql
 
-## 执行结果（重测）
-- 测试命令: `npx playwright test tests/backend/ --reporter=list`
-- 结果: **Blocked**
-- 原因: Backend dev 环境 API 未启动（localhost:6040 ECONNREFUSED）。无法执行任何后端API测试。
-- 结论: 本轮不 approve/merge。等待环境恢复后在中层测试下一周期重测。
+## 测试结果
+**状态**: ⚠️ 部分通过
 
-## 历史记录
-- 2026-03-31 16:45: 首次测试被阻塞（Backend 134 failed）
-- 2026-03-31 22:15: 重测仍被阻塞（Backend 389 failed，后端服务未启动）
+### 测试详情
+- 未认证访问测试: ✅ 3/3 通过
+- 认证后测试: ⚠️ 部分通过
+  - GET /list: ❌ 500错误
+  - GET /stats: ❌ 500错误
+  - GET /unresolved-count: ❌ 500错误
+  - POST创建: ✅ 通过
+  - PUT /resolve: ✅ 通过
+  - DELETE: ✅ 通过
 
-## 环境状态
-- 后端API: `http://localhost:6040` - **未启动 (ECONNREFUSED)**
-- 前端页面: `http://localhost:8083` - 正常
+### 问题
+部分API返回500，可能是数据库表缺失或数据问题。
 
-## 2026-03-31 23:05 测试记录
-**状态**: 阻塞 (API未部署)
-
-**测试结果**:
-- Backend测试: 300 passed, 157 failed, 25 skipped
-- 失败的157个测试主要是因为API端点返回500错误或数据不符合预期
-- 新API `/dashboard/blockers` 未部署
-
-**阻塞原因**: PR代码尚未部署到G7e dev环境，无法执行有效测试。
-
-## 失败分析
-- Backend 测试: 157 failed（新API未部署，现有API部分数据问题）
-- 这不是PR代码问题，是环境部署问题
+## 关联Issue
+- #485
