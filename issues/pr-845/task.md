@@ -1,19 +1,23 @@
-# backend#845 测试工作记录
+# PR #845 测试任务
 
 ## PR信息
-- 标题: feat(scheduler): API SQLite迁移+调度器去重+僵尸检测 #602
-- 分支: feature-issue-602 → dev
-- 变更: +99/-0, 仅修改 issues/issue-602/task.md
+- 状态: **BLOCKED - 合并冲突**
+- 合并状态: CONFLICTING (DIRTY)
 
-## 测试状态: ❌ BLOCKED
+## 测试结果
+- 基础健康检查: 通过
+- 新功能API测试: **阻塞** - PR代码未合并（存在合并冲突）
 
-### 阻塞原因
-1. **Merge冲突**: mergeStateStatus=DIRTY, mergeable=CONFLICTING
-2. **无代码变更**: PR只修改了task.md，无实际代码可测试
-
-### 疑问
-- Issue #602 描述的是scheduler（pipeline仓库）的变更
-- 此PR提交到backend仓库，可能位置错误
+## 阻塞原因
+PR与dev分支存在合并冲突，需要编程CC解决冲突后重新部署。
 
 ## 下一步
-确认PR目标仓库是否正确，解决冲突后重新触发中层测试。
+1. 编程CC解决合并冲突
+2. 重新部署后端/前端服务
+3. 测试CC重新执行E2E测试
+
+## 状态
+- [x] 测试中
+- [ ] 通过
+- [ ] 失败
+- [x] **阻塞（合并冲突）**

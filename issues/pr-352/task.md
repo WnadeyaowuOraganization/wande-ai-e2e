@@ -1,22 +1,23 @@
-# front#352 测试工作记录
+# PR #352 测试任务
 
 ## PR信息
-- 标题: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
-- 分支: feature-issue-117 → dev
-- 变更: +827/-0, 5个文件
+- 状态: **BLOCKED - 合并冲突**
+- 合并状态: CONFLICTING (DIRTY)
 
-## 测试状态: ❌ BLOCKED
+## 测试结果
+- 基础健康检查: 通过
+- 新功能API测试: **阻塞** - PR代码未合并（存在合并冲突）
 
-### 阻塞原因
-1. **Merge冲突**: mergeStateStatus=DIRTY, mergeable=CONFLICTING
-2. **缺少后端API**: `/system/cron-alert-rules/list` 返回500错误
-   - PR描述已说明: "后端补充 CronAlertRule Controller 后验证 API 对接"
-
-### 测试计划（解除阻塞后）
-1. API测试: 验证CRUD接口
-2. 页面测试: 验证表格、弹窗、类型Tooltip
+## 阻塞原因
+PR与dev分支存在合并冲突，需要编程CC解决冲突后重新部署。
 
 ## 下一步
-1. 后端实现 CronAlertRule Controller
-2. 解决merge冲突
-3. 重新触发中层测试
+1. 编程CC解决合并冲突
+2. 重新部署后端/前端服务
+3. 测试CC重新执行E2E测试
+
+## 状态
+- [x] 测试中
+- [ ] 通过
+- [ ] 失败
+- [x] **阻塞（合并冲突）**

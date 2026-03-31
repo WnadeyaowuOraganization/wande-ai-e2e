@@ -1,19 +1,23 @@
-# backend#846 测试工作记录
+# PR #846 测试任务
 
 ## PR信息
-- 标题: feat(dashboard): API网关子账户管理 [1/4] - 数据同步API #575
-- 分支: feature-issue-575 → dev
-- 变更: +1881/-198, 27个文件
+- 状态: **BLOCKED - 合并冲突**
+- 合并状态: CONFLICTING (DIRTY)
 
-## 测试状态: ❌ BLOCKED
+## 测试结果
+- 基础健康检查: 通过
+- 新功能API测试: **阻塞** - PR代码未合并（存在合并冲突）
 
-### 阻塞原因
-1. **Merge冲突**: mergeStateStatus=DIRTY, mergeable=CONFLICTING
-2. **后端未部署**: API `/system/dashboard/gateway/accounts/list` 返回500
-
-### 需要操作
-- [ ] 开发者解决merge冲突
-- [ ] 后端部署到dev环境
+## 阻塞原因
+PR与dev分支存在合并冲突，需要编程CC解决冲突后重新部署。
 
 ## 下一步
-解决冲突后重新触发中层测试。
+1. 编程CC解决合并冲突
+2. 重新部署后端/前端服务
+3. 测试CC重新执行E2E测试
+
+## 状态
+- [x] 测试中
+- [ ] 通过
+- [ ] 失败
+- [x] **阻塞（合并冲突）**
