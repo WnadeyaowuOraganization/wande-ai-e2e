@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T12:35:00",
+  "updated_at": "2026-03-31T13:10:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1375,12 +1375,12 @@
       "title": "代理商工作台Phase3 — 模块间数据打通",
       "module": "dealer",
       "test_files": [
-        "tests/backend/api/dealer.spec.ts::4 unauthenticated + 4 base authenticated + 3 Phase3 = 11 tests"
+        "tests/backend/api/dealer.spec.ts::4/10 passed, 6 failed (Phase3 + base list APIs 500)"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-31T12:17:00",
+      "last_tested": "2026-03-31T13:10:00",
       "last_result": "failed",
-      "notes": "Phase3 APIs 3/3 passed. Base list APIs still 500: TIMESTAMPTZ mismatch + Mapper XML missing. Issue #840 still OPEN, no fix PR."
+      "notes": "Issue #840 still OPEN. 6/10 tests fail with 500: TIMESTAMPTZ mismatch + Mapper XML missing. PR CONFLICTING."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#212",
@@ -1454,6 +1454,31 @@
       "last_tested": "2026-03-31T12:35:00",
       "last_result": "passed",
       "notes": "Mid-layer test: pipeline-health 14/14 passed. Python-only changes, 73 unit tests in PR. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#602",
+      "repo": "wande-ai-backend",
+      "title": "调度器健壮性升级 — CSV→SQLite+429自适应+僵尸检测+历史持久化",
+      "module": "scheduler",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:10:00",
+      "last_result": "passed",
+      "notes": "Docs-only PR (task.md). CC Scheduler Python script changes, no backend Java API. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#155",
+      "repo": "wande-ai-front",
+      "title": "合并研发管控+运营工具→超管驾驶舱一级菜单",
+      "module": "super-admin-cockpit",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts::11/11 passed",
+        "tests/front/ — 452/452 passed (149 skipped)"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T13:10:00",
+      "last_result": "passed",
+      "notes": "Route config change: order:-2 for SuperAdminCockpit. All dashboard pages accessible. PR merged."
     }
   ],
   "uncovered_modules": []
