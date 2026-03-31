@@ -1,15 +1,14 @@
-# PR #352 测试任务
+# PR #355 测试任务
 
 ## PR信息
 - **仓库**: wande-ai-front
-- **标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
-- **分支**: feature-issue-117
-- **关联Issue**: #117
+- **标题**: feat(claude-office): 排程Tab组件 - 三列看板布局和快捷操作 #188
+- **分支**: feature-issue-188
+- **关联Issue**: #188
 
 ## 变更范围
-- `dashboard.ts` - API接口
-- `types.ts` - 类型定义
-- `cron-alert-rules/` - 告警规则管理页面
+- `claude-office.ts` - API接口
+- `schedule-tab.vue` - 排程Tab组件
 
 ## 测试状态
 **READY FOR TEST** - 页面可访问
@@ -17,7 +16,7 @@
 ## 测试结果
 ### 页面可访问性
 ```
-URL: /wande/dashboard/cron-alert-rules
+URL: /wande/claude-office/schedule
 状态: ✅ 页面可访问（返回SPA HTML）
 ```
 
@@ -26,10 +25,9 @@ URL: /wande/dashboard/cron-alert-rules
 - 无关键错误
 
 ## 待测试项
-- [ ] 告警规则列表API
-- [ ] 表格渲染
-- [ ] CRUD弹窗
-- [ ] 类型Tooltip
+- [ ] 排程数据API
+- [ ] 三列看板布局
+- [ ] 快捷操作功能
 
 ## 阻塞原因
 - 需要验证后端API数据支持
