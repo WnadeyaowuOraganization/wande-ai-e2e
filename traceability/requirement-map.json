@@ -1685,6 +1685,54 @@
             "last_tested": "2026-03-31T14:05:00",
             "last_result": "passed",
             "notes": "PR #847 E2E test passed. All 9 API tests passed. Ready for merge."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
+            "repo": "wande-ai-backend",
+            "title": "新增 good_lead/bad_lead 反馈 API",
+            "module": "project-mine-feedback",
+            "test_files": [
+                "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} requires authentication",
+                "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats requires authentication",
+                "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} handles gracefully",
+                "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats returns data or permission error"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T17:07:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test: 2/4 passed. 2 cases failed with 500 due to backend dev API instability / missing SQL deployment. PR #875 not approved."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
+            "repo": "wande-ai-backend",
+            "title": "外部工具企微告警推送 + 驾驶舱卡片数据API",
+            "module": "ext-tool-dashboard",
+            "test_files": [
+                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card requires authentication",
+                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report requires authentication",
+                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card returns data or permission error",
+                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report handles gracefully"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T17:07:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test: 3/4 passed. dashboard-card authenticated test failed with 500 (backend dev API unstable). PR #876 not approved."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#33",
+            "repo": "wande-ai-front",
+            "title": "审批中心+企微通知控制台页面",
+            "module": "approval-wecom-console",
+            "test_files": [
+                "tests/front/smoke/approval-center-page.spec.ts::page loads without critical errors when menu is registered",
+                "tests/front/smoke/approval-center-page.spec.ts::page has no critical console errors",
+                "tests/front/smoke/wecom-console-page.spec.ts::page loads without critical errors when menu is registered",
+                "tests/front/smoke/wecom-console-page.spec.ts::page has no critical console errors"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T17:07:00",
+            "last_result": "skipped",
+            "notes": "Mid-layer test: 4/4 skipped due to missing sys_menu entries. Need backend incremental SQL. PR #373 not approved."
         }
     ],
     "uncovered_modules": []
