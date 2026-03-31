@@ -56,7 +56,7 @@ tests/
 ### 流程
 
 ```
-1. 扫描4个仓库的open PR（base=dev，不含e2e:tested标签）
+1. 扫描4个仓库的open PR（base=dev）
 2. 对每个PR执行五步决策法（详见下方）
 3. 通过 → approve + merge PR + 标签status:test-passed
 4. 失败 → request-changes + 创建P0修复Issue + 标签status:test-failed
@@ -71,7 +71,7 @@ for repo in wande-ai-backend wande-ai-front wande-data-pipeline wande-gh-plugins
 done
 ```
 
-过滤：跳过含 `e2e:tested` 或 `human-only` 标签的PR。
+过滤：跳过 `human-only` 标签的PR。
 
 ### Step 2: 理解PR
 
