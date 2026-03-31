@@ -1,45 +1,19 @@
-# PR #353 测试任务
+# PR #353 中层测试记录
 
-## PR信息
-- **仓库**: wande-ai-front
-- **标题**: feat(dashboard): 开发效率看板页面 — 核心指标卡片+趋势图+周月切换+明细表 #122
-- **分支**: feature-issue-122
-- **关联Issue**: #122
+**测试时间**: 2026-03-31 16:45
+**仓库**: wande-ai-front
+**关联 Issue**: #122
+**PR 标题**: feat(dashboard): 开发效率看板页面 — 核心指标卡片+趋势图+周月切换+明细表 #122
 
-## 变更范围
-- `dashboard.ts` - API接口
-- `types.ts` - 类型定义
-- `dev-efficiency/` - 开发效率看板页面
-- 路由配置
+## 覆盖度评估
+- 已有 tests/front/smoke/dev-efficiency-page.spec.ts（A级）。
 
-## 测试状态
-**READY FOR TEST** - 页面可访问
+## 执行结果
+- 测试命令: `npx playwright test tests/front/ --reporter=list`
+- 结果: **Blocked**
+- 原因: Backend dev 环境 API 不稳定（ECONNREFUSED / 500 / 旧模块未部署），导致全量回归及 front smoke 登录流程受环境性失败影响，无法确认本 PR 页面安全性。
+- 结论: 本轮不 approve/merge。等待环境恢复后在中层测试下一周期重测。
 
-## 测试结果
-### 页面可访问性
-```
-URL: /dashboard/cockpit/dev-efficiency
-状态: ✅ 页面可访问（返回SPA HTML）
-```
-
-### 前端Smoke测试
-- ✅ 152个通过，30个跳过
-- 无关键错误
-
-## 待测试项
-- [ ] 开发效率指标API
-- [ ] 核心指标卡片渲染
-- [ ] 趋势图显示
-- [ ] 周月切换功能
-- [ ] 明细表
-
-## 阻塞原因
-- 需要验证后端API数据支持
-
-## 下一步
-1. 验证后端API可用性
-2. 运行页面完整E2E测试
-3. 检查UI交互
-
----
-记录时间: 2026-03-31 15:22
+## 失败分析
+- Front 测试: 445 passed, 154 skipped, 3 did not run, **212 failed**
+- 失败大量集中在 backend api-tests（brand、prompt-templates、contract、crm-direct-sales 等旧模块未部署），以及部分 front smoke（workflow-pages、workspace-page 因 backend login ECONNREFUSED 失败）。属于环境问题，非 PR 代码缺陷。

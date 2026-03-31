@@ -1,12 +1,12 @@
-# PR #352 中层测试记录
+# PR #365 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-front
-**关联 Issue**: #117
-**PR 标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+**关联 Issue**: #241
+**PR 标题**: test(tool-center): 修复工具中心测试 - 更新stub命名和异步处理 #241
 
 ## 覆盖度评估
-- 已有 tests/front/smoke/cron-alert-rules-page.spec.ts（A级）。
+- 仅 vitest 单元测试修复，非 E2E（A级）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/front/ --reporter=list`

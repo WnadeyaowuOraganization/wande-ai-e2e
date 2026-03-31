@@ -1,12 +1,12 @@
-# PR #352 中层测试记录
+# PR #368 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-front
-**关联 Issue**: #117
-**PR 标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+**关联 Issue**: #155
+**PR 标题**: feat(dashboard): 超管驾驶舱子菜单排序优化+路由配置测试 #155
 
 ## 覆盖度评估
-- 已有 tests/front/smoke/cron-alert-rules-page.spec.ts（A级）。
+- 依赖 dashboard-new-pages / cockpit-page 通用冒烟（B级）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/front/ --reporter=list`

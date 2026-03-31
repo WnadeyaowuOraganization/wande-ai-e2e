@@ -1,12 +1,12 @@
-# PR #352 中层测试记录
+# PR #372 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-front
-**关联 Issue**: #117
-**PR 标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+**关联 Issue**: #123
+**PR 标题**: feat(dashboard): 需求闭环看板页面 — 流水线视图+瓶颈分析+业务线聚合 #123
 
 ## 覆盖度评估
-- 已有 tests/front/smoke/cron-alert-rules-page.spec.ts（A级）。
+- 无定向页面 Playwright 用例（C级）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/front/ --reporter=list`

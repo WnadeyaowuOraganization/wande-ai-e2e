@@ -1,12 +1,12 @@
-# PR #352 中层测试记录
+# PR #370 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-front
-**关联 Issue**: #117
-**PR 标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+**关联 Issue**: #251
+**PR 标题**: feat(claude-office): 排程Tab — 三列看板+快捷操作 #251
 
 ## 覆盖度评估
-- 已有 tests/front/smoke/cron-alert-rules-page.spec.ts（A级）。
+- 已有 tests/front/smoke/claude-office-pages.spec.ts（A级）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/front/ --reporter=list`

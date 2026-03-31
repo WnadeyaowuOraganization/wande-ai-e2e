@@ -1,34 +1,20 @@
-# PR #849 测试任务
+# PR #849 中层测试记录
 
-## PR信息
-- **仓库**: wande-ai-backend
-- **标题**: fix(chat): Dify conversationId UUID校验 — 修复无效UUID报错 #251
-- **分支**: feature-issue-251
-- **关联Issue**: #251
+**测试时间**: 2026-03-31 16:45
+**仓库**: wande-ai-backend
+**关联 Issue**: #251
+**PR 标题**: fix(chat): Dify conversationId UUID校验 — 修复无效UUID报错 #251
 
-## 变更范围
-- `DifyServiceImpl.java` - UUID校验逻辑
-- `DifyServiceImplTest.java` - 单元测试
+## 覆盖度评估
+- 已有 tests/backend/api/dify-uuid.spec.ts（A级）。
 
-## 测试状态
-**BLOCKED** - 后端API未部署
+## 执行结果
+- 测试命令: `npx playwright test tests/backend/ --reporter=list`
+- 结果: **Blocked**
+- 原因: Backend dev 环境 API 不稳定。全量回归出现大量失败（旧模块未部署 / 返回异常 / ECONNREFUSED），无法确认本 PR 变更的安全性。
+- 结论: 本轮不 approve/merge。等待环境恢复后在中层测试下一周期重测。
 
-## 测试结果
-```
-API检查: GET /wande/chat/dify/config
-响应: {"code":500,"msg":"No static resource wande/chat/dify/config."}
-```
-
-PR代码尚未合并到dev分支或未部署到测试环境。
-
-## 阻塞原因
-- 新API端点不存在（返回404/500）
-- 需要等待PR合并并部署后才能进行E2E测试
-
-## 下一步
-1. 等待编程CC合并PR到dev分支
-2. 部署到G7e dev环境
-3. 重新运行测试
-
----
-记录时间: 2026-03-31 15:20
+## 失败分析
+- Backend 测试: 291 passed, 124 skipped, **134 failed**
+- Front 测试: 445 passed, 154 skipped, 3 did not run, **212 failed**
+- 失败主要集中在与本次 PR 无关的旧模块（brand、prompt-templates、collab-document、contract、crm-direct-sales、workflow-pages、workspace-page 等），属于环境/部署问题，而非 PR 引入的代码缺陷。

@@ -1,12 +1,12 @@
-# PR #860 中层测试记录
+# PR #859 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-backend
-**关联 Issue**: #45
-**PR 标题**: feat(cockpit): 快捷指令执行引擎 — 预设命令+自定义命令+执行历史 #45
+**关联 Issue**: #46
+**PR 标题**: feat(dashboard): Phase9 统一审批队列+企微通知控制台 API #46
 
 ## 覆盖度评估
-- 已有 tests/backend/api/dashboard-command.spec.ts（A级）。
+- 已有 tests/backend/api/dashboard-approval-wecom.spec.ts（A级）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/backend/ --reporter=list`

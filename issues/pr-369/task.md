@@ -1,12 +1,12 @@
-# PR #352 中层测试记录
+# PR #369 中层测试记录
 
 **测试时间**: 2026-03-31 16:45
 **仓库**: wande-ai-front
-**关联 Issue**: #117
-**PR 标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+**关联 Issue**: #188
+**PR 标题**: feat(monitor): GPU资源监控面板 - 实时状态+历史趋势+预警配置 #188
 
 ## 覆盖度评估
-- 已有 tests/front/smoke/cron-alert-rules-page.spec.ts（A级）。
+- 已有 tests/front/smoke/gpu-monitor-page.spec.ts（B级，同页面扩展）。
 
 ## 执行结果
 - 测试命令: `npx playwright test tests/front/ --reporter=list`
