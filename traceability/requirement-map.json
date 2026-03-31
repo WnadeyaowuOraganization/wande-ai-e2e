@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T13:10:00",
+  "updated_at": "2026-03-31T13:35:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -907,6 +907,63 @@
       "last_tested": "2026-03-31T05:20:00",
       "last_result": "passed",
       "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml)."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#600",
+      "repo": "wande-ai-backend",
+      "title": "排程管理REST API验收文档",
+      "module": "scheduler",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "skipped",
+      "note": "纯文档PR，无代码变更，跳过E2E测试。已merge。"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
+      "repo": "wande-ai-backend",
+      "title": "Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动",
+      "module": "dealer",
+      "test_files": [
+        "tests/backend/api/dealer.spec.ts — 4 passed, 6 failed, 1 skipped"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "blocked",
+      "notes": "PR有merge冲突(CONFLICTING)，代码未部署。candidate/list有TIMESTAMPTZ映射错误，bid/list和followup/list缺少Mapper XML。"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#119",
+      "repo": "wande-ai-front",
+      "title": "执行日志页 — 时间线表格+筛选栏+日志详情抽屉",
+      "module": "cron-exec-log",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "blocked",
+      "notes": "后端API /wande/dashboard/cron/exec-log/list 不存在。前端PR组件测试12/12通过。Blocked by backend API。"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#122",
+      "repo": "wande-ai-front",
+      "title": "开发效率看板页面 — 核心指标卡片+趋势图+周月切换+明细表",
+      "module": "dev-efficiency",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "blocked",
+      "notes": "后端API /wande/dashboard/dev-efficiency/stats 不存在。前端PR组件测试21/21通过。Blocked by backend API。"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#117",
+      "repo": "wande-ai-front",
+      "title": "定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip",
+      "module": "cron-alert-rules",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "blocked",
+      "notes": "后端API /wande/dashboard/cron/alert-rule/list 不存在。前端PR组件测试13/13通过。Blocked by backend API。"
     }
   ],
   "modules": {
@@ -1214,7 +1271,7 @@
   },
   "mappings_appendix": [
     {
-    "issue": "WnadeyaowuOraganization/wande-ai-backend#829",
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#829",
       "repo": "wande-ai-backend",
       "title": "模块真实可用性审计引擎 — 5维健康分+4级成熟度+31模块矩阵",
       "module": "module-health",
