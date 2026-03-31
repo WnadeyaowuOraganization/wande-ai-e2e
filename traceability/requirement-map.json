@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T01:55:00",
+  "updated_at": "2026-03-31T12:00:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -21,9 +21,9 @@
       "module": "pipeline",
       "test_files": [],
       "coverage": "none",
-      "last_tested": "2026-03-31T01:55:00",
-      "last_result": "skipped",
-      "note": "Python pipeline code — no E2E test applicable"
+      "last_tested": "2026-03-31T12:00:00",
+      "last_result": "passed",
+      "note": "Python pipeline code — no E2E test applicable. PR #87 has merge conflict."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#213",
