@@ -1,8 +1,50 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-30T19:30:00",
+  "updated_at": "2026-03-31T01:55:00",
   "mappings": [
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
+      "repo": "wande-data-pipeline",
+      "title": "S3产品参数批量入库脚本",
+      "module": "pipeline",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T01:55:00",
+      "last_result": "skipped",
+      "note": "Python pipeline code — no E2E test applicable"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#38",
+      "repo": "wande-data-pipeline",
+      "title": "竞品采集管线+domestic_projects",
+      "module": "pipeline",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T01:55:00",
+      "last_result": "skipped",
+      "note": "Python pipeline code — no E2E test applicable"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#213",
+      "repo": "wande-ai-front",
+      "title": "外部工具健康度卡片",
+      "module": "ext-tool-health",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API rejects unauthenticated requests",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API returns valid data with auth",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API response has expected fields",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page loads with external tool health card",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T01:55:00",
+      "last_result": "failed",
+      "blockers": [
+        "WnadeyaowuOraganization/wande-ai-backend#830 — dashboard-card API 500",
+        "WnadeyaowuOraganization/wande-ai-backend#831 — CockpitConfigMapper SQL error"
+      ]
+    },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
       "repo": "wande-ai-front",
