@@ -1,31 +1,22 @@
-# PR #352 测试任务
+# front#352 测试工作记录
 
 ## PR信息
-- **仓库**: wande-ai-front
-- **PR**: #352
-- **标题**: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
-- **关联Issue**: #117
-- **状态**: OPEN
+- 标题: feat(dashboard): 定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip #117
+- 分支: feature-issue-117 → dev
+- 变更: +827/-0, 5个文件
 
-## 变更范围
-- 新增告警规则管理页面
-- API类型定义: CronAlertRule, CronAlertRuleType, NotifyChannel
-- CRUD调用函数
+## 测试状态: ❌ BLOCKED
 
-## 依赖的后端API
-- GET/POST/PUT/DELETE `/wande/dashboard/cron/alert-rule/*`
+### 阻塞原因
+1. **Merge冲突**: mergeStateStatus=DIRTY, mergeable=CONFLICTING
+2. **缺少后端API**: `/system/cron-alert-rules/list` 返回500错误
+   - PR描述已说明: "后端补充 CronAlertRule Controller 后验证 API 对接"
 
-## 阻塞问题
-**后端API未部署**
+### 测试计划（解除阻塞后）
+1. API测试: 验证CRUD接口
+2. 页面测试: 验证表格、弹窗、类型Tooltip
 
-验证命令:
-```bash
-curl -s http://localhost:6040/wande/dashboard/cron/alert-rule/list
-# 返回: {"code":500,"msg":"No static resource wande/dashboard/cron/alert-rule/list."}
-```
-
-需要后端PR实现CronAlertRule Controller后才能测试。
-
-## 建议操作
-1. 确认后端对应PR
-2. 后端API部署后重新测试
+## 下一步
+1. 后端实现 CronAlertRule Controller
+2. 解决merge冲突
+3. 重新触发中层测试
