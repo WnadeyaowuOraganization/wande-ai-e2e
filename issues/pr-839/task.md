@@ -1,33 +1,33 @@
-# PR #839 测试任务
+# PR #839 测试记录
 
-## PR信息
+## 基本信息
+- **PR**: feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
 - **仓库**: wande-ai-backend
-- **标题**: feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
-- **分支**: feature-issue-309
-- **关联Issue**: #309
-
-## 变更范围
-- Dealer模块相关实体、Mapper、Service、Controller
-- SQL迁移脚本
-- 单元测试
-
-## 测试状态
-**BLOCKED** - 后端API未部署
+- **测试时间**: 2026-03-31 16:15
 
 ## 测试结果
-API检查: GET /wande/dealer/candidates
-响应: {"code":500,"msg":"No static resource wande/dealer/candidates."}
+**状态**: ❌ 测试失败 - 请求修改 (request-changes)
 
-Dealer模块API尚未部署到测试环境。
+## 失败原因
+数据库字段类型不匹配错误：
 
-## 阻塞原因
-- 新API端点不存在
-- 需要等待PR合并并部署
+```
+Error attempting to get column 'stage_entered_at' from result set.
+Cause: org.postgresql.util.PSQLException: Cannot convert the column of type TIMESTAMPTZ to requested type java.time.LocalDateTime.
+bad SQL grammar []
+```
 
-## 下一步
-1. 等待编程CC合并PR到dev分支
-2. 部署到G7e dev环境
-3. 重新运行测试
+## 问题分析
+PostgreSQL表中的`stage_entered_at`字段类型为`TIMESTAMPTZ`，但Java实体使用`LocalDateTime`接收，类型转换失败。
 
----
-记录时间: 2026-03-31 15:20
+## 建议修复方案
+1. **方案A**: 修改Java实体，使用`OffsetDateTime`替代`LocalDateTime`
+2. **方案B**: 修改数据库字段类型为`TIMESTAMP`（不带时区）
+3. **方案C**: 在MyBatis映射中添加类型处理器
+
+## 代码位置
+- `ruoyi-modules-api/wande-ai-api/src/main/java/org/ruoyi/wande/domain/Client.java`
+- 相关Mapper XML文件
+
+## 关联Issue
+- Fixes #309
