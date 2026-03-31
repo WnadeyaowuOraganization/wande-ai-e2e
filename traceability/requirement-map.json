@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T05:20:00",
+  "updated_at": "2026-03-31T06:45:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -40,12 +40,9 @@
         "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T01:55:00",
-      "last_result": "failed",
-      "blockers": [
-        "WnadeyaowuOraganization/wande-ai-backend#830 — dashboard-card API 500",
-        "WnadeyaowuOraganization/wande-ai-backend#831 — CockpitConfigMapper SQL error"
-      ]
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Blockers resolved (#830/#831 fixed). ext-tool-health-card: 5/5 passed."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -828,36 +825,36 @@
       "test_files": [
         "tests/backend/api/file-upload-security.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
-      "last_result": "failed",
-      "notes": "SSE endpoint returns 500 — fix not deployed to dev yet. 1/8 PASS."
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: file-upload-security 8/8 passed. PR merged."
     },
     {
-      "issue": "WnadeyaowuOraganization/wande-ai-front#63",
+      "issue": "WnadeyaowuOrganization/wande-ai-front#63",
       "repo": "wande-ai-front",
       "title": "用户反馈管理页面（Cockpit版）",
       "module": "feedback",
       "test_files": [
         "tests/front/smoke/feedback-manage-page.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
-      "last_result": "partial",
-      "notes": "Frontend page loads OK. Backend API returns 500 for some endpoints. 3/7 PASS."
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: feedback-manage 7/7 passed."
     },
     {
-      "issue": "WnadeyaowuOraganization/wande-ai-front#62",
+      "issue": "WnadeyaowuOrganization/wande-ai-front#62",
       "repo": "wande-ai-front",
       "title": "用户反馈管理页面（Wande版）",
       "module": "feedback",
       "test_files": [
         "tests/front/smoke/feedback-page.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
-      "last_result": "partial",
-      "notes": "Frontend page loads OK. generate-summary endpoint missing. 5/8 PASS."
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: feedback-page 8/8 passed."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#339",
@@ -867,10 +864,10 @@
       "test_files": [
         "tests/front/smoke/module-health-page.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
-      "last_result": "partial",
-      "notes": "Frontend page loads OK. Backend /wande/dashboard/module-health/list API missing. 2/5 PASS."
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: module-health-page 5/5 passed. Backend API now available."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#338",
@@ -880,10 +877,10 @@
       "test_files": [
         "tests/front/smoke/cron-tasks-page.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
-      "last_result": "partial",
-      "notes": "Frontend page loads OK. Backend /wande/dashboard/cron/list API missing (only POST operations exist). 3/7 PASS."
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: cron-tasks 7/7 passed."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
@@ -1215,5 +1212,149 @@
       ]
     }
   },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#829",
+      "repo": "wande-ai-backend",
+      "title": "模块真实可用性审计引擎 — 5维健康分+4级成熟度+31模块矩阵",
+      "module": "module-health",
+      "test_files": [
+        "tests/backend/api/module-health.spec.ts::GET /list requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /registry requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /{id} requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /list returns health matrix data",
+        "tests/backend/api/module-health.spec.ts::GET /registry returns module list",
+        "tests/backend/api/module-health.spec.ts::GET /{id} returns detail or graceful error"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: module-health API 6/6 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#360",
+      "repo": "wande-ai-backend",
+      "title": "项目分配作战信息卡通知",
+      "module": "project-notification",
+      "test_files": [
+        "tests/backend/api/project-notification.spec.ts::GET /my requires authentication",
+        "tests/backend/api/project-notification.spec.ts::GET /unread requires authentication",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/read requires authentication",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle requires authentication",
+        "tests/backend/api/project-notification.spec.ts::POST /mine/assign requires authentication",
+        "tests/backend/api/project-notification.spec.ts::GET /my returns notification list",
+        "tests/backend/api/project-notification.spec.ts::GET /unread returns count",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/read handles gracefully",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle handles gracefully"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: project-notification API 9/9 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#830",
+      "repo": "wande-ai-backend",
+      "title": "修复dashboard-card API 500错误",
+      "module": "ext-tool-health",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Bug fix verified: ext-tool-health-card 5/5 passed. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#831",
+      "repo": "wande-ai-backend",
+      "title": "cockpit_config表添加BaseEntity标准列修复SQL报错",
+      "module": "cockpit",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Bug fix verified: cockpit page loads OK. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#68",
+      "repo": "wande-ai-front",
+      "title": "国际贸易矿场CRM衔接前端",
+      "module": "crm",
+      "test_files": [
+        "tests/front/smoke/crm-intl-mine-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: CRM intl mine smoke 4/4 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#57",
+      "repo": "wande-ai-front",
+      "title": "矿场详情页展示合并后完整信息",
+      "module": "mine-detail",
+      "test_files": [
+        "tests/front/smoke/mine-detail-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: mine-detail smoke 4/4 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#143",
+      "repo": "wande-ai-front",
+      "title": "矿场运营仪表盘 — 核心指标可视化",
+      "module": "mine-dashboard",
+      "test_files": [
+        "tests/front/smoke/mine-dashboard-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: mine-dashboard smoke 4/4 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#18",
+      "repo": "wande-data-pipeline",
+      "title": "ggzy.gov.cn全国公共资源交易平台采集器",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python collector, no HTTP API. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
+      "repo": "wande-data-pipeline",
+      "title": "关键词学习效果追踪+无效词降权 v3.0",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",
+      "repo": "wande-data-pipeline",
+      "title": "信源过滤增强 — URL黑名单+标题噪音+内容判断",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml). PR merged."
+    }
+  ],
   "uncovered_modules": []
 }
