@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-    "updated_at": "2026-03-31T16:15:00+08:00",
+    "updated_at": "2026-04-01T01:26:47+08:00",
     "mappings": [
         {
             "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -474,9 +474,9 @@
                 "tests/backend/api/dashboard-approval-wecom.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+            "notes": "Mid-layer test passed. PR #859 merged via REST API."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#248",
@@ -590,9 +590,9 @@
                 "tests/front/smoke/claude-office-pages.spec.ts"
             ],
             "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
-            "notes": "Menu not registered. Frontend base load test only."
+            "notes": "Mid-layer test passed. PR #370 merged via REST API."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#32",
@@ -713,9 +713,9 @@
                 "tests/front/smoke/model-pool-page.spec.ts::page has no critical console errors"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Frontend available but backend API down"
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "model-pool-page console-errors test failed due to backend MonitorAlertVo createdAt missing setter. PR #367 blocked by backend dev issue."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#691",
@@ -773,10 +773,10 @@
             "test_files": [
                 "tests/backend/api/dashboard-blocker.spec.ts"
             ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+            "coverage": "partial",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test: ext-tool-dashboard API 500. Backend dev unstable. PR #876 blocked."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#45",
@@ -787,9 +787,9 @@
                 "tests/backend/api/dashboard-command.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+            "notes": "Mid-layer test passed. PR #860 has merge conflict (dirty) — blocked for merge."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#241",
@@ -800,9 +800,9 @@
                 "tests/front/smoke/tool-detail.spec.ts"
             ],
             "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
-            "notes": "Partially covered by tool-detail tests"
+            "notes": "Test-only PR. PR #365 merged via REST API."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#210",
@@ -865,9 +865,9 @@
                 "tests/front/smoke/module-health-page.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
-            "notes": "Mid-layer test: module-health-page 5/5 passed. Backend API now available."
+            "notes": "Docs-only PR. PR #366 merged via REST API."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#338",
@@ -991,9 +991,9 @@
                 "tests/backend/api/dashboard-acceptance.spec.ts"
             ],
             "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
+            "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "blocked",
-            "notes": "Tests added. Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+            "notes": "dashboard-acceptance 3/6 failed with 500. Backend dev unstable. PR #851 blocked."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#251",
@@ -1092,6 +1092,116 @@
             "last_tested": "2026-03-31T16:15:00+08:00",
             "last_result": "failed",
             "note": "API 500错误 - dealer Phase3接口"
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
+            "repo": "wande-ai-backend",
+            "title": "Issue #357",
+            "module": "mid-layer-test:-project-mine-feedback-2/4-failed-with-500",
+            "test_files": [],
+            "coverage": "partial",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test: project-mine-feedback 2/4 failed with 500. Backend dev unstable. PR #875 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#361",
+            "repo": "wande-ai-backend",
+            "title": "项目分配企微机器人推送通知",
+            "module": "no-e2e-coverage-+-pr-dirty-(merge-conflict)",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "No E2E coverage + PR dirty (merge conflict). PR #874 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#840",
+            "repo": "wande-ai-backend",
+            "title": "Issue #840",
+            "module": "dealer-phase3-endpoints-still-return-500",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "Dealer Phase3 endpoints still return 500. PR #873 fix not fully effective in dev."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#358",
+            "repo": "wande-ai-backend",
+            "title": "tender_data 与 discovered_projects 数据关联查询 API",
+            "module": "no-e2e-coverage-for-project-mine-enriched-query",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "No E2E coverage for project-mine enriched query. PR #872 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#89",
+            "repo": "wande-ai-backend",
+            "title": "知识库上传向量延迟3分钟+删除向量修复",
+            "module": "pr-dirty-(merge-conflict)-+-no-e2e-coverage-for-knowledge-base-vector-fix",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "PR dirty (merge conflict) + no E2E coverage for knowledge base vector fix. PR #861 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#33",
+            "repo": "wande-ai-front",
+            "title": "Issue #33",
+            "module": "menu-not-registered:-approval-center/wecom-console-pages-skipped",
+            "test_files": [],
+            "coverage": "partial",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "skipped",
+            "notes": "Menu not registered: approval-center/wecom-console pages skipped. Need backend SQL. PR #373 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#123",
+            "repo": "wande-ai-front",
+            "title": "需求闭环看板页面",
+            "module": "no-e2e-coverage-for-requirement-lifecycle-dashboard",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "blocked",
+            "notes": "No E2E coverage for requirement-lifecycle dashboard. PR #372 blocked."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#188",
+            "repo": "wande-ai-front",
+            "title": "GPU资源监控面板",
+            "module": "mid-layer-test-passed",
+            "test_files": [],
+            "coverage": "full",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "passed",
+            "notes": "Mid-layer test passed. PR #369 merged via REST API."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#155",
+            "repo": "wande-ai-front",
+            "title": "Issue #155",
+            "module": "mid-layer-test-passed",
+            "test_files": [],
+            "coverage": "partial",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "passed",
+            "notes": "Mid-layer test passed. PR #368 tests passed but merge blocked (not mergeable)."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#244",
+            "repo": "wande-ai-front",
+            "title": "Issue #244",
+            "module": "test-only-pr",
+            "test_files": [],
+            "coverage": "partial",
+            "last_tested": "2026-04-01T01:26:47+08:00",
+            "last_result": "passed",
+            "notes": "Test-only PR. PR #363 merged via REST API."
         }
     ],
     "modules": {
