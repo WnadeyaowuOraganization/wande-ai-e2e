@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T12:17:00",
+  "updated_at": "2026-03-31T12:35:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1405,6 +1405,55 @@
       "last_tested": "2026-03-31T11:35:00",
       "last_result": "failed",
       "notes": "P0 bugfix: TIMESTAMPTZ→LocalDateTime + DealerBidRecordMapper/DealerFollowUpMapper XML missing. Blocks PR #839."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#244",
+      "repo": "wande-ai-front",
+      "title": "确认中心页面 — 双Tab + 确认驳回 + 评论回写",
+      "module": "confirmation-center",
+      "test_files": [
+        "tests/front/smoke/confirmation-center.spec.ts::approvals list API requires authentication",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API requires authentication",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals list API returns data or permission error with auth",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API returns data or permission error",
+        "tests/front/smoke/confirmation-center.spec.ts::frontend serves correctly",
+        "tests/front/smoke/confirmation-center.spec.ts::confirmation center page load attempt"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: confirmation-center 6/6 passed. Menu not registered in sys_menu. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#163",
+      "repo": "wande-ai-front",
+      "title": "业务员待办中心 — 我的项目列表+通知中心",
+      "module": "my-projects",
+      "test_files": [
+        "tests/front/smoke/my-projects-page.spec.ts::project mine list API requires authentication",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine stats API requires authentication",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine list API returns data with auth",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine stats API returns data with auth",
+        "tests/front/smoke/my-projects-page.spec.ts::frontend serves correctly",
+        "tests/front/smoke/my-projects-page.spec.ts::my projects page load attempt"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: my-projects 6/6 passed. Menu not registered in sys_menu. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#20",
+      "repo": "wande-data-pipeline",
+      "title": "多源项目智能去重合并 v2.0",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts::14/14 passed"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: pipeline-health 14/14 passed. Python-only changes, 73 unit tests in PR. PR merged."
     }
   ],
   "uncovered_modules": []
