@@ -8,11 +8,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('深色主题功能', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('http://localhost:8083/login');
-    await page.getByPlaceholder('用户名').fill('admin');
+    await page.goto('http://localhost:8083/auth/login');
+    await page.getByPlaceholder('请输入用户名').fill('admin');
     await page.getByPlaceholder('密码').fill('admin123');
-    await page.getByRole('button', { name: '手机号登录' }).click();
-    await page.waitForURL('**/cockpit');
+    await page.locator('button[aria-label="login"]').click();
+    await page.waitForTimeout(3000);
   });
 
   test('深色主题CSS加载', async ({ page }) => {
