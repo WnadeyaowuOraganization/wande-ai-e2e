@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-    "updated_at": "2026-03-31T14:00:00",
+    "updated_at": "2026-03-31T14:05:00",
     "mappings": [
         {
             "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1547,6 +1547,27 @@
             "last_tested": "2026-03-31T13:10:00",
             "last_result": "passed",
             "notes": "Route config change: order:-2 for SuperAdminCockpit. All dashboard pages accessible. PR merged."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#574",
+            "repo": "wande-ai-backend",
+            "title": "确认中心API — Issue标签同步+确认/驳回+评论回写GitHub",
+            "module": "confirmation-center",
+            "test_files": [
+                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations requires authentication",
+                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats requires authentication",
+                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync requires authentication",
+                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations should return list",
+                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations with filters should work",
+                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats should return statistics",
+                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync should trigger sync",
+                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/confirm returns expected result",
+                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/reject returns expected result"
+            ],
+            "coverage": "full",
+            "last_tested": "2026-03-31T14:05:00",
+            "last_result": "passed",
+            "notes": "PR #847 E2E test passed. All 9 API tests passed. Ready for merge."
         }
     ],
     "uncovered_modules": []
