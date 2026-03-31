@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-03-31T12:00:00",
+  "updated_at": "2026-03-31T04:32:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -19,11 +19,13 @@
       "repo": "wande-data-pipeline",
       "title": "竞品采集管线+domestic_projects",
       "module": "pipeline",
-      "test_files": [],
-      "coverage": "none",
-      "last_tested": "2026-03-31T12:00:00",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T04:32:00",
       "last_result": "passed",
-      "note": "Python pipeline code — no E2E test applicable. PR #87 has merge conflict."
+      "notes": "Pipeline API tests 14/14 passed. Python pipeline code — no direct E2E test. PR #87 has merge conflict with PR #88."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#213",
@@ -406,12 +408,25 @@
       "title": "smart_project_discovery.py 配置分离与日志优化",
       "module": "pipeline",
       "test_files": [
-        "tests/pipeline/api/pipeline-health.spec.ts"
+        "tests/pipeline/api/pipeline-health.spec.ts::backend service is reachable for pipeline data",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data API returns data with valid token",
+        "tests/pipeline/api/pipeline-health.spec.ts::project mine API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::project mine API returns data with valid token",
+        "tests/pipeline/api/pipeline-health.spec.ts::pipeline database is reachable via backend health",
+        "tests/pipeline/api/pipeline-health.spec.ts::competitor API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::product center API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::mine competitor API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::dashboard command API is reachable",
+        "tests/pipeline/api/pipeline-health.spec.ts::config.yaml database connection matches backend",
+        "tests/pipeline/api/pipeline-health.spec.ts::pipeline search services are configured (SearXNG)",
+        "tests/pipeline/api/pipeline-health.spec.ts::discovered projects have required fields",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-29T16:00:00",
+      "last_tested": "2026-03-31T04:32:00",
       "last_result": "passed",
-      "notes": "No HTTP endpoints to test directly. Verified via backend API data integrity."
+      "notes": "14/14 pipeline API tests passed. No HTTP endpoints to test directly. Verified via backend API data integrity. PR #88 has merge conflict."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
