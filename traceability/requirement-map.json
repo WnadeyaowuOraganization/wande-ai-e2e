@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-    "updated_at": "2026-04-01T01:26:47+08:00",
+    "updated_at": "2026-03-31T21:03:00+08:00",
     "mappings": [
         {
             "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -928,9 +928,9 @@
                 "tests/backend/api/dealer.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-31T16:00:34",
+            "last_tested": "2026-03-31T21:03:00",
             "last_result": "blocked",
-            "notes": "Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#119",
@@ -1017,9 +1017,9 @@
                 "tests/backend/api/dashboard-blocker.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-31T16:00:34",
+            "last_tested": "2026-03-31T21:03:00",
             "last_result": "blocked",
-            "notes": "Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#575",
@@ -1030,9 +1030,9 @@
                 "tests/backend/api/gateway-budget.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-03-31T16:00:34",
+            "last_tested": "2026-03-31T21:03:00",
             "last_result": "blocked",
-            "notes": "Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-front#120",
@@ -1202,6 +1202,128 @@
             "last_tested": "2026-04-01T01:26:47+08:00",
             "last_result": "passed",
             "notes": "Test-only PR. PR #363 merged via REST API."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
+            "repo": "wande-ai-backend",
+            "title": "CC API调用质量监控",
+            "module": "cc-api-metric",
+            "test_files": [
+                "tests/backend/api/dashboard-cc-api-metric.spec.ts (to be added)"
+            ],
+            "coverage": "none",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). PR #906 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
+            "repo": "wande-ai-backend",
+            "title": "工具管理Service+API",
+            "module": "tool-management",
+            "test_files": [
+                "tests/backend/api/tool-management.spec.ts"
+            ],
+            "coverage": "full",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Existing tests cannot run. PR #905 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#394",
+            "repo": "wande-ai-front",
+            "title": "驾驶舱全页面深色主题",
+            "module": "cockpit-dark-theme",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #415 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#392",
+            "repo": "wande-ai-front",
+            "title": "键盘快捷键系统",
+            "module": "cockpit-hotkeys",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #414 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#385",
+            "repo": "wande-ai-front",
+            "title": "首页卡片聚合升级 — 全子模块健康度统一展示",
+            "module": "health-card-grid",
+            "test_files": [
+                "tests/front/smoke/health-card-grid.spec.ts"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #413 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#67",
+            "repo": "wande-ai-front",
+            "title": "超管后台权限管理界面",
+            "module": "admin-permission",
+            "test_files": [
+                "tests/front/smoke/admin-permission-page.spec.ts"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #411 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#388",
+            "repo": "wande-ai-front",
+            "title": "角色化仪表盘视图",
+            "module": "cockpit-role-view",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #410 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#386",
+            "repo": "wande-ai-front",
+            "title": "DORA四指标看板页面",
+            "module": "dora-metrics",
+            "test_files": [
+                "tests/front/smoke/dora-metrics.spec.ts"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). DORA page loads but redirects to login due to backend auth failure. PR #409 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#387",
+            "repo": "wande-ai-front",
+            "title": "全平台操作审计日志页面",
+            "module": "audit-log",
+            "test_files": [],
+            "coverage": "none",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #407 blocked until environment recovers."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-front#320",
+            "repo": "wande-ai-front",
+            "title": "超管驾驶舱预算总览组件",
+            "module": "budget-overview",
+            "test_files": [
+                "tests/front/smoke/budget-overview.spec.ts"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-03-31T21:03:00",
+            "last_result": "blocked",
+            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #405/#403 blocked until environment recovers."
         }
     ],
     "modules": {
