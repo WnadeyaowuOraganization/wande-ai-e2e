@@ -42,7 +42,7 @@
       "coverage": "partial",
       "last_tested": "2026-04-01T14:48:00+08:00",
       "last_result": "blocked",
-      "notes": "Mid-layer test: blocked because backend dev environment is down (MyBatis alias conflict from backend#953). Front#437 cannot be validated. Retry after backend#955 fixed."
+      "notes": "Mid-layer test: PR #437 test-passed + APPROVED, but merge blocked by DIRTY/CONFLICTING state. Needs conflict resolution."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -452,6 +452,19 @@
       "last_tested": "2026-04-01T14:48:00+08:00",
       "last_result": "failed",
       "notes": "Mid-layer test: backend dev startup failed due to MyBatis alias conflict introduced by PR #953 (DashboardTokenAlertHistoryVo / DashboardTokenPoolBo). Requested changes on PR #953. P0 fix issue backend#955 created."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
+      "repo": "wande-ai-backend",
+      "title": "G7e claude_monitor + webhook回调注入",
+      "module": "dashboard",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T14:48:00+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: 328 passed, 25 skipped. Approved but merge blocked by conflict."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
