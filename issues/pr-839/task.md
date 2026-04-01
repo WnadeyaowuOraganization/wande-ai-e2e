@@ -1,41 +1,31 @@
-# PR #839 测试任务
+# PR #839 测试工作记录
 
-## PR信息
-- **仓库**: wande-ai-backend
-- **PR**: #839
-- **标题**: feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
+## 基本信息
+- **PR**: feat(dealer): Phase 3 模块间数据打通
 - **关联Issue**: #309
-- **分支**: feature-issue-309
+- **测试时间**: 2026-04-01
+- **测试状态**: ❌ 失败
 
 ## 测试结果
-**状态**: ❌ 测试失败
 
 ### 失败用例
 | 用例 | 期望 | 实际 | 错误 |
 |------|------|------|------|
-| import-from-tender 未认证 | 401 | 500 | 服务器错误 |
-| sync-to-crm 未认证 | 401 | 500 | 服务器错误 |
-| related-project 未认证 | 401 | 500 | 服务器错误 |
-| 经销商候选人列表 | 200 | 500 | 服务器错误 |
-| 中标记录列表 | 200 | 500 | 服务器错误 |
-| 跟进记录列表 | 200 | 500 | 服务器错误 |
+| GET /wande/dealer/candidate/list | 200 | 500 | TIMESTAMPTZ类型转换错误 |
+| GET /wande/dealer/bid/list | 200 | 500 | Mapper绑定失败 |
+| Phase3 APIs (未认证) | 401 | 500 | 未正确处理未认证请求 |
 
-### 通过用例
-- 4个Phase3边界测试用例通过
-- 1个详情查询跳过（无数据）
+## 问题根因
 
-## 问题分析
-Dealer模块API大面积返回500，可能原因：
-1. 数据库表结构变更未同步（clients表BaseEntity兼容）
-2. Mapper XML配置问题
-3. Service依赖注入失败
+1. TIMESTAMPTZ 类型与 Java LocalDateTime 不兼容
+2. DealerBidRecordMapper XML 配置缺失
+3. Phase3 API 未正确处理未认证请求
 
-## 执行时间
-2026-04-01 06:55
+## 修复建议
 
-## 建议
-需要编程CC检查：
-1. 增量SQL: `2026-03-31-dealer-module-integration.sql` 是否正确执行
-2. ClientMapper.xml 和 TenderDataMapper.xml 配置是否正确
-3. DealerCandidateServiceImpl 依赖是否正确注入
-4. G7eServiceConfig 合并冲突是否完全解决
+1. 修复时间戳类型（使用 OffsetDateTime 或修改数据库列）
+2. 修复Mapper绑定
+3. 修复认证拦截配置
+
+## 下次测试步骤
+npx playwright test tests/backend/api/dealer.spec.ts
