@@ -1,30 +1,33 @@
 # PR #850 测试任务
 
+## 状态
+- 创建时间: 2026-04-01 02:31
+- 测试状态: test-failed
+- 结果: 阻塞 - SQL语法错误
+
 ## PR信息
-- **仓库**: wande-ai-backend
-- **标题**: feat(dashboard): 修复开发阻塞主动提醒功能代码结构 #485
-- **分支**: feature-issue-485 → dev
-- **作者**: david-hwp
+- 仓库: wande-ai-backend
+- PR: #850 - feat(dashboard): 修复开发阻塞主动提醒功能代码结构 #485
+- 标签: status:test-failed
 
-## 变更范围
-- 开发阻塞提醒功能修复
-- SQL迁移: 2026-03-30-add-dashboard-blockers.sql
+## 测试执行记录
 
-## 测试结果
-**状态**: ⚠️ 部分通过
+### 测试轮次1 (2026-04-01 02:31)
+- 状态: failed
+- SQL执行: ❌ 语法错误
+  - add-dashboard-blockers.sql: ERROR: AUTO_INCREMENT不支持(PostgreSQL)
+  - add-project-mine-feedback-columns.sql: 部分执行成功
+- API测试: ❌ 无法测试
 
-### 测试详情
-- 未认证访问测试: ✅ 3/3 通过
-- 认证后测试: ⚠️ 部分通过
-  - GET /list: ❌ 500错误
-  - GET /stats: ❌ 500错误
-  - GET /unresolved-count: ❌ 500错误
-  - POST创建: ✅ 通过
-  - PUT /resolve: ✅ 通过
-  - DELETE: ✅ 通过
+## 阻塞原因
+1. SQL文件使用MySQL语法(AUTO_INCREMENT)，需要改为PostgreSQL语法(BIGSERIAL)
+2. PR代码尚未部署
 
-### 问题
-部分API返回500，可能是数据库表缺失或数据问题。
+## 需要修复
+- 原MySQL语法: `id BIGINT AUTO_INCREMENT PRIMARY KEY`
+- 应改为PostgreSQL语法: `id BIGSERIAL PRIMARY KEY`
 
-## 关联Issue
-- #485
+## 下一步
+1. 编程CC修复SQL语法
+2. 重新部署代码
+3. 重新执行中层测试

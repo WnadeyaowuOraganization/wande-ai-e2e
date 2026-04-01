@@ -1,27 +1,27 @@
 # PR #839 测试任务
 
+## 状态
+- 创建时间: 2026-04-01 02:31
+- 测试状态: test-failed
+- 结果: 阻塞 - 代码未部署
+
 ## PR信息
-- **仓库**: wande-ai-backend
-- **标题**: feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
-- **分支**: feature-issue-309 → dev
-- **作者**: wandeyaowu
-- **标签**: status:test-failed (已有)
+- 仓库: wande-ai-backend
+- PR: #839 - feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
+- 标签: status:test-failed
 
-## 变更范围
-- Dealer模块Phase 3：招标/矿场/CRM联动
-- SQL迁移: 2026-03-31-dealer-module-integration.sql
+## 测试执行记录
 
-## 测试结果
-**状态**: ⚠️ 部分通过
+### 测试轮次1 (2026-04-01 02:31)
+- 状态: failed
+- SQL执行: ✅ 字段已存在
+  - bidder_is_dealer: 已存在
+  - client_type, dealer_id, create_time等: 已存在
+- API测试: ❌ 无法测试 - 代码未部署
 
-### 测试详情
-- 未认证访问测试: ⚠️ 1/4 通过 (部分返回404而非401)
-- 认证后测试: ⚠️ 部分通过
-- Phase3联动测试: ✅ 3/3 通过 (错误处理正常)
+## 阻塞原因
+PR代码尚未部署到G7e dev环境。
 
-### 问题
-1. 部分API返回404而非401（可能是路由未注册）
-2. 部分API需要数据库表支持
-
-## 关联Issue
-- #309
+## 下一步
+1. 等待代码部署
+2. 重新执行中层测试
