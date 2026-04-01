@@ -1,52 +1,37 @@
-# PR #906 测试记录 - CC API调用质量监控
+# PR #906 测试任务
 
 ## PR信息
 - **仓库**: wande-ai-backend
-- **PR**: #906 - feat(dashboard): Issue #698 CC API调用质量监控 — 后端 + 测试 + G7e脚本
+- **PR**: #906
+- **标题**: feat(dashboard): Issue #698 CC API调用质量监控 — 后端 + 测试 + G7e脚本
 - **关联Issue**: #698
-- **状态**: ❌ 测试失败
+- **分支**: feature-issue-698
 
-## 测试执行
-- **执行时间**: 2026-04-01 06:50
-- **测试范围**: tests/backend/api/cc-api-quality.spec.ts
-- **结果**: 4/5 测试失败
+## 测试结果
+**状态**: ❌ 测试失败
 
-## 失败用例
+### 失败用例
+| 用例 | 期望 | 实际 | 错误 |
+|------|------|------|------|
+| GET /monitor/cc-api-metric/{id} | 200/404 | 500 | 服务器错误 |
+| GET /monitor/cc-api-metric/overview | 200 | 500 | 服务器错误 |
+| GET /monitor/cc-api-metric/trend | 200 | 500 | 服务器错误 |
+| POST /monitor/cc-api-metric/webhook/report | 200 | 500 | 服务器错误 |
 
-| 用例 | 期望 | 实际 | 错误详情 |
-|------|------|------|----------|
-| GET /monitor/cc-api-metric/{id} | 200/404 | 500 | 数据库错误 |
-| GET /monitor/cc-api-metric/overview | 200 | 500 | 数据库错误 |
-| GET /monitor/cc-api-metric/trend | 200 | 500 | 数据库错误 |
-| POST /monitor/cc-api-metric/webhook/report | 200 | 500 | 数据库错误 |
+### 通过用例
+- GET /monitor/cc-api-metric/list - 获取CC API指标列表
 
-## 根因分析
+## 问题分析
+API返回500错误，可能原因：
+1. 数据库表 `wdpp_dashboard_cc_api_metrics` 不存在
+2. DashboardCcApiMetricController 依赖问题
+3. 测试环境与dev环境配置差异
 
-### 数据库Schema错误
-```
-ERROR: column "create_dept" does not exist
-  Position: 163
-SQL: SELECT ... create_dept,create_by,create_time ... FROM wdpp_dashboard_cc_api_metrics
-```
+## 执行时间
+2026-04-01 06:55
 
-**问题**: 数据库表 `wdpp_dashboard_cc_api_metrics` 缺少 `create_dept` 等BaseEntity标准列。
-
-**分析**: PR #906 包含完整的增量SQL文件：
-```
-script/sql/update/wande_ai/2026-03-31-create-dashboard-cc-api-metrics.sql
-```
-
-但G7e dev环境尚未执行此SQL，导致表结构不完整。
-
-## 操作记录
-- [x] 2026-04-01 06:50 - 执行API测试
-- [x] 2026-04-01 06:50 - 确认数据库schema问题
-- [ ] 等待SQL执行后重测
-
-## 修复建议
-在G7e dev环境执行：
-```bash
-psql -U wande -d wande_ai -f script/sql/update/wande_ai/2026-03-31-create-dashboard-cc-api-metrics.sql
-```
-
-或重新创建完整的表结构（如果表已存在但缺少列）。
+## 建议
+需要编程CC检查：
+1. 增量SQL: `2026-03-31-create-dashboard-cc-api-metrics.sql` 是否正确执行
+2. Service层是否正确注入
+3. 数据库连接配置是否正确
