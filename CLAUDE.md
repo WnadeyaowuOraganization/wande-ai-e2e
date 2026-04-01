@@ -219,7 +219,7 @@ WHERE c.menu_name LIKE '%关键词%';
 
 新增测试用例时提交到本仓库：
 ```bash
-git add tests/ traceability/
+git add ./*
 git commit -m "test: add tests for backend#5"
 git push origin main
 ```
