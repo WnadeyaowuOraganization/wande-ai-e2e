@@ -1,36 +1,28 @@
-# 中层测试报告 2026-04-01 14:48
+# PR #953 测试记录
 
-## 扫描结果
+## 基本信息
+- PR: G7e claude_monitor + webhook回调注入
+- 作者: wandeyaowu
+- 测试时间: 2026-04-01 15:20
+- 关联Issue: #333
 
-| 仓库 | PR | 标题 | 初始状态 | 操作 |
-|------|-----|------|----------|------|
-| wande-ai-backend | #953 | G7e claude_monitor + webhook回调注入 | test-failed | 重新测试 → 通过 |
-| wande-ai-front | #437 | 外部工具健康度卡片 | test-passed, APPROVED | 检查冲突 |
-| wande-data-pipeline | #90 | 关键词学习v3.0 | CHANGES_REQUESTED | 跳过（需修复） |
-| wande-data-pipeline | #88 | 采集引擎配置分离 | CHANGES_REQUESTED | 跳过（需修复） |
-| wande-data-pipeline | #87 | 添加post-task.sh脚本 | CHANGES_REQUESTED | 跳过（需修复） |
+## 测试结果
+❌ **测试失败**
 
-## backend#953 详情
+## 失败原因
+MyBatis alias冲突导致wande-ai模块无法启动：
 
-- **关联Issue**: #333
-- **变更范围**: claude_monitor部署、webhook回调注入、wande-ai模块单元测试修复
-- **测试结果**: 328 passed, 25 skipped
-- **操作**: ✅ 已approve，标签已更新为test-passed
-- **阻塞**: 有merge conflict，需编程CC解决
+\`\`\`
+DashboardClaudeSessionVo already mapped
+GatewayAccount already mapped
+DashboardClaudeSession already mapped
+DashboardClaudeSessionBo already mapped
+\`\`\`
 
-## front#437 详情
+## 影响范围
+- wande-ai模块API返回500错误
+- 144个测试用例失败
 
-- **关联Issue**: #213
-- **状态**: test-passed + APPROVED
-- **阻塞**: DIRTY/CONFLICTING，需解决冲突后才能merge
-
-## pipeline PRs
-
-- #90, #88, #87 均为 `CHANGES_REQUESTED` 状态
-- 需要编程CC修复代码问题后，测试CC再验证
-
-## 下一步
-
-1. 编程CC解决backend#953和front#437的merge conflict
-2. 编程CC修复pipeline PRs的问题
-3. 下次中层测试周期重新验证
+## 后续处理
+- PR评论: https://github.com/WnadeyaowuOraganization/wande-ai-backend/pull/953#issuecomment-4170831808
+- P0修复Issue: https://github.com/WnadeyaowuOraganization/wande-ai-backend/issues/957
