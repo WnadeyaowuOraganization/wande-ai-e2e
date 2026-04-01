@@ -1,57 +1,47 @@
-# PR #90 测试工作记录
+# PR #90 测试记录
 
-## PR 信息
+## PR信息
+- **仓库**: WnadeyaowuOraganization/wande-data-pipeline
+- **标题**: feat(关键词学习): 效果追踪+无效词降权+Top20/Bottom20报告 v3.0
+- **分支**: feature-issue-17 → dev
+- **关联Issue**: #17
 
-| 字段 | 值 |
-|------|-----|
-| 仓库 | wande-data-pipeline |
-| 分支 | feature-issue-17 |
-| 标题 | feat(关键词学习): 效果追踪+无效词降权+Top20/Bottom20报告 v3.0 |
-| 关联Issue | #17 |
-| 状态 | OPEN |
-| 合并状态 | DIRTY (有冲突) |
-
-## 审查状态
-
-- **审查决定**: APPROVED
-- **审查人**: david-hwp
-- **审查时间**: 2026-04-01 09:36
-- **审查意见**: ✅ E2E测试通过 2026-04-01 09:36
-
-## 标签
-
-- `e2e:tested` - E2E测试已通过
-
-## 变更文件
-
+## 变更范围
+- `pipelines/domestic_projects/keyword_learner.py` (v3.0升级)
+- `pipelines/domestic_projects/smart_project_discovery.py` (修复表名/列名)
 - `issues/issue-17/task.md`
-- `pipelines/domestic_projects/keyword_learner.py`
-- `pipelines/domestic_projects/smart_project_discovery.py`
 
-## 测试执行记录
+## 测试执行
 
-### 2026-04-01 12:30
+### 时间
+2026-04-01 13:01
 
-**测试范围**: tests/pipeline/
+### 测试范围
+- tests/pipeline/api/pipeline-health.spec.ts (14 tests)
 
-**结果**: 13/14 通过，1 失败
+### 结果
+| 状态 | 数量 |
+|------|------|
+| 通过 | 13/14 |
+| 失败 | 1/14 |
 
-**失败用例**:
-- `project mine API returns data with valid token` - body.code 返回 500 (期望 200)
+### 失败详情
+- **测试**: project mine API returns data with valid token
+- **原因**: 后端API返回500错误（非PR引入问题）
+- **分析**: `/wande/project/mine/list` 服务端错误，与PR变更无关
 
-**分析**:
-- 失败与PR变更无关（PR只修改了 keyword_learner.py 和 smart_project_discovery.py）
-- 500错误是后端API问题，非pipeline代码问题
+## PR状态评估
 
-## 结论
+### 合并状态
+- **mergeStateStatus**: DIRTY
+- **mergeable**: CONFLICTING
+- **结论**: PR存在合并冲突，无法自动合并
 
-- PR代码已通过E2E测试（由先前测试运行确认）
-- 当前阻塞: **DIRTY合并冲突**，需要解决冲突后才能merge
-- 建议: 通知编程CC解决分支冲突
+### 建议操作
+1. 需要编程CC解决合并冲突
+2. 冲突解决后可重新执行E2E测试
+3. 测试通过后（当前13/14通过，唯一失败与PR无关）可以审批合并
 
-## 操作记录
-
-| 时间 | 操作 | 结果 |
-|------|------|------|
-| 2026-04-01 12:30 | 中层测试扫描 | 发现3个pipeline PR |
-| 2026-04-01 12:30 | 执行pipeline测试 | 13/14通过 |
+## 标签状态
+- 当前: `e2e:tested` (绿色)
+- 建议保持，等待冲突解决

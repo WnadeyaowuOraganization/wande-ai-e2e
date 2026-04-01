@@ -1,62 +1,49 @@
-# PR #87 测试工作记录
+# PR #87 测试记录
 
-## PR 信息
+## PR信息
+- **仓库**: WnadeyaowuOraganization/wande-data-pipeline
+- **标题**: add: 添加post-task.sh脚本 #38
+- **分支**: feature-issue-38 → dev
+- **关联Issue**: #38
 
-| 字段 | 值 |
-|------|-----|
-| 仓库 | wande-data-pipeline |
-| 分支 | feature-issue-38 |
-| 标题 | add: 添加post-task.sh脚本 #38 |
-| 关联Issue | #38 |
-| 状态 | OPEN |
-| 合并状态 | DIRTY (有冲突) |
+## 变更范围
+- `script/post-task.sh` (新增CI/CD脚本)
+- `pipelines/competitors/` (竞品采集管线完整实现)
+- `pipelines/domestic_projects/` (配置加载器更新)
+- `tests/domestic_projects/` (单元测试)
+- 大量文档和配置文件
 
-## 审查状态
+## 测试执行
 
-- **审查决定**: APPROVED
-- **审查人**: david-hwp
-- **审查时间**: 2026-04-01 09:36
-- **审查意见**: ✅ E2E测试通过 2026-04-01 09:36
+### 时间
+2026-04-01 13:01
 
-## 标签
+### 测试范围
+- tests/pipeline/api/pipeline-health.spec.ts (14 tests)
 
-- `e2e:tested` - E2E测试已通过
+### 结果
+| 状态 | 数量 |
+|------|------|
+| 通过 | 13/14 |
+| 失败 | 1/14 |
 
-## 变更文件
+### 失败详情
+- **测试**: project mine API returns data with valid token
+- **原因**: 后端API返回500错误（非PR引入问题）
+- **分析**: `/wande/project/mine/list` 服务端错误，与PR变更无关
 
-- `.gitignore`
-- `docs/workflow.md`
-- `pipelines/competitors/` (多个文件)
-- `pipelines/domestic_projects/README.md`
-- `pipelines/domestic_projects/config.yaml`
-- `pipelines/domestic_projects/config_loader.py`
-- `script/post-task.sh`
-- `tests/domestic_projects/` (多个测试文件)
+## PR状态评估
 
-## 测试执行记录
+### 合并状态
+- **mergeStateStatus**: DIRTY
+- **mergeable**: CONFLICTING
+- **结论**: PR存在合并冲突，无法自动合并
 
-### 2026-04-01 12:30
+### 建议操作
+1. 需要编程CC解决合并冲突
+2. 冲突解决后可重新执行E2E测试
+3. 测试通过后（当前13/14通过，唯一失败与PR无关）可以审批合并
 
-**测试范围**: tests/pipeline/
-
-**结果**: 13/14 通过，1 失败
-
-**失败用例**:
-- `project mine API returns data with valid token` - body.code 返回 500 (期望 200)
-
-**分析**:
-- 失败与PR变更无直接关系
-- 500错误是后端API问题，非pipeline代码问题
-
-## 结论
-
-- PR代码已通过E2E测试（由先前测试运行确认）
-- 当前阻塞: **DIRTY合并冲突**，需要解决冲突后才能merge
-- 建议: 通知编程CC解决分支冲突
-
-## 操作记录
-
-| 时间 | 操作 | 结果 |
-|------|------|------|
-| 2026-04-01 12:30 | 中层测试扫描 | 发现3个pipeline PR |
-| 2026-04-01 12:30 | 执行pipeline测试 | 13/14通过 |
+## 标签状态
+- 当前: `e2e:tested` (绿色)
+- 建议保持，等待冲突解决
