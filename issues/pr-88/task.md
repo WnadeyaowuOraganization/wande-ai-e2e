@@ -1,47 +1,41 @@
-# PR #88 测试记录
+# PR #88 — wande-data-pipeline
 
-## PR信息
-- **仓库**: WnadeyaowuOraganization/wande-data-pipeline
-- **标题**: feat(domestic_projects): 采集引擎配置分离+JSON日志+README #16
-- **分支**: feature-issue-16 → dev
-- **关联Issue**: #16
+## 基本信息
+- **PR**: [feat(domestic_projects): 采集引擎配置分离+JSON日志+README #16](https://github.com/WnadeyaowuOraganization/wande-data-pipeline/pull/88)
+- **Author**: wandeyaowu
+- **关联 Issue**: wande-data-pipeline#16
+- **测试时间**: 2026-04-01 13:46
 
 ## 变更范围
-- `pipelines/domestic_projects/config.yaml` (新增配置分离)
-- `pipelines/domestic_projects/smart_project_discovery.py` (配置加载逻辑)
-- `pipelines/domestic_projects/README.md` (新增文档)
+- `pipelines/domestic_projects/config.yaml`
+- `pipelines/domestic_projects/smart_project_discovery.py`
+- `pipelines/domestic_projects/README.md`
 
-## 测试执行
+## 测试覆盖
+- `tests/pipeline/api/pipeline-health.spec.ts` (14 cases)
 
-### 时间
-2026-04-01 13:01
+## 测试结果
+| 用例 | 结果 | 说明 |
+|------|------|------|
+| backend service is reachable for pipeline data | pass | - |
+| tender data API requires auth | pass | - |
+| tender data API returns data with valid token | pass | - |
+| project mine API requires auth | pass | - |
+| project mine API returns data with valid token | **fail** | backend 500, `wdpp_discovered_projects` 表缺失 `status` 列 |
+| pipeline database is reachable via backend health | pass | - |
+| competitor API requires auth | pass | - |
+| product center API requires auth | pass | - |
+| mine competitor API requires auth | pass | - |
+| dashboard command API is reachable | pass | - |
+| config.yaml database connection matches backend | pass | - |
+| pipeline search services are configured (SearXNG) | pass | - |
+| discovered projects have required fields | pass | - |
+| tender data has required fields | pass | - |
 
-### 测试范围
-- tests/pipeline/api/pipeline-health.spec.ts (14 tests)
+## 根因分析
+`project mine API` 500 是因为后端数据库 `wdpp_discovered_projects` 缺少 `status` 列。PR 将表名从 `discovered_projects` 修正为 `wdpp_discovered_projects`，但后端 Mapper 期望的 `status` 列在新表中尚未创建。
 
-### 结果
-| 状态 | 数量 |
-|------|------|
-| 通过 | 13/14 |
-| 失败 | 1/14 |
-
-### 失败详情
-- **测试**: project mine API returns data with valid token
-- **原因**: 后端API返回500错误（非PR引入问题）
-- **分析**: `/wande/project/mine/list` 服务端错误，与PR变更无关
-
-## PR状态评估
-
-### 合并状态
-- **mergeStateStatus**: DIRTY
-- **mergeable**: CONFLICTING
-- **结论**: PR存在合并冲突，无法自动合并
-
-### 建议操作
-1. 需要编程CC解决合并冲突
-2. 冲突解决后可重新执行E2E测试
-3. 测试通过后（当前13/14通过，唯一失败与PR无关）可以审批合并
-
-## 标签状态
-- 当前: `e2e:tested` (绿色)
-- 建议保持，等待冲突解决
+## 处理结论
+- **PR 状态**: request-changes
+- **修复依赖**: backend#951
+- **Issue 标签更新**: pipeline#16 已添加 `status:test-failed`

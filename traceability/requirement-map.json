@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-01T12:30:00+08:00",
+  "updated_at": "2026-04-01T21:52:48+08:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -23,9 +23,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-01T12:30:00+08:00",
-      "last_result": "passed",
-      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+      "last_tested": "2026-04-01T21:52:48+08:00",
+      "last_result": "failed",
+      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#213",
@@ -40,9 +40,9 @@
         "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T06:45:00",
-      "last_result": "passed",
-      "notes": "Blockers resolved (#830/#831 fixed). ext-tool-health-card: 5/5 passed."
+      "last_tested": "2026-04-01T21:52:48+08:00",
+      "last_result": "failed",
+      "notes": "dashboard-card API 500 (dashboard_ext_tools missing), cockpit console 8 errors. Blocked by backend#477."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -436,9 +436,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-01T12:30:00+08:00",
-      "last_result": "passed",
-      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+      "last_tested": "2026-04-01T21:52:48+08:00",
+      "last_result": "failed",
+      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
@@ -892,9 +892,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-01T12:30:00+08:00",
-      "last_result": "passed",
-      "notes": "Pipeline health 14/14 PASS. Python-only changes, no E2E impact."
+      "last_tested": "2026-04-01T21:52:48+08:00",
+      "last_result": "failed",
+      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",

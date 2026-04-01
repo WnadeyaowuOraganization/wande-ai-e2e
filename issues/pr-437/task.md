@@ -1,54 +1,37 @@
-# PR #437 测试记录
+# PR #437 — wande-ai-front
 
 ## 基本信息
-- **仓库**: wande-ai-front
-- **PR**: #437 - feat: 外部工具健康度卡片 #213
-- **作者**: david-hwp
-- **状态**: ❌ 测试失败 / 合并冲突
-- **测试时间**: 2026-04-01 13:34
+- **PR**: [feat: 外部工具健康度卡片 #213](https://github.com/WnadeyaowuOraganization/wande-ai-front/pull/437)
+- **Author**: david-hwp
+- **关联 Issue**: wande-ai-front#213
+- **测试时间**: 2026-04-01 13:46
 
 ## 变更范围
-- apps/web-antd/src/api/wande/dashboard.ts
-- apps/web-antd/src/views/dashboard/cockpit/index.vue
-- apps/web-antd/src/views/wande/cockpit/index.vue
+- `apps/web-antd/src/api/wande/dashboard.ts`
+- `apps/web-antd/src/views/dashboard/cockpit/index.vue`
+- `apps/web-antd/src/views/wande/cockpit/index.vue`
+
+## 测试覆盖
+- `tests/front/smoke/ext-tool-health-card.spec.ts` (5 cases)
+- `tests/front/smoke/cockpit-page.spec.ts` (4 cases, 2 skipped)
 
 ## 测试结果
-```
-❌ 2/5 测试失败, 1/5 跳过, 2/5 通过
+| 用例 | 结果 | 说明 |
+|------|------|------|
+| dashboard-card API rejects unauth | pass | - |
+| dashboard-card API returns valid data with auth | **fail** | backend 500, `dashboard_ext_tools` 表不存在 |
+| dashboard-card API response has expected fields | skip | 依赖前一项 |
+| cockpit page loads with external tool health card | pass | - |
+| cockpit page has no critical console errors | **fail** | 8 个 console 错误（API 500 + budget-overview 缺失） |
+| cockpit API endpoints are functional | pass | - |
+| frontend serves correctly | pass | - |
 
-✅ dashboard-card API rejects unauthenticated requests
-❌ dashboard-card API returns valid data with auth - API返回500
-⏭️ dashboard-card API response has expected fields (skipped)
-✅ cockpit page loads with external tool health card
-❌ cockpit page has no critical console errors - 8个console错误
-```
+## 根因分析
+失败均来自后端环境缺失，不是前端代码本身的问题：
+1. `/monitor/ext-tool/dashboard-card` 500 因 `dashboard_ext_tools` 表未创建。
+2. cockpit console 8 errors 由 API 失败级联触发。
 
-## 失败详情
-
-### 1. API返回500错误
-```
-Expected: 200
-Received: 500
-```
-- 端点: /monitor/ext-tool/dashboard-card
-- 问题: 后端API内部错误
-
-### 2. Console错误
-```
-Expected: 0
-Received: 8
-```
-- 静态资源加载失败: api/dashboard/budget-overview
-
-## 阻塞问题
-- **合并状态**: DIRTY (有冲突)
-- **API状态**: 500错误
-
-## 建议修复
-1. 解决合并冲突
-2. 检查/monitor/ext-tool/dashboard-card后端实现
-3. 修复驾驶舱页面静态资源加载问题
-4. 重新运行E2E测试
-
-## 关联Issue
-- Fixes #213
+## 处理结论
+- **PR 状态**: request-changes（失败 comment 已留痕，因 identity 为 PR 作者本人，无法 request-changes）
+- **修复依赖**: backend#477
+- **Issue 标签更新**: front#213 已添加 `status:test-failed`，移除 `status:test-passed`

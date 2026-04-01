@@ -1,49 +1,41 @@
-# PR #87 测试记录
+# PR #87 — wande-data-pipeline
 
-## PR信息
-- **仓库**: WnadeyaowuOraganization/wande-data-pipeline
-- **标题**: add: 添加post-task.sh脚本 #38
-- **分支**: feature-issue-38 → dev
-- **关联Issue**: #38
+## 基本信息
+- **PR**: [add: 添加post-task.sh脚本 #38](https://github.com/WnadeyaowuOraganization/wande-data-pipeline/pull/87)
+- **Author**: wandeyaowu
+- **关联 Issue**: wande-data-pipeline#38
+- **测试时间**: 2026-04-01 13:46
 
 ## 变更范围
-- `script/post-task.sh` (新增CI/CD脚本)
-- `pipelines/competitors/` (竞品采集管线完整实现)
-- `pipelines/domestic_projects/` (配置加载器更新)
-- `tests/domestic_projects/` (单元测试)
-- 大量文档和配置文件
+- 大规模新增 competitors 采集管线
+- `script/post-task.sh`
+- 大量 README、config、adapter Python 脚本、tests
 
-## 测试执行
+## 测试覆盖
+- `tests/pipeline/api/pipeline-health.spec.ts` (14 cases)
 
-### 时间
-2026-04-01 13:01
+## 测试结果
+| 用例 | 结果 | 说明 |
+|------|------|------|
+| backend service is reachable for pipeline data | pass | - |
+| tender data API requires auth | pass | - |
+| tender data API returns data with valid token | pass | - |
+| project mine API requires auth | pass | - |
+| project mine API returns data with valid token | **fail** | backend 500, `wdpp_discovered_projects` 表缺失 `status` 列 |
+| pipeline database is reachable via backend health | pass | - |
+| competitor API requires auth | pass | - |
+| product center API requires auth | pass | - |
+| mine competitor API requires auth | pass | - |
+| dashboard command API is reachable | pass | - |
+| config.yaml database connection matches backend | pass | - |
+| pipeline search services are configured (SearXNG) | pass | - |
+| discovered projects have required fields | pass | - |
+| tender data has required fields | pass | - |
 
-### 测试范围
-- tests/pipeline/api/pipeline-health.spec.ts (14 tests)
+## 根因分析
+500 错误根因与 pipeline #88 相同：`wdpp_discovered_projects` 表缺少 `status` 列。这是 backend schema 与 mapper 定义不一致导致的阻塞问题，不是 PR #87 引入的新缺陷。
 
-### 结果
-| 状态 | 数量 |
-|------|------|
-| 通过 | 13/14 |
-| 失败 | 1/14 |
-
-### 失败详情
-- **测试**: project mine API returns data with valid token
-- **原因**: 后端API返回500错误（非PR引入问题）
-- **分析**: `/wande/project/mine/list` 服务端错误，与PR变更无关
-
-## PR状态评估
-
-### 合并状态
-- **mergeStateStatus**: DIRTY
-- **mergeable**: CONFLICTING
-- **结论**: PR存在合并冲突，无法自动合并
-
-### 建议操作
-1. 需要编程CC解决合并冲突
-2. 冲突解决后可重新执行E2E测试
-3. 测试通过后（当前13/14通过，唯一失败与PR无关）可以审批合并
-
-## 标签状态
-- 当前: `e2e:tested` (绿色)
-- 建议保持，等待冲突解决
+## 处理结论
+- **PR 状态**: request-changes
+- **修复依赖**: backend#951
+- **Issue 标签更新**: pipeline#38 已添加 `status:test-failed`
