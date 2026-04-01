@@ -48,6 +48,13 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
       dependencies: ['api-tests'],
     },
+    {
+      name: 'regression-tests',
+      testMatch: /tests\/regression\/.*\.spec\.ts/,
+      use: {
+        baseURL: process.env.BASE_URL_API || 'http://localhost:6040',
+      },
+    },
   ],
   /* dev环境的webServer配置（如果需要本地启动） */
   // webServer: {
