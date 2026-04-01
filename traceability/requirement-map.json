@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-01T11:31:00+08:00",
+  "updated_at": "2026-04-01T12:30:00+08:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -23,7 +23,7 @@
         "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T05:30:00",
+      "last_tested": "2026-04-01T12:30:00+08:00",
       "last_result": "passed",
       "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
     },
@@ -436,7 +436,7 @@
         "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T05:30:00",
+      "last_tested": "2026-04-01T12:30:00+08:00",
       "last_result": "passed",
       "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
     },
@@ -892,7 +892,7 @@
         "tests/pipeline/api/pipeline-health.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T05:20:00",
+      "last_tested": "2026-04-01T12:30:00+08:00",
       "last_result": "passed",
       "notes": "Pipeline health 14/14 PASS. Python-only changes, no E2E impact."
     },
@@ -1757,7 +1757,7 @@
         "tests/pipeline/api/pipeline-health.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-03-31T06:45:00",
+      "last_tested": "2026-04-01T12:30:00+08:00",
       "last_result": "passed",
       "notes": "Pipeline health 14/14 PASS. Python-only changes."
     },
