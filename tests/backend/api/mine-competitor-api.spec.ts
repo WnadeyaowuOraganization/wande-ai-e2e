@@ -120,9 +120,18 @@ test.describe('项目矿场模块 - 完整接口测试 @mine @competitor', () =>
       headers: { Authorization: `Bearer ${token}` },
       data: {},
     });
-    const body = await response.json();
-    console.log('[导出项目矿场] HTTP:', response.status(), 'Code:', body.code, 'Msg:', body.msg?.substring(0, 100));
-    expect(response.status()).toBe(200);
+    const contentType = response.headers()['content-type'] || '';
+    if (contentType.includes('application/json')) {
+      // JSON 响应（可能是错误信息）
+      const body = await response.json();
+      console.log('[导出项目矿场] HTTP:', response.status(), 'Code:', body.code, 'Msg:', body.msg?.substring(0, 100));
+      expect(body.code).toBe(200);
+    } else {
+      // Excel 文件响应（application/vnd.openxmlformats-officedocument.spreadsheetml.sheet 等）
+      console.log('[导出项目矿场] HTTP:', response.status(), 'Content-Type:', contentType);
+      expect(response.status()).toBe(200);
+      expect(contentType).toMatch(/(spreadsheet|octet-stream|excel|sheet)/);
+    }
   });
 
   // === 删除接口 ===
