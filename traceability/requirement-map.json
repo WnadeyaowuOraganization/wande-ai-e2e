@@ -1,2023 +1,2024 @@
 {
-    "version": "1.0",
-    "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-    "updated_at": "2026-04-01T07:55:00+08:00",
-    "mappings": [
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
-            "repo": "wande-data-pipeline",
-            "title": "S3产品参数批量入库脚本",
-            "module": "pipeline",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T01:55:00",
-            "last_result": "skipped",
-            "note": "Python pipeline code — no E2E test applicable"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#38",
-            "repo": "wande-data-pipeline",
-            "title": "竞品采集管线+domestic_projects",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#213",
-            "repo": "wande-ai-front",
-            "title": "外部工具健康度卡片",
-            "module": "ext-tool-health",
-            "test_files": [
-                "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API rejects unauthenticated requests",
-                "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API returns valid data with auth",
-                "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API response has expected fields",
-                "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page loads with external tool health card",
-                "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Blockers resolved (#830/#831 fixed). ext-tool-health-card: 5/5 passed."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#162",
-            "repo": "wande-ai-front",
-            "title": "项目配合单位管理功能",
-            "module": "counterpart",
-            "test_files": [
-                "tests/smoke/counterpart-management.spec.ts::counterpart management API requires authentication",
-                "tests/smoke/counterpart-management.spec.ts::project detail page loads with counterpart tab",
-                "tests/smoke/counterpart-management.spec.ts::counterpart management tab exists in project detail",
-                "tests/smoke/counterpart-management.spec.ts::counterpart management has role groupings",
-                "tests/smoke/counterpart-management.spec.ts::counterpart add button exists",
-                "tests/smoke/counterpart-management.spec.ts::counterpart role types dropdown has expected options",
-                "tests/smoke/counterpart-management.spec.ts::counterpart list displays expected fields"
-            ],
-            "coverage": "full",
-            "last_tested": null,
-            "last_result": null
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#2",
-            "repo": "wande-ai-backend",
-            "title": "新增 Perplexity Credit 消耗统计 API",
-            "module": "credit-usage",
-            "test_files": [
-                "tests/api/credit-usage.spec.ts::credit usage list API requires authentication",
-                "tests/api/credit-usage.spec.ts::credit usage summary API requires authentication",
-                "tests/api/credit-usage.spec.ts::credit usage daily stats API requires authentication",
-                "tests/api/credit-usage.spec.ts::should get credit usage list with valid token",
-                "tests/api/credit-usage.spec.ts::should get credit usage summary with valid token",
-                "tests/api/credit-usage.spec.ts::should get credit usage daily stats with valid token"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-22T09:07:22",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#2",
-            "repo": "wande-ai-front",
-            "title": "新增 Perplexity Credit 消耗统计页面",
-            "module": "credit-usage",
-            "test_files": [
-                "tests/smoke/credit-usage-page.spec.ts::credit usage page loads successfully",
-                "tests/smoke/credit-usage-page.spec.ts::credit usage page has no critical console errors",
-                "tests/smoke/credit-usage-page.spec.ts::credit usage page route exists",
-                "tests/smoke/credit-usage-page.spec.ts::credit usage page has expected UI elements",
-                "tests/smoke/credit-usage-page.spec.ts::credit usage page refresh works"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-22T09:07:22",
-            "last_result": "passed"
-        },
-        {
-            "issue": "TEMPLATE",
-            "repo": "wande-ai-backend",
-            "title": "Issue 标题示例",
-            "module": "tender",
-            "test_files": [
-                "tests/api/tender.spec.ts::should list tenders with pagination",
-                "tests/e2e/tender-crud.spec.ts::should create and view tender"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T18:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#255",
-            "repo": "wande-ai-backend",
-            "title": "GPU Monitor API",
-            "module": "gpu-monitor",
-            "test_files": [
-                "tests/api/gpu-monitor.spec.ts::should get GPU realtime data",
-                "tests/api/gpu-monitor.spec.ts::should get GPU summary data",
-                "tests/api/gpu-monitor.spec.ts::should get GPU alerts",
-                "tests/api/gpu-monitor.spec.ts::should get GPU health status",
-                "tests/api/gpu-monitor.spec.ts::should reject unauthenticated requests"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-23T21:35:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#394",
-            "repo": "wande-ai-backend",
-            "title": "GPU Monitor API 字段命名修复",
-            "module": "gpu-monitor",
-            "test_files": [
-                "tests/api/gpu-monitor.spec.ts::should get GPU realtime data"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-23T21:35:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#124",
-            "repo": "wande-ai-front",
-            "title": "GPU Monitor Page",
-            "module": "gpu-monitor",
-            "test_files": [
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has no console errors",
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page route exists",
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has expected layout elements",
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has refresh functionality"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-22T12:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#274",
-            "repo": "wande-ai-backend",
-            "title": "项目挖掘页面卡死 — 后端返回字段与前端字段名不匹配",
-            "module": "project-mine",
-            "test_files": [
-                "tests/api/project-mine.spec.ts::list API requires authentication",
-                "tests/api/project-mine.spec.ts::stats API requires authentication",
-                "tests/api/project-mine.spec.ts::detail API requires authentication",
-                "tests/api/project-mine.spec.ts::should get project mine list with valid token",
-                "tests/api/project-mine.spec.ts::should get project mine stats with valid token",
-                "tests/api/project-mine.spec.ts::should get project mine detail with valid token"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-22T23:30:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#138",
-            "repo": "wande-ai-front",
-            "title": "项目挖掘页面字段重构修复页面卡死问题",
-            "module": "project-mine",
-            "test_files": [
-                "tests/smoke/project-mine-page.spec.ts::project mine API endpoints are functional (backend validation)",
-                "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-22T23:30:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#164",
-            "repo": "wande-ai-front",
-            "title": "ResizeObserver 无限循环导致页面高度无限扩充问题",
-            "module": "layout",
-            "test_files": [
-                "tests/smoke/pages-load.spec.ts::login page loads successfully",
-                "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
-                "tests/smoke/credit-usage-page.spec.ts::frontend serves correctly",
-                "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-23T16:30:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#44",
-            "repo": "wande-ai-backend",
-            "title": "SysNoticeController 未授权访问漏洞修复",
-            "module": "system",
-            "test_files": [
-                "tests/api/system-notice.spec.ts::notice list API requires authentication",
-                "tests/api/system-notice.spec.ts::notice detail API requires authentication",
-                "tests/api/system-notice.spec.ts::notice list API works with valid token"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-28T17:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#187",
-            "repo": "wande-ai-front",
-            "title": "AI渲染助手工作台",
-            "module": "ai-render",
-            "test_files": [
-                "tests/smoke/ai-render.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-28T22:45:00",
-            "last_result": "passed",
-            "notes": "Core page load tests passed. History page route not configured correctly."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#192",
-            "repo": "wande-ai-front",
-            "title": "产品参数查询中心",
-            "module": "product-center",
-            "test_files": [
-                "tests/smoke/product-center.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-28T22:45:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#180",
-            "repo": "wande-ai-front",
-            "title": "应收账款管理",
-            "module": "receivable",
-            "test_files": [
-                "tests/smoke/receivable.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-28T22:45:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#242",
-            "repo": "wande-ai-front",
-            "title": "工具详情页面",
-            "module": "tool-detail",
-            "test_files": [
-                "tests/smoke/tool-detail.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-28T22:45:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#253",
-            "repo": "wande-ai-backend",
-            "title": "品牌中心发布调度 + 验收协同模块",
-            "module": "brand-publish",
-            "test_files": [
-                "tests/backend/api/brand.spec.ts::Brand Publish API",
-                "tests/backend/api/brand.spec.ts::Production Progress API",
-                "tests/backend/api/brand.spec.ts::Project Document API"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#57",
-            "repo": "wande-ai-backend",
-            "title": "设计直销商机表数据模型",
-            "module": "crm",
-            "test_files": [
-                "tests/backend/api/crm-direct-sales.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#48",
-            "repo": "wande-ai-backend",
-            "title": "项目执行管理模块10张表",
-            "module": "execution",
-            "test_files": [
-                "tests/backend/api/menu-route-fix.spec.ts::Project Execution Tables"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed",
-            "notes": "PR only contains SQL tables, no controllers. Verified via regression tests."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#47",
-            "repo": "wande-ai-backend",
-            "title": "文档权限控制 API + OnlyOffice 审阅模式",
-            "module": "collab",
-            "test_files": [
-                "tests/backend/api/collab-document-permission.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#12",
-            "repo": "wande-ai-backend",
-            "title": "品牌中心内容 CRUD API + 状态流转",
-            "module": "brand",
-            "test_files": [
-                "tests/backend/api/brand.spec.ts::Brand Account API",
-                "tests/backend/api/brand.spec.ts::Brand Content API",
-                "tests/backend/api/brand.spec.ts::Brand Metrics API",
-                "tests/backend/api/brand.spec.ts::Brand Publish Log API"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#133",
-            "repo": "wande-ai-backend",
-            "title": "用户反馈管理模块修复 + 单元测试",
-            "module": "feedback",
-            "test_files": [
-                "tests/backend/api/user-feedback.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#134",
-            "repo": "wande-ai-backend",
-            "title": "用户反馈管理",
-            "module": "feedback",
-            "test_files": [
-                "tests/backend/api/user-feedback.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#671",
-            "repo": "wande-ai-backend",
-            "title": "修复菜单路由配置",
-            "module": "menu",
-            "test_files": [
-                "tests/backend/api/menu-route-fix.spec.ts::Menu Route Fix"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#670",
-            "repo": "wande-ai-backend",
-            "title": "菜单已存在调查",
-            "module": "menu",
-            "test_files": [],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed",
-            "notes": "Docs-only PR, no code changes"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#656",
-            "repo": "wande-ai-backend",
-            "title": "修复Bean名称冲突",
-            "module": "ppt-finance",
-            "test_files": [
-                "tests/backend/api/finance-weekly-report.spec.ts",
-                "tests/backend/api/menu-route-fix.spec.ts::Bean Name Conflict Regression"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#265",
-            "repo": "wande-ai-front",
-            "title": "素材详情弹窗组件",
-            "module": "asset-library",
-            "test_files": [
-                "tests/front/smoke/asset-detail.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed",
-            "notes": "API tests pass. UI tests skipped - menu not registered in sys_menu"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#245",
-            "repo": "wande-ai-front",
-            "title": "API网关子账户管理页面",
-            "module": "gateway-account",
-            "test_files": [
-                "tests/front/smoke/gateway-account-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-29T16:00:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#16",
-            "repo": "wande-data-pipeline",
-            "title": "smart_project_discovery.py 配置分离与日志优化",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts::backend service is reachable for pipeline data",
-                "tests/pipeline/api/pipeline-health.spec.ts::tender data API requires auth",
-                "tests/pipeline/api/pipeline-health.spec.ts::tender data API returns data with valid token",
-                "tests/pipeline/api/pipeline-health.spec.ts::project mine API requires auth",
-                "tests/pipeline/api/pipeline-health.spec.ts::project mine API returns data with valid token",
-                "tests/pipeline/api/pipeline-health.spec.ts::pipeline database is reachable via backend health",
-                "tests/pipeline/api/pipeline-health.spec.ts::competitor API requires auth",
-                "tests/pipeline/api/pipeline-health.spec.ts::product center API requires auth",
-                "tests/pipeline/api/pipeline-health.spec.ts::mine competitor API requires auth",
-                "tests/pipeline/api/pipeline-health.spec.ts::dashboard command API is reachable",
-                "tests/pipeline/api/pipeline-health.spec.ts::config.yaml database connection matches backend",
-                "tests/pipeline/api/pipeline-health.spec.ts::pipeline search services are configured (SearXNG)",
-                "tests/pipeline/api/pipeline-health.spec.ts::discovered projects have required fields",
-                "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
-            "repo": "wande-ai-backend",
-            "title": "Claude Code会话监控API",
-            "module": "claude-session",
-            "test_files": [
-                "tests/backend/api/dashboard-claude-session.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
-            "repo": "wande-ai-backend",
-            "title": "开发阻塞主动提醒",
-            "module": "blocker",
-            "test_files": [
-                "tests/backend/api/dashboard-blocker.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T18:00:00",
-            "last_result": "partial",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#46",
-            "repo": "wande-ai-backend",
-            "title": "统一审批队列+企微通知控制台",
-            "module": "approval-wecom",
-            "test_files": [
-                "tests/backend/api/dashboard-approval-wecom.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR #859 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#248",
-            "repo": "wande-ai-backend",
-            "title": "定时任务操作API",
-            "module": "cron",
-            "test_files": [
-                "tests/backend/api/dashboard-cron.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#10",
-            "repo": "wande-ai-backend",
-            "title": "运营仪表盘API (微信集成)",
-            "module": "wechat",
-            "test_files": [
-                "tests/backend/api/wechat-mp.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#56",
-            "repo": "wande-ai-backend",
-            "title": "国际贸易客户CRUD API",
-            "module": "crm-intl",
-            "test_files": [
-                "tests/backend/api/crm-international.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#8",
-            "repo": "wande-ai-backend",
-            "title": "爬虫状态API增强",
-            "module": "project-mine",
-            "test_files": [
-                "tests/backend/api/project-mine-crawler.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#38",
-            "repo": "wande-ai-backend",
-            "title": "角色权限扩展",
-            "module": "execution",
-            "test_files": [
-                "tests/backend/api/execution-permission.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#118",
-            "repo": "wande-ai-front",
-            "title": "定时任务总览页",
-            "module": "cron",
-            "test_files": [
-                "tests/front/smoke/cron-management-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#234",
-            "repo": "wande-ai-front",
-            "title": "Kanban看板面板",
-            "module": "kanban",
-            "test_files": [
-                "tests/front/smoke/claude-office-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Menu not registered. API tests for claude sessions + frontend base load."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#233",
-            "repo": "wande-ai-front",
-            "title": "像素办公室升级",
-            "module": "pixel-office",
-            "test_files": [
-                "tests/front/smoke/claude-office-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#251",
-            "repo": "wande-ai-front",
-            "title": "排程Tab",
-            "module": "schedule",
-            "test_files": [
-                "tests/front/smoke/claude-office-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR #370 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#32",
-            "repo": "wande-ai-front",
-            "title": "运维监控中心+快捷指令终端",
-            "module": "ops-center",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#248",
-            "repo": "wande-ai-front",
-            "title": "API网关使用记录",
-            "module": "gateway-usage",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Menu not registered. Credit usage API test + frontend base load."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#252",
-            "repo": "wande-ai-front",
-            "title": "排程调度中心",
-            "module": "schedule-center",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#31",
-            "repo": "wande-ai-front",
-            "title": "开发者动态+部署管理页面",
-            "module": "dev-activity",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#30",
-            "repo": "wande-ai-front",
-            "title": "Issue看板页面",
-            "module": "issue-kanban",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Menu not registered. Frontend base load test only."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#576",
-            "repo": "wande-ai-backend",
-            "title": "API网关子账户管理 — 预算管理引擎",
-            "module": "gateway-budget",
-            "test_files": [
-                "tests/backend/api/gateway-budget.spec.ts::PUT budget requires authentication",
-                "tests/backend/api/gateway-budget.spec.ts::GET alert-config requires authentication",
-                "tests/backend/api/gateway-budget.spec.ts::PUT alert-config requires authentication",
-                "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle requires authentication",
-                "tests/backend/api/gateway-budget.spec.ts::GET alert-config returns data or permission error",
-                "tests/backend/api/gateway-budget.spec.ts::PUT budget with invalid accountId returns error",
-                "tests/backend/api/gateway-budget.spec.ts::PUT alert-config validates input",
-                "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle with invalid id returns error"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T05:30:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#601",
-            "repo": "wande-ai-backend",
-            "title": "Claude Office 2.0 线路管理REST API",
-            "module": "line-management",
-            "test_files": [
-                "tests/backend/api/line-management.spec.ts::GET /status requires authentication",
-                "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause requires authentication",
-                "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume requires authentication",
-                "tests/backend/api/line-management.spec.ts::POST /{lineId}/assign requires authentication",
-                "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats requires authentication",
-                "tests/backend/api/line-management.spec.ts::GET /status returns line list",
-                "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause with invalid id",
-                "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume with invalid id",
-                "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats with invalid id"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#211",
-            "repo": "wande-ai-front",
-            "title": "账号池监控页面",
-            "module": "model-pool",
-            "test_files": [
-                "tests/front/smoke/model-pool-page.spec.ts::frontend serves correctly",
-                "tests/front/smoke/model-pool-page.spec.ts::dashboard API is accessible",
-                "tests/front/smoke/model-pool-page.spec.ts::page loads without crash",
-                "tests/front/smoke/model-pool-page.spec.ts::page has expected UI elements",
-                "tests/front/smoke/model-pool-page.spec.ts::page has no critical console errors"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "model-pool-page console-errors test failed due to backend MonitorAlertVo createdAt missing setter. PR #367 blocked by backend dev issue."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#691",
-            "repo": "wande-ai-backend",
-            "title": "修复 G7eServiceConfig Bean名称冲突",
-            "module": "system",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Config fix only, no new API endpoints"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#55",
-            "repo": "wande-ai-backend",
-            "title": "修复pom.xml引用 + 国际贸易客户数据库准备",
-            "module": "crm",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-30T18:00:00",
-            "last_result": "partial",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#599",
-            "repo": "wande-ai-backend",
-            "title": "Claude Code会话监控 — GitHub同步修复+增强",
-            "module": "claude-session",
-            "test_files": [
-                "tests/backend/api/dashboard-claude-session.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:20:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. 10/10 claude-session API tests PASS. PR has merge conflict — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#249",
-            "repo": "wande-ai-backend",
-            "title": "Claude Code会话监控API",
-            "module": "claude-session",
-            "test_files": [
-                "tests/backend/api/dashboard-claude-session.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
-            "repo": "wande-ai-backend",
-            "title": "外部工具管理 — 企微告警推送+驾驶舱首页卡片数据API",
-            "module": "blocker",
-            "test_files": [
-                "tests/backend/api/dashboard-blocker.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test: ext-tool-dashboard API 500. Backend dev unstable. PR #876 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#45",
-            "repo": "wande-ai-backend",
-            "title": "快捷指令执行引擎",
-            "module": "dashboard-command",
-            "test_files": [
-                "tests/backend/api/dashboard-command.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR #860 has merge conflict (dirty) — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#241",
-            "repo": "wande-ai-front",
-            "title": "工具中心 — 内部工具管理页面",
-            "module": "tool-center",
-            "test_files": [
-                "tests/front/smoke/tool-detail.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Test-only PR. PR #365 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#210",
-            "repo": "wande-ai-front",
-            "title": "外部工具管理 — 工具总览+手动录入页面",
-            "module": "ext-tools",
-            "test_files": [
-                "tests/front/smoke/tool-detail.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-30T19:30:00",
-            "last_result": "passed",
-            "notes": "Partially covered by tool-detail tests"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#9",
-            "repo": "wande-ai-backend",
-            "title": "修复任意文件上传漏洞，防止路径遍历攻击",
-            "module": "security",
-            "test_files": [
-                "tests/backend/api/file-upload-security.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: file-upload-security 8/8 passed. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOrganization/wande-ai-front#63",
-            "repo": "wande-ai-front",
-            "title": "用户反馈管理页面（Cockpit版）",
-            "module": "feedback",
-            "test_files": [
-                "tests/front/smoke/feedback-manage-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: feedback-manage 7/7 passed."
-        },
-        {
-            "issue": "WnadeyaowuOrganization/wande-ai-front#62",
-            "repo": "wande-ai-front",
-            "title": "用户反馈管理页面（Wande版）",
-            "module": "feedback",
-            "test_files": [
-                "tests/front/smoke/feedback-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: feedback-page 8/8 passed."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#339",
-            "repo": "wande-ai-front",
-            "title": "模块健康度审计页面",
-            "module": "module-health",
-            "test_files": [
-                "tests/front/smoke/module-health-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Docs-only PR. PR #366 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#338",
-            "repo": "wande-ai-front",
-            "title": "定时任务管理看板页面",
-            "module": "cron",
-            "test_files": [
-                "tests/front/smoke/cron-tasks-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: cron-tasks 7/7 passed."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
-            "repo": "wande-data-pipeline",
-            "title": "关键词学习效果追踪+无效词降权 v3.0",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:20:00",
-            "last_result": "passed",
-            "notes": "Pipeline health 14/14 PASS. Python-only changes, no E2E impact."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",
-            "repo": "wande-data-pipeline",
-            "title": "信源过滤增强 — URL黑名单+标题噪音+内容判断",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T05:20:00",
-            "last_result": "passed",
-            "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml)."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#600",
-            "repo": "wande-ai-backend",
-            "title": "排程管理REST API验收文档",
-            "module": "scheduler",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T13:35:00",
-            "last_result": "skipped",
-            "note": "纯文档PR，无代码变更，跳过E2E测试。已merge。"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
-            "repo": "wande-ai-backend",
-            "title": "Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动",
-            "module": "dealer",
-            "test_files": [
-                "tests/backend/api/dealer.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#119",
-            "repo": "wande-ai-front",
-            "title": "执行日志页 — 时间线表格+筛选栏+日志详情抽屉",
-            "module": "dashboard-cron",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T14:00:00",
-            "last_result": "blocked",
-            "notes": "Backend API /wande/dashboard/cron/exec-log/list not implemented (500). PR self-notes '后端API就绪后端到端验证'. BLOCKED: needs backend API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#122",
-            "repo": "wande-ai-front",
-            "title": "开发效率看板页面 — 核心指标卡片+趋势图+周月切换+明细表",
-            "module": "dev-efficiency",
-            "test_files": [
-                "tests/front/smoke/dev-efficiency-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "passed",
-            "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#117",
-            "repo": "wande-ai-front",
-            "title": "定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip",
-            "module": "cron-alert-rules",
-            "test_files": [
-                "tests/front/smoke/cron-alert-rules-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "passed",
-            "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#602",
-            "repo": "wande-ai-backend",
-            "title": "API SQLite迁移+调度器去重+僵尸检测",
-            "module": "scheduler",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "blocked",
-            "notes": "Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#250",
-            "repo": "wande-ai-backend",
-            "title": "验收中心 Service + Controller 实现",
-            "module": "acceptance",
-            "test_files": [
-                "tests/backend/api/dashboard-acceptance.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "dashboard-acceptance 3/6 failed with 500. Backend dev unstable. PR #851 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#251",
-            "repo": "wande-ai-backend",
-            "title": "Dify conversationId UUID校验 — 修复无效UUID报错",
-            "module": "chat",
-            "test_files": [
-                "tests/backend/api/dify-uuid.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "blocked",
-            "notes": "Tests added. Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#485",
-            "repo": "wande-ai-backend",
-            "title": "修复开发阻塞主动提醒功能代码结构",
-            "module": "blocker",
-            "test_files": [
-                "tests/backend/api/dashboard-blocker.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#575",
-            "repo": "wande-ai-backend",
-            "title": "API网关子账户管理 [1/4] - 数据同步API",
-            "module": "gateway-account",
-            "test_files": [
-                "tests/backend/api/gateway-budget.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#120",
-            "repo": "wande-ai-front",
-            "title": "Issue看板增强 — 跨仓库统一视图+角色筛选+Claude Code进度关联",
-            "module": "issue-board",
-            "test_files": [
-                "tests/front/smoke/issue-board-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "passed",
-            "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#121",
-            "repo": "wande-ai-front",
-            "title": "验收中心页面 — 待验收队列+单个/批量验收+结果展示+评论",
-            "module": "acceptance-center",
-            "test_files": [
-                "tests/front/smoke/acceptance-center-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:00:34",
-            "last_result": "passed",
-            "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#850",
-            "repo": "wande-ai-backend",
-            "title": "Issue #850",
-            "module": "dashboard-blocker",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:15:00+08:00",
-            "last_result": "failed",
-            "note": "API 500错误 - dashboard-blocker相关接口"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#846",
-            "repo": "wande-ai-backend",
-            "title": "Issue #846",
-            "module": "gateway-budget",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:15:00+08:00",
-            "last_result": "failed",
-            "note": "API 500错误 - gateway子账户管理接口"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#839",
-            "repo": "wande-ai-backend",
-            "title": "Issue #839",
-            "module": "dealer",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T16:15:00+08:00",
-            "last_result": "failed",
-            "note": "API 500错误 - dealer Phase3接口"
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
-            "repo": "wande-ai-backend",
-            "title": "Issue #357",
-            "module": "mid-layer-test:-project-mine-feedback-2/4-failed-with-500",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test: project-mine-feedback 2/4 failed with 500. Backend dev unstable. PR #875 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#361",
-            "repo": "wande-ai-backend",
-            "title": "项目分配企微机器人推送通知",
-            "module": "no-e2e-coverage-+-pr-dirty-(merge-conflict)",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "No E2E coverage + PR dirty (merge conflict). PR #874 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#840",
-            "repo": "wande-ai-backend",
-            "title": "Issue #840",
-            "module": "dealer-phase3-endpoints-still-return-500",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "Dealer Phase3 endpoints still return 500. PR #873 fix not fully effective in dev."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#358",
-            "repo": "wande-ai-backend",
-            "title": "tender_data 与 discovered_projects 数据关联查询 API",
-            "module": "no-e2e-coverage-for-project-mine-enriched-query",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "No E2E coverage for project-mine enriched query. PR #872 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#89",
-            "repo": "wande-ai-backend",
-            "title": "知识库上传向量延迟3分钟+删除向量修复",
-            "module": "pr-dirty-(merge-conflict)-+-no-e2e-coverage-for-knowledge-base-vector-fix",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "PR dirty (merge conflict) + no E2E coverage for knowledge base vector fix. PR #861 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#33",
-            "repo": "wande-ai-front",
-            "title": "Issue #33",
-            "module": "menu-not-registered:-approval-center/wecom-console-pages-skipped",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "skipped",
-            "notes": "Menu not registered: approval-center/wecom-console pages skipped. Need backend SQL. PR #373 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#123",
-            "repo": "wande-ai-front",
-            "title": "需求闭环看板页面",
-            "module": "no-e2e-coverage-for-requirement-lifecycle-dashboard",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "blocked",
-            "notes": "No E2E coverage for requirement-lifecycle dashboard. PR #372 blocked."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#188",
-            "repo": "wande-ai-front",
-            "title": "GPU资源监控面板",
-            "module": "mid-layer-test-passed",
-            "test_files": [],
-            "coverage": "full",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR #369 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#155",
-            "repo": "wande-ai-front",
-            "title": "Issue #155",
-            "module": "mid-layer-test-passed",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test passed. PR #368 tests passed but merge blocked (not mergeable)."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#244",
-            "repo": "wande-ai-front",
-            "title": "Issue #244",
-            "module": "test-only-pr",
-            "test_files": [],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T01:26:47+08:00",
-            "last_result": "passed",
-            "notes": "Test-only PR. PR #363 merged via REST API."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
-            "repo": "wande-ai-backend",
-            "title": "CC API调用质量监控",
-            "module": "cc-api-metric",
-            "test_files": [
-                "tests/backend/api/dashboard-cc-api-metric.spec.ts (to be added)"
-            ],
-            "coverage": "none",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). PR #906 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
-            "repo": "wande-ai-backend",
-            "title": "工具管理Service+API",
-            "module": "tool-management",
-            "test_files": [
-                "tests/backend/api/tool-management.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Existing tests cannot run. PR #905 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#394",
-            "repo": "wande-ai-front",
-            "title": "驾驶舱全页面深色主题",
-            "module": "cockpit-dark-theme",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #415 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#392",
-            "repo": "wande-ai-front",
-            "title": "键盘快捷键系统",
-            "module": "cockpit-hotkeys",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #414 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#385",
-            "repo": "wande-ai-front",
-            "title": "首页卡片聚合升级 — 全子模块健康度统一展示",
-            "module": "health-card-grid",
-            "test_files": [
-                "tests/front/smoke/health-card-grid.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #413 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#67",
-            "repo": "wande-ai-front",
-            "title": "超管后台权限管理界面",
-            "module": "admin-permission",
-            "test_files": [
-                "tests/front/smoke/admin-permission-page.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #411 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#388",
-            "repo": "wande-ai-front",
-            "title": "角色化仪表盘视图",
-            "module": "cockpit-role-view",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #410 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#386",
-            "repo": "wande-ai-front",
-            "title": "DORA四指标看板页面",
-            "module": "dora-metrics",
-            "test_files": [
-                "tests/front/smoke/dora-metrics.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). DORA page loads but redirects to login due to backend auth failure. PR #409 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#387",
-            "repo": "wande-ai-front",
-            "title": "全平台操作审计日志页面",
-            "module": "audit-log",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #407 blocked until environment recovers."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#320",
-            "repo": "wande-ai-front",
-            "title": "超管驾驶舱预算总览组件",
-            "module": "budget-overview",
-            "test_files": [
-                "tests/front/smoke/budget-overview.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T21:03:00",
-            "last_result": "blocked",
-            "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #405/#403 blocked until environment recovers."
-        }
-    ],
-    "modules": {
-        "auth": {
-            "description": "认证与登录",
-            "test_tags": [
-                "@auth"
-            ],
-            "api_prefix": "/auth",
-            "test_files": [
-                "tests/api/auth.spec.ts",
-                "tests/e2e/login-flow.spec.ts"
-            ]
-        },
-        "tender": {
-            "description": "招投标管理",
-            "test_tags": [
-                "@tender"
-            ],
-            "api_prefix": "/wande/tender",
-            "test_files": [
-                "tests/api/tender.spec.ts",
-                "tests/smoke/pages-load.spec.ts"
-            ]
-        },
-        "crm": {
-            "description": "CRM 客户管理",
-            "test_tags": [
-                "@crm"
-            ],
-            "api_prefix": "/wande/crm",
-            "test_files": [
-                "tests/api/crm.spec.ts"
-            ]
-        },
-        "opportunity": {
-            "description": "商机管理",
-            "test_tags": [
-                "@opportunity"
-            ],
-            "api_prefix": "/wande/opportunity",
-            "test_files": []
-        },
-        "competitor": {
-            "description": "竞品分析",
-            "test_tags": [
-                "@competitor"
-            ],
-            "api_prefix": "/wande/competitor",
-            "test_files": []
-        },
-        "dashboard": {
-            "description": "仪表盘",
-            "test_tags": [
-                "@dashboard"
-            ],
-            "api_prefix": "/wande/dashboard",
-            "test_files": []
-        },
-        "system": {
-            "description": "系统管理（用户/角色/菜单）",
-            "test_tags": [
-                "@system"
-            ],
-            "api_prefix": "/system",
-            "test_files": []
-        },
-        "gpu-monitor": {
-            "description": "GPU 性能监控",
-            "test_tags": [
-                "@gpu-monitor"
-            ],
-            "api_prefix": "/api/monitor/gpu",
-            "test_files": [
-                "tests/api/gpu-monitor.spec.ts",
-                "tests/smoke/gpu-monitor-page.spec.ts"
-            ]
-        },
-        "credit-usage": {
-            "description": "Perplexity Credit 消耗统计",
-            "test_tags": [
-                "@credit-usage"
-            ],
-            "api_prefix": "/wande/credit-usage",
-            "test_files": [
-                "tests/api/credit-usage.spec.ts",
-                "tests/smoke/credit-usage-page.spec.ts"
-            ]
-        },
-        "project-mine": {
-            "description": "项目挖掘 (Project Mine)",
-            "test_tags": [
-                "@project-mine"
-            ],
-            "api_prefix": "/wande/project/mine",
-            "test_files": [
-                "tests/api/project-mine.spec.ts",
-                "tests/smoke/project-mine-page.spec.ts"
-            ]
-        },
-        "counterpart": {
-            "description": "项目配合单位管理",
-            "test_tags": [
-                "@counterpart"
-            ],
-            "api_prefix": "/wande/project/counterpart",
-            "test_files": [
-                "tests/smoke/counterpart-management.spec.ts"
-            ]
-        },
-        "ai-render": {
-            "description": "AI 渲染助手工作台",
-            "test_tags": [
-                "@ai-render"
-            ],
-            "api_prefix": "/api/ai/render",
-            "test_files": [
-                "tests/smoke/ai-render.spec.ts"
-            ]
-        },
-        "product-center": {
-            "description": "产品参数查询中心",
-            "test_tags": [
-                "@product-center"
-            ],
-            "api_prefix": "/wande/product",
-            "test_files": [
-                "tests/smoke/product-center.spec.ts"
-            ]
-        },
-        "receivable": {
-            "description": "应收账款管理",
-            "test_tags": [
-                "@receivable"
-            ],
-            "api_prefix": "/wande/receivable",
-            "test_files": [
-                "tests/smoke/receivable.spec.ts"
-            ]
-        },
-        "tool-detail": {
-            "description": "工具详情页面",
-            "test_tags": [
-                "@tool-detail"
-            ],
-            "api_prefix": "/wande/tool",
-            "test_files": [
-                "tests/smoke/tool-detail.spec.ts"
-            ]
-        },
-        "brand": {
-            "description": "品牌中心管理",
-            "test_tags": [
-                "@brand"
-            ],
-            "api_prefix": "/wande/brand",
-            "test_files": [
-                "tests/backend/api/brand.spec.ts"
-            ]
-        },
-        "brand-publish": {
-            "description": "品牌发布调度",
-            "test_tags": [
-                "@brand",
-                "@execution"
-            ],
-            "api_prefix": "/wande/brand/publish",
-            "test_files": [
-                "tests/backend/api/brand.spec.ts"
-            ]
-        },
-        "execution": {
-            "description": "项目执行管理",
-            "test_tags": [
-                "@execution"
-            ],
-            "api_prefix": "/wande/execution",
-            "test_files": [
-                "tests/backend/api/brand.spec.ts",
-                "tests/backend/api/menu-route-fix.spec.ts"
-            ]
-        },
-        "collab": {
-            "description": "协作设计",
-            "test_tags": [
-                "@collab"
-            ],
-            "api_prefix": "/api/collab",
-            "test_files": [
-                "tests/backend/api/collab-document-permission.spec.ts"
-            ]
-        },
-        "feedback": {
-            "description": "用户反馈",
-            "test_tags": [
-                "@feedback"
-            ],
-            "api_prefix": "/wande/user-feedback",
-            "test_files": [
-                "tests/backend/api/user-feedback.spec.ts"
-            ]
-        },
-        "asset-library": {
-            "description": "素材库",
-            "test_tags": [
-                "@asset-library"
-            ],
-            "api_prefix": "/wande/asset",
-            "test_files": [
-                "tests/front/smoke/asset-detail.spec.ts"
-            ]
-        },
-        "pipeline": {
-            "description": "数据管道",
-            "test_tags": [
-                "@pipeline"
-            ],
-            "api_prefix": "",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ]
-        },
-        "ppt-finance": {
-            "description": "PPT插件与财务",
-            "test_tags": [
-                "@ppt",
-                "@finance"
-            ],
-            "api_prefix": "/api/ppt-plugin",
-            "test_files": [
-                "tests/backend/api/finance-weekly-report.spec.ts"
-            ]
-        },
-        "menu": {
-            "description": "菜单路由",
-            "test_tags": [
-                "@menu"
-            ],
-            "api_prefix": "/system/menu",
-            "test_files": [
-                "tests/backend/api/menu-route-fix.spec.ts"
-            ]
-        },
-        "claude-session": {
-            "description": "Claude Code会话监控",
-            "test_tags": [
-                "@claude-session"
-            ],
-            "api_prefix": "/api/dashboard/claude",
-            "test_files": [
-                "tests/backend/api/dashboard-claude-session.spec.ts"
-            ]
-        },
-        "blocker": {
-            "description": "阻塞项管理",
-            "test_tags": [
-                "@blocker"
-            ],
-            "api_prefix": "/wande/dashboard/blockers",
-            "test_files": [
-                "tests/backend/api/dashboard-blocker.spec.ts"
-            ]
-        },
-        "approval-wecom": {
-            "description": "审批队列+企微通知",
-            "test_tags": [
-                "@approval",
-                "@wecom"
-            ],
-            "api_prefix": "/wande/cockpit/approvals",
-            "test_files": [
-                "tests/backend/api/dashboard-approval-wecom.spec.ts"
-            ]
-        },
-        "cron": {
-            "description": "定时任务管理",
-            "test_tags": [
-                "@cron"
-            ],
-            "api_prefix": "/wande/dashboard/cron",
-            "test_files": [
-                "tests/backend/api/dashboard-cron.spec.ts"
-            ]
-        },
-        "wechat": {
-            "description": "微信公众号集成",
-            "test_tags": [
-                "@wechat"
-            ],
-            "api_prefix": "/wx/mp",
-            "test_files": [
-                "tests/backend/api/wechat-mp.spec.ts"
-            ]
-        },
-        "crm-intl": {
-            "description": "国际贸易客户CRM",
-            "test_tags": [
-                "@crm-intl"
-            ],
-            "api_prefix": "/wande/crm/international",
-            "test_files": [
-                "tests/backend/api/crm-international.spec.ts"
-            ]
-        }
+  "version": "1.0",
+  "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
+  "updated_at": "2026-04-01T11:31:00+08:00",
+  "mappings": [
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
+      "repo": "wande-data-pipeline",
+      "title": "S3产品参数批量入库脚本",
+      "module": "pipeline",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T01:55:00",
+      "last_result": "skipped",
+      "note": "Python pipeline code — no E2E test applicable"
     },
-    "mappings_appendix": [
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#829",
-            "repo": "wande-ai-backend",
-            "title": "模块真实可用性审计引擎 — 5维健康分+4级成熟度+31模块矩阵",
-            "module": "module-health",
-            "test_files": [
-                "tests/backend/api/module-health.spec.ts::GET /list requires authentication",
-                "tests/backend/api/module-health.spec.ts::GET /registry requires authentication",
-                "tests/backend/api/module-health.spec.ts::GET /{id} requires authentication",
-                "tests/backend/api/module-health.spec.ts::GET /list returns health matrix data",
-                "tests/backend/api/module-health.spec.ts::GET /registry returns module list",
-                "tests/backend/api/module-health.spec.ts::GET /{id} returns detail or graceful error"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: module-health API 6/6 passed. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#360",
-            "repo": "wande-ai-backend",
-            "title": "项目分配作战信息卡通知",
-            "module": "project-notification",
-            "test_files": [
-                "tests/backend/api/project-notification.spec.ts::GET /my requires authentication",
-                "tests/backend/api/project-notification.spec.ts::GET /unread requires authentication",
-                "tests/backend/api/project-notification.spec.ts::PUT /{id}/read requires authentication",
-                "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle requires authentication",
-                "tests/backend/api/project-notification.spec.ts::POST /mine/assign requires authentication",
-                "tests/backend/api/project-notification.spec.ts::GET /my returns notification list",
-                "tests/backend/api/project-notification.spec.ts::GET /unread returns count",
-                "tests/backend/api/project-notification.spec.ts::PUT /{id}/read handles gracefully",
-                "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle handles gracefully"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: project-notification API 9/9 passed."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#830",
-            "repo": "wande-ai-backend",
-            "title": "修复dashboard-card API 500错误",
-            "module": "ext-tool-health",
-            "test_files": [
-                "tests/front/smoke/ext-tool-health-card.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Bug fix verified: ext-tool-health-card 5/5 passed. PR has merge conflict."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#831",
-            "repo": "wande-ai-backend",
-            "title": "cockpit_config表添加BaseEntity标准列修复SQL报错",
-            "module": "cockpit",
-            "test_files": [
-                "tests/front/smoke/ext-tool-health-card.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Bug fix verified: cockpit page loads OK. PR has merge conflict."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#68",
-            "repo": "wande-ai-front",
-            "title": "国际贸易矿场CRM衔接前端",
-            "module": "crm",
-            "test_files": [
-                "tests/front/smoke/crm-intl-mine-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: CRM intl mine smoke 4/4 passed. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#57",
-            "repo": "wande-ai-front",
-            "title": "矿场详情页展示合并后完整信息",
-            "module": "mine-detail",
-            "test_files": [
-                "tests/front/smoke/mine-detail-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: mine-detail smoke 4/4 passed. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#143",
-            "repo": "wande-ai-front",
-            "title": "矿场运营仪表盘 — 核心指标可视化",
-            "module": "mine-dashboard",
-            "test_files": [
-                "tests/front/smoke/mine-dashboard-page.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: mine-dashboard smoke 4/4 passed."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#18",
-            "repo": "wande-data-pipeline",
-            "title": "ggzy.gov.cn全国公共资源交易平台采集器",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Pipeline health 14/14 PASS. Python collector, no HTTP API. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
-            "repo": "wande-data-pipeline",
-            "title": "关键词学习效果追踪+无效词降权 v3.0",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Pipeline health 14/14 PASS. Python-only changes."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",
-            "repo": "wande-data-pipeline",
-            "title": "信源过滤增强 — URL黑名单+标题噪音+内容判断",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T06:45:00",
-            "last_result": "passed",
-            "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml). PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#828",
-            "repo": "wande-ai-backend",
-            "title": "新增定时任务管理API模块",
-            "module": "cron-mgmt",
-            "test_files": [
-                "tests/backend/api/cron-task-management.spec.ts::8 unauthenticated + 10 authenticated = 18/18 passed"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T11:35:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: cron-task-management 18/18 passed. PR has merge conflict — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
-            "repo": "wande-ai-backend",
-            "title": "代理商工作台Phase3 — 模块间数据打通",
-            "module": "dealer",
-            "test_files": [
-                "tests/backend/api/dealer.spec.ts::4/10 passed, 6 failed (Phase3 + base list APIs 500)"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T13:10:00",
-            "last_result": "failed",
-            "notes": "Issue #840 still OPEN. 6/10 tests fail with 500: TIMESTAMPTZ mismatch + Mapper XML missing. PR CONFLICTING."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#212",
-            "repo": "wande-ai-front",
-            "title": "告警中心+检测日志页面 — 外部工具管理Phase3",
-            "module": "alert-detection",
-            "test_files": [
-                "tests/front/smoke/alert-detection-pages.spec.ts::Alert API 6/6 + Detection API 2/2 + Pages 4/4 = 12/12 passed"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T11:36:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: alert-detection-pages 12/12 passed. PR has merge conflict — blocked for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#840",
-            "repo": "wande-ai-backend",
-            "title": "[E2E失败] dealer基础列表API 500错误",
-            "module": "dealer",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T11:35:00",
-            "last_result": "failed",
-            "notes": "P0 bugfix: TIMESTAMPTZ→LocalDateTime + DealerBidRecordMapper/DealerFollowUpMapper XML missing. Blocks PR #839."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#244",
-            "repo": "wande-ai-front",
-            "title": "确认中心页面 — 双Tab + 确认驳回 + 评论回写",
-            "module": "confirmation-center",
-            "test_files": [
-                "tests/front/smoke/confirmation-center.spec.ts::approvals list API requires authentication",
-                "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API requires authentication",
-                "tests/front/smoke/confirmation-center.spec.ts::approvals list API returns data or permission error with auth",
-                "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API returns data or permission error",
-                "tests/front/smoke/confirmation-center.spec.ts::frontend serves correctly",
-                "tests/front/smoke/confirmation-center.spec.ts::confirmation center page load attempt"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T12:35:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: confirmation-center 6/6 passed. Menu not registered in sys_menu. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#163",
-            "repo": "wande-ai-front",
-            "title": "业务员待办中心 — 我的项目列表+通知中心",
-            "module": "my-projects",
-            "test_files": [
-                "tests/front/smoke/my-projects-page.spec.ts::project mine list API requires authentication",
-                "tests/front/smoke/my-projects-page.spec.ts::project mine stats API requires authentication",
-                "tests/front/smoke/my-projects-page.spec.ts::project mine list API returns data with auth",
-                "tests/front/smoke/my-projects-page.spec.ts::project mine stats API returns data with auth",
-                "tests/front/smoke/my-projects-page.spec.ts::frontend serves correctly",
-                "tests/front/smoke/my-projects-page.spec.ts::my projects page load attempt"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T12:35:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: my-projects 6/6 passed. Menu not registered in sys_menu. PR has merge conflict."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-data-pipeline#20",
-            "repo": "wande-data-pipeline",
-            "title": "多源项目智能去重合并 v2.0",
-            "module": "pipeline",
-            "test_files": [
-                "tests/pipeline/api/pipeline-health.spec.ts::14/14 passed"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T12:35:00",
-            "last_result": "passed",
-            "notes": "Mid-layer test: pipeline-health 14/14 passed. Python-only changes, 73 unit tests in PR. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#602",
-            "repo": "wande-ai-backend",
-            "title": "调度器健壮性升级 — CSV→SQLite+429自适应+僵尸检测+历史持久化",
-            "module": "scheduler",
-            "test_files": [],
-            "coverage": "none",
-            "last_tested": "2026-03-31T13:10:00",
-            "last_result": "passed",
-            "notes": "Docs-only PR (task.md). CC Scheduler Python script changes, no backend Java API. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#155",
-            "repo": "wande-ai-front",
-            "title": "合并研发管控+运营工具→超管驾驶舱一级菜单",
-            "module": "super-admin-cockpit",
-            "test_files": [
-                "tests/front/smoke/dashboard-new-pages.spec.ts::11/11 passed",
-                "tests/front/ — 452/452 passed (149 skipped)"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T13:10:00",
-            "last_result": "passed",
-            "notes": "Route config change: order:-2 for SuperAdminCockpit. All dashboard pages accessible. PR merged."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#574",
-            "repo": "wande-ai-backend",
-            "title": "确认中心API — Issue标签同步+确认/驳回+评论回写GitHub",
-            "module": "confirmation-center",
-            "test_files": [
-                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations requires authentication",
-                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats requires authentication",
-                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync requires authentication",
-                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations should return list",
-                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations with filters should work",
-                "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats should return statistics",
-                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync should trigger sync",
-                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/confirm returns expected result",
-                "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/reject returns expected result"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-03-31T14:05:00",
-            "last_result": "passed",
-            "notes": "PR #847 E2E test passed. All 9 API tests passed. Ready for merge."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
-            "repo": "wande-ai-backend",
-            "title": "新增 good_lead/bad_lead 反馈 API",
-            "module": "project-mine-feedback",
-            "test_files": [
-                "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} requires authentication",
-                "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats requires authentication",
-                "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} handles gracefully",
-                "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats returns data or permission error"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T17:07:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test: 2/4 passed. 2 cases failed with 500 due to backend dev API instability / missing SQL deployment. PR #875 not approved."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
-            "repo": "wande-ai-backend",
-            "title": "外部工具企微告警推送 + 驾驶舱卡片数据API",
-            "module": "ext-tool-dashboard",
-            "test_files": [
-                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card requires authentication",
-                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report requires authentication",
-                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card returns data or permission error",
-                "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report handles gracefully"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T17:07:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test: 3/4 passed. dashboard-card authenticated test failed with 500 (backend dev API unstable). PR #876 not approved."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-front#33",
-            "repo": "wande-ai-front",
-            "title": "审批中心+企微通知控制台页面",
-            "module": "approval-wecom-console",
-            "test_files": [
-                "tests/front/smoke/approval-center-page.spec.ts::page loads without critical errors when menu is registered",
-                "tests/front/smoke/approval-center-page.spec.ts::page has no critical console errors",
-                "tests/front/smoke/wecom-console-page.spec.ts::page loads without critical errors when menu is registered",
-                "tests/front/smoke/wecom-console-page.spec.ts::page has no critical console errors"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-03-31T17:07:00",
-            "last_result": "skipped",
-            "notes": "Mid-layer test: 4/4 skipped due to missing sys_menu entries. Need backend incremental SQL. PR #373 not approved."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
-            "repo": "wande-ai-backend",
-            "title": "CC API调用质量监控",
-            "module": "cc-api-metric",
-            "test_files": [
-                "tests/backend/api/cc-api-quality.spec.ts"
-            ],
-            "coverage": "partial",
-            "last_tested": "2026-04-01T07:55:00",
-            "last_result": "failed",
-            "notes": "Mid-layer test failed: PR #906 has merge conflict with dev (DIRTY). Dev environment missing wdpp_dashboard_cc_api_metrics schema (create_dept column). APIs return 500: overview, trend, webhook/report, getById. request-changes submitted."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
-            "repo": "wande-ai-backend",
-            "title": "工具管理Service+API",
-            "module": "tool-management",
-            "test_files": [
-                "tests/backend/api/tool-management.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T03:38:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #905 cannot be tested."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#485",
-            "repo": "wande-ai-backend",
-            "title": "修复开发阻塞主动提醒功能代码结构",
-            "module": "dashboard-blocker",
-            "test_files": [
-                "tests/backend/api/dashboard-blocker.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T03:38:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #850 request-changes submitted."
-        },
-        {
-            "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
-            "repo": "wande-ai-backend",
-            "title": "Dealer Phase3 模块间数据打通",
-            "module": "dealer",
-            "test_files": [
-                "tests/backend/api/dealer.spec.ts"
-            ],
-            "coverage": "full",
-            "last_tested": "2026-04-01T07:55:00",
-            "last_result": "failed",
-            "notes": "Mid-layer test failed: PR #839 has merge conflict with dev (DIRTY). Dev environment shows TIMESTAMPTZ→LocalDateTime conversion error on stage_entered_at. Unauthenticated tests on import-from-tender/sync-to-crm/related-project do not return 401 (500 instead). request-changes submitted."
-        }
-    ],
-    "uncovered_modules": []
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#38",
+      "repo": "wande-data-pipeline",
+      "title": "竞品采集管线+domestic_projects",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#213",
+      "repo": "wande-ai-front",
+      "title": "外部工具健康度卡片",
+      "module": "ext-tool-health",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API rejects unauthenticated requests",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API returns valid data with auth",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::dashboard-card API response has expected fields",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page loads with external tool health card",
+        "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Blockers resolved (#830/#831 fixed). ext-tool-health-card: 5/5 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#162",
+      "repo": "wande-ai-front",
+      "title": "项目配合单位管理功能",
+      "module": "counterpart",
+      "test_files": [
+        "tests/smoke/counterpart-management.spec.ts::counterpart management API requires authentication",
+        "tests/smoke/counterpart-management.spec.ts::project detail page loads with counterpart tab",
+        "tests/smoke/counterpart-management.spec.ts::counterpart management tab exists in project detail",
+        "tests/smoke/counterpart-management.spec.ts::counterpart management has role groupings",
+        "tests/smoke/counterpart-management.spec.ts::counterpart add button exists",
+        "tests/smoke/counterpart-management.spec.ts::counterpart role types dropdown has expected options",
+        "tests/smoke/counterpart-management.spec.ts::counterpart list displays expected fields"
+      ],
+      "coverage": "full",
+      "last_tested": null,
+      "last_result": null
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#2",
+      "repo": "wande-ai-backend",
+      "title": "新增 Perplexity Credit 消耗统计 API",
+      "module": "credit-usage",
+      "test_files": [
+        "tests/api/credit-usage.spec.ts::credit usage list API requires authentication",
+        "tests/api/credit-usage.spec.ts::credit usage summary API requires authentication",
+        "tests/api/credit-usage.spec.ts::credit usage daily stats API requires authentication",
+        "tests/api/credit-usage.spec.ts::should get credit usage list with valid token",
+        "tests/api/credit-usage.spec.ts::should get credit usage summary with valid token",
+        "tests/api/credit-usage.spec.ts::should get credit usage daily stats with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-22T09:07:22",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#2",
+      "repo": "wande-ai-front",
+      "title": "新增 Perplexity Credit 消耗统计页面",
+      "module": "credit-usage",
+      "test_files": [
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page loads successfully",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page has no critical console errors",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page route exists",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page has expected UI elements",
+        "tests/smoke/credit-usage-page.spec.ts::credit usage page refresh works"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-22T09:07:22",
+      "last_result": "passed"
+    },
+    {
+      "issue": "TEMPLATE",
+      "repo": "wande-ai-backend",
+      "title": "Issue 标题示例",
+      "module": "tender",
+      "test_files": [
+        "tests/api/tender.spec.ts::should list tenders with pagination",
+        "tests/e2e/tender-crud.spec.ts::should create and view tender"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#255",
+      "repo": "wande-ai-backend",
+      "title": "GPU Monitor API",
+      "module": "gpu-monitor",
+      "test_files": [
+        "tests/api/gpu-monitor.spec.ts::should get GPU realtime data",
+        "tests/api/gpu-monitor.spec.ts::should get GPU summary data",
+        "tests/api/gpu-monitor.spec.ts::should get GPU alerts",
+        "tests/api/gpu-monitor.spec.ts::should get GPU health status",
+        "tests/api/gpu-monitor.spec.ts::should reject unauthenticated requests"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-23T21:35:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#394",
+      "repo": "wande-ai-backend",
+      "title": "GPU Monitor API 字段命名修复",
+      "module": "gpu-monitor",
+      "test_files": [
+        "tests/api/gpu-monitor.spec.ts::should get GPU realtime data"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-23T21:35:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#124",
+      "repo": "wande-ai-front",
+      "title": "GPU Monitor Page",
+      "module": "gpu-monitor",
+      "test_files": [
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has no console errors",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page route exists",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has expected layout elements",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page has refresh functionality"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-22T12:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#274",
+      "repo": "wande-ai-backend",
+      "title": "项目挖掘页面卡死 — 后端返回字段与前端字段名不匹配",
+      "module": "project-mine",
+      "test_files": [
+        "tests/api/project-mine.spec.ts::list API requires authentication",
+        "tests/api/project-mine.spec.ts::stats API requires authentication",
+        "tests/api/project-mine.spec.ts::detail API requires authentication",
+        "tests/api/project-mine.spec.ts::should get project mine list with valid token",
+        "tests/api/project-mine.spec.ts::should get project mine stats with valid token",
+        "tests/api/project-mine.spec.ts::should get project mine detail with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-22T23:30:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#138",
+      "repo": "wande-ai-front",
+      "title": "项目挖掘页面字段重构修复页面卡死问题",
+      "module": "project-mine",
+      "test_files": [
+        "tests/smoke/project-mine-page.spec.ts::project mine API endpoints are functional (backend validation)",
+        "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-22T23:30:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#164",
+      "repo": "wande-ai-front",
+      "title": "ResizeObserver 无限循环导致页面高度无限扩充问题",
+      "module": "layout",
+      "test_files": [
+        "tests/smoke/pages-load.spec.ts::login page loads successfully",
+        "tests/smoke/gpu-monitor-page.spec.ts::GPU monitor page loads successfully",
+        "tests/smoke/credit-usage-page.spec.ts::frontend serves correctly",
+        "tests/smoke/project-mine-page.spec.ts::frontend serves correctly"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-23T16:30:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#44",
+      "repo": "wande-ai-backend",
+      "title": "SysNoticeController 未授权访问漏洞修复",
+      "module": "system",
+      "test_files": [
+        "tests/api/system-notice.spec.ts::notice list API requires authentication",
+        "tests/api/system-notice.spec.ts::notice detail API requires authentication",
+        "tests/api/system-notice.spec.ts::notice list API works with valid token"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T11:31:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #947 has merge conflict — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#187",
+      "repo": "wande-ai-front",
+      "title": "AI渲染助手工作台",
+      "module": "ai-render",
+      "test_files": [
+        "tests/smoke/ai-render.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed",
+      "notes": "Core page load tests passed. History page route not configured correctly."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#192",
+      "repo": "wande-ai-front",
+      "title": "产品参数查询中心",
+      "module": "product-center",
+      "test_files": [
+        "tests/smoke/product-center.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#180",
+      "repo": "wande-ai-front",
+      "title": "应收账款管理",
+      "module": "receivable",
+      "test_files": [
+        "tests/smoke/receivable.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#242",
+      "repo": "wande-ai-front",
+      "title": "工具详情页面",
+      "module": "tool-detail",
+      "test_files": [
+        "tests/smoke/tool-detail.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-28T22:45:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#253",
+      "repo": "wande-ai-backend",
+      "title": "品牌中心发布调度 + 验收协同模块",
+      "module": "brand-publish",
+      "test_files": [
+        "tests/backend/api/brand.spec.ts::Brand Publish API",
+        "tests/backend/api/brand.spec.ts::Production Progress API",
+        "tests/backend/api/brand.spec.ts::Project Document API"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#57",
+      "repo": "wande-ai-backend",
+      "title": "设计直销商机表数据模型",
+      "module": "crm",
+      "test_files": [
+        "tests/backend/api/crm-direct-sales.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#48",
+      "repo": "wande-ai-backend",
+      "title": "项目执行管理模块10张表",
+      "module": "execution",
+      "test_files": [
+        "tests/backend/api/menu-route-fix.spec.ts::Project Execution Tables"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed",
+      "notes": "PR only contains SQL tables, no controllers. Verified via regression tests."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#47",
+      "repo": "wande-ai-backend",
+      "title": "文档权限控制 API + OnlyOffice 审阅模式",
+      "module": "collab",
+      "test_files": [
+        "tests/backend/api/collab-document-permission.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#12",
+      "repo": "wande-ai-backend",
+      "title": "品牌中心内容 CRUD API + 状态流转",
+      "module": "brand",
+      "test_files": [
+        "tests/backend/api/brand.spec.ts::Brand Account API",
+        "tests/backend/api/brand.spec.ts::Brand Content API",
+        "tests/backend/api/brand.spec.ts::Brand Metrics API",
+        "tests/backend/api/brand.spec.ts::Brand Publish Log API"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#133",
+      "repo": "wande-ai-backend",
+      "title": "用户反馈管理模块修复 + 单元测试",
+      "module": "feedback",
+      "test_files": [
+        "tests/backend/api/user-feedback.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#134",
+      "repo": "wande-ai-backend",
+      "title": "用户反馈管理",
+      "module": "feedback",
+      "test_files": [
+        "tests/backend/api/user-feedback.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#671",
+      "repo": "wande-ai-backend",
+      "title": "修复菜单路由配置",
+      "module": "menu",
+      "test_files": [
+        "tests/backend/api/menu-route-fix.spec.ts::Menu Route Fix"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#670",
+      "repo": "wande-ai-backend",
+      "title": "菜单已存在调查",
+      "module": "menu",
+      "test_files": [],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed",
+      "notes": "Docs-only PR, no code changes"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#656",
+      "repo": "wande-ai-backend",
+      "title": "修复Bean名称冲突",
+      "module": "ppt-finance",
+      "test_files": [
+        "tests/backend/api/finance-weekly-report.spec.ts",
+        "tests/backend/api/menu-route-fix.spec.ts::Bean Name Conflict Regression"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#265",
+      "repo": "wande-ai-front",
+      "title": "素材详情弹窗组件",
+      "module": "asset-library",
+      "test_files": [
+        "tests/front/smoke/asset-detail.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed",
+      "notes": "API tests pass. UI tests skipped - menu not registered in sys_menu"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#245",
+      "repo": "wande-ai-front",
+      "title": "API网关子账户管理页面",
+      "module": "gateway-account",
+      "test_files": [
+        "tests/front/smoke/gateway-account-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-29T16:00:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#16",
+      "repo": "wande-data-pipeline",
+      "title": "smart_project_discovery.py 配置分离与日志优化",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts::backend service is reachable for pipeline data",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data API returns data with valid token",
+        "tests/pipeline/api/pipeline-health.spec.ts::project mine API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::project mine API returns data with valid token",
+        "tests/pipeline/api/pipeline-health.spec.ts::pipeline database is reachable via backend health",
+        "tests/pipeline/api/pipeline-health.spec.ts::competitor API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::product center API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::mine competitor API requires auth",
+        "tests/pipeline/api/pipeline-health.spec.ts::dashboard command API is reachable",
+        "tests/pipeline/api/pipeline-health.spec.ts::config.yaml database connection matches backend",
+        "tests/pipeline/api/pipeline-health.spec.ts::pipeline search services are configured (SearXNG)",
+        "tests/pipeline/api/pipeline-health.spec.ts::discovered projects have required fields",
+        "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控API",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
+      "repo": "wande-ai-backend",
+      "title": "开发阻塞主动提醒",
+      "module": "blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#46",
+      "repo": "wande-ai-backend",
+      "title": "统一审批队列+企微通知控制台",
+      "module": "approval-wecom",
+      "test_files": [
+        "tests/backend/api/dashboard-approval-wecom.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #859 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#248",
+      "repo": "wande-ai-backend",
+      "title": "定时任务操作API",
+      "module": "cron",
+      "test_files": [
+        "tests/backend/api/dashboard-cron.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#10",
+      "repo": "wande-ai-backend",
+      "title": "运营仪表盘API (微信集成)",
+      "module": "wechat",
+      "test_files": [
+        "tests/backend/api/wechat-mp.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Tests written. Backend API (port 6040) down - awaiting restart."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#56",
+      "repo": "wande-ai-backend",
+      "title": "国际贸易客户CRUD API",
+      "module": "crm-intl",
+      "test_files": [
+        "tests/backend/api/crm-international.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#8",
+      "repo": "wande-ai-backend",
+      "title": "爬虫状态API增强",
+      "module": "project-mine",
+      "test_files": [
+        "tests/backend/api/project-mine-crawler.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#38",
+      "repo": "wande-ai-backend",
+      "title": "角色权限扩展",
+      "module": "execution",
+      "test_files": [
+        "tests/backend/api/execution-permission.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#118",
+      "repo": "wande-ai-front",
+      "title": "定时任务总览页",
+      "module": "cron",
+      "test_files": [
+        "tests/front/smoke/cron-management-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#234",
+      "repo": "wande-ai-front",
+      "title": "Kanban看板面板",
+      "module": "kanban",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Menu not registered. API tests for claude sessions + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#233",
+      "repo": "wande-ai-front",
+      "title": "像素办公室升级",
+      "module": "pixel-office",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#251",
+      "repo": "wande-ai-front",
+      "title": "排程Tab",
+      "module": "schedule",
+      "test_files": [
+        "tests/front/smoke/claude-office-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #370 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#32",
+      "repo": "wande-ai-front",
+      "title": "运维监控中心+快捷指令终端",
+      "module": "ops-center",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#248",
+      "repo": "wande-ai-front",
+      "title": "API网关使用记录",
+      "module": "gateway-usage",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Menu not registered. Credit usage API test + frontend base load."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#252",
+      "repo": "wande-ai-front",
+      "title": "排程调度中心",
+      "module": "schedule-center",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#31",
+      "repo": "wande-ai-front",
+      "title": "开发者动态+部署管理页面",
+      "module": "dev-activity",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#30",
+      "repo": "wande-ai-front",
+      "title": "Issue看板页面",
+      "module": "issue-kanban",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Menu not registered. Frontend base load test only."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#576",
+      "repo": "wande-ai-backend",
+      "title": "API网关子账户管理 — 预算管理引擎",
+      "module": "gateway-budget",
+      "test_files": [
+        "tests/backend/api/gateway-budget.spec.ts::PUT budget requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::GET alert-config requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::PUT alert-config requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle requires authentication",
+        "tests/backend/api/gateway-budget.spec.ts::GET alert-config returns data or permission error",
+        "tests/backend/api/gateway-budget.spec.ts::PUT budget with invalid accountId returns error",
+        "tests/backend/api/gateway-budget.spec.ts::PUT alert-config validates input",
+        "tests/backend/api/gateway-budget.spec.ts::PUT accounts/{id}/toggle with invalid id returns error"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T05:30:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#601",
+      "repo": "wande-ai-backend",
+      "title": "Claude Office 2.0 线路管理REST API",
+      "module": "line-management",
+      "test_files": [
+        "tests/backend/api/line-management.spec.ts::GET /status requires authentication",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause requires authentication",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume requires authentication",
+        "tests/backend/api/line-management.spec.ts::POST /{lineId}/assign requires authentication",
+        "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats requires authentication",
+        "tests/backend/api/line-management.spec.ts::GET /status returns line list",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/pause with invalid id",
+        "tests/backend/api/line-management.spec.ts::PUT /{lineId}/resume with invalid id",
+        "tests/backend/api/line-management.spec.ts::GET /{lineId}/stats with invalid id"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#211",
+      "repo": "wande-ai-front",
+      "title": "账号池监控页面",
+      "module": "model-pool",
+      "test_files": [
+        "tests/front/smoke/model-pool-page.spec.ts::frontend serves correctly",
+        "tests/front/smoke/model-pool-page.spec.ts::dashboard API is accessible",
+        "tests/front/smoke/model-pool-page.spec.ts::page loads without crash",
+        "tests/front/smoke/model-pool-page.spec.ts::page has expected UI elements",
+        "tests/front/smoke/model-pool-page.spec.ts::page has no critical console errors"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "model-pool-page console-errors test failed due to backend MonitorAlertVo createdAt missing setter. PR #367 blocked by backend dev issue."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#691",
+      "repo": "wande-ai-backend",
+      "title": "修复 G7eServiceConfig Bean名称冲突",
+      "module": "system",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Config fix only, no new API endpoints"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#55",
+      "repo": "wande-ai-backend",
+      "title": "修复pom.xml引用 + 国际贸易客户数据库准备",
+      "module": "crm",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-30T18:00:00",
+      "last_result": "partial",
+      "notes": "Core tests passed. Some new API endpoints returning 500 — pending DB migration."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#599",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控 — GitHub同步修复+增强",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:20:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. 10/10 claude-session API tests PASS. PR has merge conflict — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#249",
+      "repo": "wande-ai-backend",
+      "title": "Claude Code会话监控API",
+      "module": "claude-session",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T11:31:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #950 has merge conflict — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
+      "repo": "wande-ai-backend",
+      "title": "外部工具管理 — 企微告警推送+驾驶舱首页卡片数据API",
+      "module": "blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test: ext-tool-dashboard API 500. Backend dev unstable. PR #876 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#45",
+      "repo": "wande-ai-backend",
+      "title": "快捷指令执行引擎",
+      "module": "dashboard-command",
+      "test_files": [
+        "tests/backend/api/dashboard-command.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #860 has merge conflict (dirty) — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#241",
+      "repo": "wande-ai-front",
+      "title": "工具中心 — 内部工具管理页面",
+      "module": "tool-center",
+      "test_files": [
+        "tests/front/smoke/tool-detail.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Test-only PR. PR #365 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#210",
+      "repo": "wande-ai-front",
+      "title": "外部工具管理 — 工具总览+手动录入页面",
+      "module": "ext-tools",
+      "test_files": [
+        "tests/front/smoke/tool-detail.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-30T19:30:00",
+      "last_result": "passed",
+      "notes": "Partially covered by tool-detail tests"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#9",
+      "repo": "wande-ai-backend",
+      "title": "修复任意文件上传漏洞，防止路径遍历攻击",
+      "module": "security",
+      "test_files": [
+        "tests/backend/api/file-upload-security.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: file-upload-security 8/8 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOrganization/wande-ai-front#63",
+      "repo": "wande-ai-front",
+      "title": "用户反馈管理页面（Cockpit版）",
+      "module": "feedback",
+      "test_files": [
+        "tests/front/smoke/feedback-manage-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: feedback-manage 7/7 passed."
+    },
+    {
+      "issue": "WnadeyaowuOrganization/wande-ai-front#62",
+      "repo": "wande-ai-front",
+      "title": "用户反馈管理页面（Wande版）",
+      "module": "feedback",
+      "test_files": [
+        "tests/front/smoke/feedback-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: feedback-page 8/8 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#339",
+      "repo": "wande-ai-front",
+      "title": "模块健康度审计页面",
+      "module": "module-health",
+      "test_files": [
+        "tests/front/smoke/module-health-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Docs-only PR. PR #366 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#338",
+      "repo": "wande-ai-front",
+      "title": "定时任务管理看板页面",
+      "module": "cron",
+      "test_files": [
+        "tests/front/smoke/cron-tasks-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: cron-tasks 7/7 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
+      "repo": "wande-data-pipeline",
+      "title": "关键词学习效果追踪+无效词降权 v3.0",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:20:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes, no E2E impact."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",
+      "repo": "wande-data-pipeline",
+      "title": "信源过滤增强 — URL黑名单+标题噪音+内容判断",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T05:20:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml)."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#600",
+      "repo": "wande-ai-backend",
+      "title": "排程管理REST API验收文档",
+      "module": "scheduler",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:35:00",
+      "last_result": "skipped",
+      "note": "纯文档PR，无代码变更，跳过E2E测试。已merge。"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
+      "repo": "wande-ai-backend",
+      "title": "Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动",
+      "module": "dealer",
+      "test_files": [
+        "tests/backend/api/dealer.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#119",
+      "repo": "wande-ai-front",
+      "title": "执行日志页 — 时间线表格+筛选栏+日志详情抽屉",
+      "module": "dashboard-cron",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T14:00:00",
+      "last_result": "blocked",
+      "notes": "Backend API /wande/dashboard/cron/exec-log/list not implemented (500). PR self-notes '后端API就绪后端到端验证'. BLOCKED: needs backend API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#122",
+      "repo": "wande-ai-front",
+      "title": "开发效率看板页面 — 核心指标卡片+趋势图+周月切换+明细表",
+      "module": "dev-efficiency",
+      "test_files": [
+        "tests/front/smoke/dev-efficiency-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "passed",
+      "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#117",
+      "repo": "wande-ai-front",
+      "title": "定时任务告警规则管理页 — 表格+CRUD弹窗+类型Tooltip",
+      "module": "cron-alert-rules",
+      "test_files": [
+        "tests/front/smoke/cron-alert-rules-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "passed",
+      "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#602",
+      "repo": "wande-ai-backend",
+      "title": "API SQLite迁移+调度器去重+僵尸检测",
+      "module": "scheduler",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "blocked",
+      "notes": "Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#250",
+      "repo": "wande-ai-backend",
+      "title": "验收中心 Service + Controller 实现",
+      "module": "acceptance",
+      "test_files": [
+        "tests/backend/api/dashboard-acceptance.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "dashboard-acceptance 3/6 failed with 500. Backend dev unstable. PR #851 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#251",
+      "repo": "wande-ai-backend",
+      "title": "Dify conversationId UUID校验 — 修复无效UUID报错",
+      "module": "chat",
+      "test_files": [
+        "tests/backend/api/dify-uuid.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "blocked",
+      "notes": "Tests added. Blocked by backend dev environment 500 error (has_embedding type mismatch, see backend#858)"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#485",
+      "repo": "wande-ai-backend",
+      "title": "修复开发阻塞主动提醒功能代码结构",
+      "module": "blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#575",
+      "repo": "wande-ai-backend",
+      "title": "API网关子账户管理 [1/4] - 数据同步API",
+      "module": "gateway-account",
+      "test_files": [
+        "tests/backend/api/gateway-budget.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Cannot execute any API tests. PR blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#120",
+      "repo": "wande-ai-front",
+      "title": "Issue看板增强 — 跨仓库统一视图+角色筛选+Claude Code进度关联",
+      "module": "issue-board",
+      "test_files": [
+        "tests/front/smoke/issue-board-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "passed",
+      "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#121",
+      "repo": "wande-ai-front",
+      "title": "验收中心页面 — 待验收队列+单个/批量验收+结果展示+评论",
+      "module": "acceptance-center",
+      "test_files": [
+        "tests/front/smoke/acceptance-center-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:00:34",
+      "last_result": "passed",
+      "notes": "Page smoke test passed. Backend 500 may affect data loading but route and UI render correctly."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#850",
+      "repo": "wande-ai-backend",
+      "title": "Issue #850",
+      "module": "dashboard-blocker",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:15:00+08:00",
+      "last_result": "failed",
+      "note": "API 500错误 - dashboard-blocker相关接口"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#846",
+      "repo": "wande-ai-backend",
+      "title": "Issue #846",
+      "module": "gateway-budget",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:15:00+08:00",
+      "last_result": "failed",
+      "note": "API 500错误 - gateway子账户管理接口"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#839",
+      "repo": "wande-ai-backend",
+      "title": "Issue #839",
+      "module": "dealer",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T16:15:00+08:00",
+      "last_result": "failed",
+      "note": "API 500错误 - dealer Phase3接口"
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
+      "repo": "wande-ai-backend",
+      "title": "Issue #357",
+      "module": "mid-layer-test:-project-mine-feedback-2/4-failed-with-500",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test: project-mine-feedback 2/4 failed with 500. Backend dev unstable. PR #875 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#361",
+      "repo": "wande-ai-backend",
+      "title": "项目分配企微机器人推送通知",
+      "module": "no-e2e-coverage-+-pr-dirty-(merge-conflict)",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "No E2E coverage + PR dirty (merge conflict). PR #874 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#840",
+      "repo": "wande-ai-backend",
+      "title": "Issue #840",
+      "module": "dealer-phase3-endpoints-still-return-500",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "Dealer Phase3 endpoints still return 500. PR #873 fix not fully effective in dev."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#358",
+      "repo": "wande-ai-backend",
+      "title": "tender_data 与 discovered_projects 数据关联查询 API",
+      "module": "no-e2e-coverage-for-project-mine-enriched-query",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "No E2E coverage for project-mine enriched query. PR #872 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#89",
+      "repo": "wande-ai-backend",
+      "title": "知识库上传向量延迟3分钟+删除向量修复",
+      "module": "pr-dirty-(merge-conflict)-+-no-e2e-coverage-for-knowledge-base-vector-fix",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "PR dirty (merge conflict) + no E2E coverage for knowledge base vector fix. PR #861 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#33",
+      "repo": "wande-ai-front",
+      "title": "Issue #33",
+      "module": "menu-not-registered:-approval-center/wecom-console-pages-skipped",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "skipped",
+      "notes": "Menu not registered: approval-center/wecom-console pages skipped. Need backend SQL. PR #373 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#123",
+      "repo": "wande-ai-front",
+      "title": "需求闭环看板页面",
+      "module": "no-e2e-coverage-for-requirement-lifecycle-dashboard",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "blocked",
+      "notes": "No E2E coverage for requirement-lifecycle dashboard. PR #372 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#188",
+      "repo": "wande-ai-front",
+      "title": "GPU资源监控面板",
+      "module": "mid-layer-test-passed",
+      "test_files": [],
+      "coverage": "full",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #369 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#155",
+      "repo": "wande-ai-front",
+      "title": "Issue #155",
+      "module": "mid-layer-test-passed",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed. PR #368 tests passed but merge blocked (not mergeable)."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#244",
+      "repo": "wande-ai-front",
+      "title": "Issue #244",
+      "module": "test-only-pr",
+      "test_files": [],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T01:26:47+08:00",
+      "last_result": "passed",
+      "notes": "Test-only PR. PR #363 merged via REST API."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
+      "repo": "wande-ai-backend",
+      "title": "CC API调用质量监控",
+      "module": "cc-api-metric",
+      "test_files": [
+        "tests/backend/api/dashboard-cc-api-metric.spec.ts (to be added)"
+      ],
+      "coverage": "none",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). PR #906 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
+      "repo": "wande-ai-backend",
+      "title": "工具管理Service+API",
+      "module": "tool-management",
+      "test_files": [
+        "tests/backend/api/tool-management.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Existing tests cannot run. PR #905 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#394",
+      "repo": "wande-ai-front",
+      "title": "驾驶舱全页面深色主题",
+      "module": "cockpit-dark-theme",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #415 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#392",
+      "repo": "wande-ai-front",
+      "title": "键盘快捷键系统",
+      "module": "cockpit-hotkeys",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #414 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#385",
+      "repo": "wande-ai-front",
+      "title": "首页卡片聚合升级 — 全子模块健康度统一展示",
+      "module": "health-card-grid",
+      "test_files": [
+        "tests/front/smoke/health-card-grid.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #413 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#67",
+      "repo": "wande-ai-front",
+      "title": "超管后台权限管理界面",
+      "module": "admin-permission",
+      "test_files": [
+        "tests/front/smoke/admin-permission-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #411 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#388",
+      "repo": "wande-ai-front",
+      "title": "角色化仪表盘视图",
+      "module": "cockpit-role-view",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #410 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#386",
+      "repo": "wande-ai-front",
+      "title": "DORA四指标看板页面",
+      "module": "dora-metrics",
+      "test_files": [
+        "tests/front/smoke/dora-metrics.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). DORA page loads but redirects to login due to backend auth failure. PR #409 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#387",
+      "repo": "wande-ai-front",
+      "title": "全平台操作审计日志页面",
+      "module": "audit-log",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #407 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#320",
+      "repo": "wande-ai-front",
+      "title": "超管驾驶舱预算总览组件",
+      "module": "budget-overview",
+      "test_files": [
+        "tests/front/smoke/budget-overview.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T21:03:00",
+      "last_result": "blocked",
+      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #405/#403 blocked until environment recovers."
+    }
+  ],
+  "modules": {
+    "auth": {
+      "description": "认证与登录",
+      "test_tags": [
+        "@auth"
+      ],
+      "api_prefix": "/auth",
+      "test_files": [
+        "tests/api/auth.spec.ts",
+        "tests/e2e/login-flow.spec.ts"
+      ]
+    },
+    "tender": {
+      "description": "招投标管理",
+      "test_tags": [
+        "@tender"
+      ],
+      "api_prefix": "/wande/tender",
+      "test_files": [
+        "tests/api/tender.spec.ts",
+        "tests/smoke/pages-load.spec.ts"
+      ]
+    },
+    "crm": {
+      "description": "CRM 客户管理",
+      "test_tags": [
+        "@crm"
+      ],
+      "api_prefix": "/wande/crm",
+      "test_files": [
+        "tests/api/crm.spec.ts"
+      ]
+    },
+    "opportunity": {
+      "description": "商机管理",
+      "test_tags": [
+        "@opportunity"
+      ],
+      "api_prefix": "/wande/opportunity",
+      "test_files": []
+    },
+    "competitor": {
+      "description": "竞品分析",
+      "test_tags": [
+        "@competitor"
+      ],
+      "api_prefix": "/wande/competitor",
+      "test_files": []
+    },
+    "dashboard": {
+      "description": "仪表盘",
+      "test_tags": [
+        "@dashboard"
+      ],
+      "api_prefix": "/wande/dashboard",
+      "test_files": []
+    },
+    "system": {
+      "description": "系统管理（用户/角色/菜单）",
+      "test_tags": [
+        "@system"
+      ],
+      "api_prefix": "/system",
+      "test_files": []
+    },
+    "gpu-monitor": {
+      "description": "GPU 性能监控",
+      "test_tags": [
+        "@gpu-monitor"
+      ],
+      "api_prefix": "/api/monitor/gpu",
+      "test_files": [
+        "tests/api/gpu-monitor.spec.ts",
+        "tests/smoke/gpu-monitor-page.spec.ts"
+      ]
+    },
+    "credit-usage": {
+      "description": "Perplexity Credit 消耗统计",
+      "test_tags": [
+        "@credit-usage"
+      ],
+      "api_prefix": "/wande/credit-usage",
+      "test_files": [
+        "tests/api/credit-usage.spec.ts",
+        "tests/smoke/credit-usage-page.spec.ts"
+      ]
+    },
+    "project-mine": {
+      "description": "项目挖掘 (Project Mine)",
+      "test_tags": [
+        "@project-mine"
+      ],
+      "api_prefix": "/wande/project/mine",
+      "test_files": [
+        "tests/api/project-mine.spec.ts",
+        "tests/smoke/project-mine-page.spec.ts"
+      ]
+    },
+    "counterpart": {
+      "description": "项目配合单位管理",
+      "test_tags": [
+        "@counterpart"
+      ],
+      "api_prefix": "/wande/project/counterpart",
+      "test_files": [
+        "tests/smoke/counterpart-management.spec.ts"
+      ]
+    },
+    "ai-render": {
+      "description": "AI 渲染助手工作台",
+      "test_tags": [
+        "@ai-render"
+      ],
+      "api_prefix": "/api/ai/render",
+      "test_files": [
+        "tests/smoke/ai-render.spec.ts"
+      ]
+    },
+    "product-center": {
+      "description": "产品参数查询中心",
+      "test_tags": [
+        "@product-center"
+      ],
+      "api_prefix": "/wande/product",
+      "test_files": [
+        "tests/smoke/product-center.spec.ts"
+      ]
+    },
+    "receivable": {
+      "description": "应收账款管理",
+      "test_tags": [
+        "@receivable"
+      ],
+      "api_prefix": "/wande/receivable",
+      "test_files": [
+        "tests/smoke/receivable.spec.ts"
+      ]
+    },
+    "tool-detail": {
+      "description": "工具详情页面",
+      "test_tags": [
+        "@tool-detail"
+      ],
+      "api_prefix": "/wande/tool",
+      "test_files": [
+        "tests/smoke/tool-detail.spec.ts"
+      ]
+    },
+    "brand": {
+      "description": "品牌中心管理",
+      "test_tags": [
+        "@brand"
+      ],
+      "api_prefix": "/wande/brand",
+      "test_files": [
+        "tests/backend/api/brand.spec.ts"
+      ]
+    },
+    "brand-publish": {
+      "description": "品牌发布调度",
+      "test_tags": [
+        "@brand",
+        "@execution"
+      ],
+      "api_prefix": "/wande/brand/publish",
+      "test_files": [
+        "tests/backend/api/brand.spec.ts"
+      ]
+    },
+    "execution": {
+      "description": "项目执行管理",
+      "test_tags": [
+        "@execution"
+      ],
+      "api_prefix": "/wande/execution",
+      "test_files": [
+        "tests/backend/api/brand.spec.ts",
+        "tests/backend/api/menu-route-fix.spec.ts"
+      ]
+    },
+    "collab": {
+      "description": "协作设计",
+      "test_tags": [
+        "@collab"
+      ],
+      "api_prefix": "/api/collab",
+      "test_files": [
+        "tests/backend/api/collab-document-permission.spec.ts"
+      ]
+    },
+    "feedback": {
+      "description": "用户反馈",
+      "test_tags": [
+        "@feedback"
+      ],
+      "api_prefix": "/wande/user-feedback",
+      "test_files": [
+        "tests/backend/api/user-feedback.spec.ts"
+      ]
+    },
+    "asset-library": {
+      "description": "素材库",
+      "test_tags": [
+        "@asset-library"
+      ],
+      "api_prefix": "/wande/asset",
+      "test_files": [
+        "tests/front/smoke/asset-detail.spec.ts"
+      ]
+    },
+    "pipeline": {
+      "description": "数据管道",
+      "test_tags": [
+        "@pipeline"
+      ],
+      "api_prefix": "",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ]
+    },
+    "ppt-finance": {
+      "description": "PPT插件与财务",
+      "test_tags": [
+        "@ppt",
+        "@finance"
+      ],
+      "api_prefix": "/api/ppt-plugin",
+      "test_files": [
+        "tests/backend/api/finance-weekly-report.spec.ts"
+      ]
+    },
+    "menu": {
+      "description": "菜单路由",
+      "test_tags": [
+        "@menu"
+      ],
+      "api_prefix": "/system/menu",
+      "test_files": [
+        "tests/backend/api/menu-route-fix.spec.ts"
+      ]
+    },
+    "claude-session": {
+      "description": "Claude Code会话监控",
+      "test_tags": [
+        "@claude-session"
+      ],
+      "api_prefix": "/api/dashboard/claude",
+      "test_files": [
+        "tests/backend/api/dashboard-claude-session.spec.ts"
+      ]
+    },
+    "blocker": {
+      "description": "阻塞项管理",
+      "test_tags": [
+        "@blocker"
+      ],
+      "api_prefix": "/wande/dashboard/blockers",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ]
+    },
+    "approval-wecom": {
+      "description": "审批队列+企微通知",
+      "test_tags": [
+        "@approval",
+        "@wecom"
+      ],
+      "api_prefix": "/wande/cockpit/approvals",
+      "test_files": [
+        "tests/backend/api/dashboard-approval-wecom.spec.ts"
+      ]
+    },
+    "cron": {
+      "description": "定时任务管理",
+      "test_tags": [
+        "@cron"
+      ],
+      "api_prefix": "/wande/dashboard/cron",
+      "test_files": [
+        "tests/backend/api/dashboard-cron.spec.ts"
+      ]
+    },
+    "wechat": {
+      "description": "微信公众号集成",
+      "test_tags": [
+        "@wechat"
+      ],
+      "api_prefix": "/wx/mp",
+      "test_files": [
+        "tests/backend/api/wechat-mp.spec.ts"
+      ]
+    },
+    "crm-intl": {
+      "description": "国际贸易客户CRM",
+      "test_tags": [
+        "@crm-intl"
+      ],
+      "api_prefix": "/wande/crm/international",
+      "test_files": [
+        "tests/backend/api/crm-international.spec.ts"
+      ]
+    }
+  },
+  "mappings_appendix": [
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#829",
+      "repo": "wande-ai-backend",
+      "title": "模块真实可用性审计引擎 — 5维健康分+4级成熟度+31模块矩阵",
+      "module": "module-health",
+      "test_files": [
+        "tests/backend/api/module-health.spec.ts::GET /list requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /registry requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /{id} requires authentication",
+        "tests/backend/api/module-health.spec.ts::GET /list returns health matrix data",
+        "tests/backend/api/module-health.spec.ts::GET /registry returns module list",
+        "tests/backend/api/module-health.spec.ts::GET /{id} returns detail or graceful error"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: module-health API 6/6 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#360",
+      "repo": "wande-ai-backend",
+      "title": "项目分配作战信息卡通知",
+      "module": "project-notification",
+      "test_files": [
+        "tests/backend/api/project-notification.spec.ts::GET /my requires authentication",
+        "tests/backend/api/project-notification.spec.ts::GET /unread requires authentication",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/read requires authentication",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle requires authentication",
+        "tests/backend/api/project-notification.spec.ts::POST /mine/assign requires authentication",
+        "tests/backend/api/project-notification.spec.ts::GET /my returns notification list",
+        "tests/backend/api/project-notification.spec.ts::GET /unread returns count",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/read handles gracefully",
+        "tests/backend/api/project-notification.spec.ts::PUT /{id}/handle handles gracefully"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: project-notification API 9/9 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#830",
+      "repo": "wande-ai-backend",
+      "title": "修复dashboard-card API 500错误",
+      "module": "ext-tool-health",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Bug fix verified: ext-tool-health-card 5/5 passed. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#831",
+      "repo": "wande-ai-backend",
+      "title": "cockpit_config表添加BaseEntity标准列修复SQL报错",
+      "module": "cockpit",
+      "test_files": [
+        "tests/front/smoke/ext-tool-health-card.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Bug fix verified: cockpit page loads OK. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#68",
+      "repo": "wande-ai-front",
+      "title": "国际贸易矿场CRM衔接前端",
+      "module": "crm",
+      "test_files": [
+        "tests/front/smoke/crm-intl-mine-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: CRM intl mine smoke 4/4 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#57",
+      "repo": "wande-ai-front",
+      "title": "矿场详情页展示合并后完整信息",
+      "module": "mine-detail",
+      "test_files": [
+        "tests/front/smoke/mine-detail-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: mine-detail smoke 4/4 passed. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#143",
+      "repo": "wande-ai-front",
+      "title": "矿场运营仪表盘 — 核心指标可视化",
+      "module": "mine-dashboard",
+      "test_files": [
+        "tests/front/smoke/mine-dashboard-page.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: mine-dashboard smoke 4/4 passed."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#18",
+      "repo": "wande-data-pipeline",
+      "title": "ggzy.gov.cn全国公共资源交易平台采集器",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python collector, no HTTP API. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#17",
+      "repo": "wande-data-pipeline",
+      "title": "关键词学习效果追踪+无效词降权 v3.0",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#19",
+      "repo": "wande-data-pipeline",
+      "title": "信源过滤增强 — URL黑名单+标题噪音+内容判断",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T06:45:00",
+      "last_result": "passed",
+      "notes": "Pipeline health 14/14 PASS. Python-only changes (source_filter.py + filter_rules.yaml). PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#828",
+      "repo": "wande-ai-backend",
+      "title": "新增定时任务管理API模块",
+      "module": "cron-mgmt",
+      "test_files": [
+        "tests/backend/api/cron-task-management.spec.ts::8 unauthenticated + 10 authenticated = 18/18 passed"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T11:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: cron-task-management 18/18 passed. PR has merge conflict — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
+      "repo": "wande-ai-backend",
+      "title": "代理商工作台Phase3 — 模块间数据打通",
+      "module": "dealer",
+      "test_files": [
+        "tests/backend/api/dealer.spec.ts::4/10 passed, 6 failed (Phase3 + base list APIs 500)"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T13:10:00",
+      "last_result": "failed",
+      "notes": "Issue #840 still OPEN. 6/10 tests fail with 500: TIMESTAMPTZ mismatch + Mapper XML missing. PR CONFLICTING."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#212",
+      "repo": "wande-ai-front",
+      "title": "告警中心+检测日志页面 — 外部工具管理Phase3",
+      "module": "alert-detection",
+      "test_files": [
+        "tests/front/smoke/alert-detection-pages.spec.ts::Alert API 6/6 + Detection API 2/2 + Pages 4/4 = 12/12 passed"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T11:36:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: alert-detection-pages 12/12 passed. PR has merge conflict — blocked for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#840",
+      "repo": "wande-ai-backend",
+      "title": "[E2E失败] dealer基础列表API 500错误",
+      "module": "dealer",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T11:35:00",
+      "last_result": "failed",
+      "notes": "P0 bugfix: TIMESTAMPTZ→LocalDateTime + DealerBidRecordMapper/DealerFollowUpMapper XML missing. Blocks PR #839."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#244",
+      "repo": "wande-ai-front",
+      "title": "确认中心页面 — 双Tab + 确认驳回 + 评论回写",
+      "module": "confirmation-center",
+      "test_files": [
+        "tests/front/smoke/confirmation-center.spec.ts::approvals list API requires authentication",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API requires authentication",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals list API returns data or permission error with auth",
+        "tests/front/smoke/confirmation-center.spec.ts::approvals pending-count API returns data or permission error",
+        "tests/front/smoke/confirmation-center.spec.ts::frontend serves correctly",
+        "tests/front/smoke/confirmation-center.spec.ts::confirmation center page load attempt"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: confirmation-center 6/6 passed. Menu not registered in sys_menu. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#163",
+      "repo": "wande-ai-front",
+      "title": "业务员待办中心 — 我的项目列表+通知中心",
+      "module": "my-projects",
+      "test_files": [
+        "tests/front/smoke/my-projects-page.spec.ts::project mine list API requires authentication",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine stats API requires authentication",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine list API returns data with auth",
+        "tests/front/smoke/my-projects-page.spec.ts::project mine stats API returns data with auth",
+        "tests/front/smoke/my-projects-page.spec.ts::frontend serves correctly",
+        "tests/front/smoke/my-projects-page.spec.ts::my projects page load attempt"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: my-projects 6/6 passed. Menu not registered in sys_menu. PR has merge conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#20",
+      "repo": "wande-data-pipeline",
+      "title": "多源项目智能去重合并 v2.0",
+      "module": "pipeline",
+      "test_files": [
+        "tests/pipeline/api/pipeline-health.spec.ts::14/14 passed"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T12:35:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test: pipeline-health 14/14 passed. Python-only changes, 73 unit tests in PR. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#602",
+      "repo": "wande-ai-backend",
+      "title": "调度器健壮性升级 — CSV→SQLite+429自适应+僵尸检测+历史持久化",
+      "module": "scheduler",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-03-31T13:10:00",
+      "last_result": "passed",
+      "notes": "Docs-only PR (task.md). CC Scheduler Python script changes, no backend Java API. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#155",
+      "repo": "wande-ai-front",
+      "title": "合并研发管控+运营工具→超管驾驶舱一级菜单",
+      "module": "super-admin-cockpit",
+      "test_files": [
+        "tests/front/smoke/dashboard-new-pages.spec.ts::11/11 passed",
+        "tests/front/ — 452/452 passed (149 skipped)"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T13:10:00",
+      "last_result": "passed",
+      "notes": "Route config change: order:-2 for SuperAdminCockpit. All dashboard pages accessible. PR merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#574",
+      "repo": "wande-ai-backend",
+      "title": "确认中心API — Issue标签同步+确认/驳回+评论回写GitHub",
+      "module": "confirmation-center",
+      "test_files": [
+        "tests/backend/api/confirmation-center.spec.ts::GET /confirmations requires authentication",
+        "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats requires authentication",
+        "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync requires authentication",
+        "tests/backend/api/confirmation-center.spec.ts::GET /confirmations should return list",
+        "tests/backend/api/confirmation-center.spec.ts::GET /confirmations with filters should work",
+        "tests/backend/api/confirmation-center.spec.ts::GET /confirmations/stats should return statistics",
+        "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/sync should trigger sync",
+        "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/confirm returns expected result",
+        "tests/backend/api/confirmation-center.spec.ts::POST /confirmations/{id}/reject returns expected result"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-03-31T14:05:00",
+      "last_result": "passed",
+      "notes": "PR #847 E2E test passed. All 9 API tests passed. Ready for merge."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#357",
+      "repo": "wande-ai-backend",
+      "title": "新增 good_lead/bad_lead 反馈 API",
+      "module": "project-mine-feedback",
+      "test_files": [
+        "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} requires authentication",
+        "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats requires authentication",
+        "tests/backend/api/project-mine-feedback.spec.ts::PUT /feedback/{id} handles gracefully",
+        "tests/backend/api/project-mine-feedback.spec.ts::GET /feedback-stats returns data or permission error"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T17:07:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test: 2/4 passed. 2 cases failed with 500 due to backend dev API instability / missing SQL deployment. PR #875 not approved."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#477",
+      "repo": "wande-ai-backend",
+      "title": "外部工具企微告警推送 + 驾驶舱卡片数据API",
+      "module": "ext-tool-dashboard",
+      "test_files": [
+        "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card requires authentication",
+        "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report requires authentication",
+        "tests/backend/api/ext-tool-dashboard.spec.ts::GET /dashboard-card returns data or permission error",
+        "tests/backend/api/ext-tool-dashboard.spec.ts::GET /send-daily-report handles gracefully"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T17:07:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test: 3/4 passed. dashboard-card authenticated test failed with 500 (backend dev API unstable). PR #876 not approved."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#33",
+      "repo": "wande-ai-front",
+      "title": "审批中心+企微通知控制台页面",
+      "module": "approval-wecom-console",
+      "test_files": [
+        "tests/front/smoke/approval-center-page.spec.ts::page loads without critical errors when menu is registered",
+        "tests/front/smoke/approval-center-page.spec.ts::page has no critical console errors",
+        "tests/front/smoke/wecom-console-page.spec.ts::page loads without critical errors when menu is registered",
+        "tests/front/smoke/wecom-console-page.spec.ts::page has no critical console errors"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-03-31T17:07:00",
+      "last_result": "skipped",
+      "notes": "Mid-layer test: 4/4 skipped due to missing sys_menu entries. Need backend incremental SQL. PR #373 not approved."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
+      "repo": "wande-ai-backend",
+      "title": "CC API调用质量监控",
+      "module": "cc-api-metric",
+      "test_files": [
+        "tests/backend/api/cc-api-quality.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-01T07:55:00",
+      "last_result": "failed",
+      "notes": "Mid-layer test failed: PR #906 has merge conflict with dev (DIRTY). Dev environment missing wdpp_dashboard_cc_api_metrics schema (create_dept column). APIs return 500: overview, trend, webhook/report, getById. request-changes submitted."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
+      "repo": "wande-ai-backend",
+      "title": "工具管理Service+API",
+      "module": "tool-management",
+      "test_files": [
+        "tests/backend/api/tool-management.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T03:38:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #905 cannot be tested."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#485",
+      "repo": "wande-ai-backend",
+      "title": "修复开发阻塞主动提醒功能代码结构",
+      "module": "dashboard-blocker",
+      "test_files": [
+        "tests/backend/api/dashboard-blocker.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T03:38:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #850 request-changes submitted."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
+      "repo": "wande-ai-backend",
+      "title": "Dealer Phase3 模块间数据打通",
+      "module": "dealer",
+      "test_files": [
+        "tests/backend/api/dealer.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-01T07:55:00",
+      "last_result": "failed",
+      "notes": "Mid-layer test failed: PR #839 has merge conflict with dev (DIRTY). Dev environment shows TIMESTAMPTZ→LocalDateTime conversion error on stage_entered_at. Unauthenticated tests on import-from-tender/sync-to-crm/related-project do not return 401 (500 instead). request-changes submitted."
+    }
+  ],
+  "uncovered_modules": []
 }
