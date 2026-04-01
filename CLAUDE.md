@@ -448,7 +448,7 @@ gh project item-add 2 --owner WnadeyaowuOraganization --url <新Issue URL>
   "issue": "WnadeyaowuOraganization/wande-ai-backend#5",
   "last_tested": "2026-03-21T02:00:00",
   "last_result": "passed",
-  "test_files": ["tests/api/tender.spec.ts::should list tenders"]
+  "test_files": ["tests/backend/api/tender.spec.ts::should list tenders"]
 }
 ```
 
