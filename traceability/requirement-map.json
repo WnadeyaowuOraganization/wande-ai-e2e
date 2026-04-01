@@ -1228,12 +1228,12 @@
       "title": "CC API调用质量监控",
       "module": "cc-api-metric",
       "test_files": [
-        "tests/backend/api/dashboard-cc-api-metric.spec.ts (to be added)"
+        "tests/backend/api/dashboard-cc-api-metric.spec.ts"
       ],
-      "coverage": "none",
-      "last_tested": "2026-03-31T21:03:00",
-      "last_result": "blocked",
-      "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). PR #906 blocked until environment recovers."
+      "coverage": "full",
+      "last_tested": "2026-04-02T04:46:14",
+      "last_result": "passed",
+      "notes": "PR #921/#995 unified API paths. All 13 tests passed on 2026-04-01."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
@@ -2024,12 +2024,12 @@
       "title": "CC API调用质量监控",
       "module": "cc-api-metric",
       "test_files": [
-        "tests/backend/api/cc-api-quality.spec.ts"
+        "tests/backend/api/dashboard-cc-api-metric.spec.ts"
       ],
-      "coverage": "partial",
-      "last_tested": "2026-04-01T07:55:00",
-      "last_result": "failed",
-      "notes": "Mid-layer test failed: PR #906 has merge conflict with dev (DIRTY). Dev environment missing wdpp_dashboard_cc_api_metrics schema (create_dept column). APIs return 500: overview, trend, webhook/report, getById. request-changes submitted."
+      "coverage": "full",
+      "last_tested": "2026-04-02T04:46:14",
+      "last_result": "passed",
+      "notes": "PR #921/#995 unified API paths. All 13 tests passed on 2026-04-01."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
