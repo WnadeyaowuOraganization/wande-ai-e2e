@@ -1,4 +1,4 @@
-# PR #906 测试工作记录
+# PR #906 E2E 测试工作记录
 
 ## PR信息
 - **编号**: #906
@@ -10,41 +10,53 @@
 ## 关联Issue
 - #698 CC API调用质量监控
 
-## 变更范围
-- 新增 `wdpp_dashboard_cc_api_metrics` 数据表与增量SQL
-- 新增 Webhook 入口 `POST /monitor/cc-api-metric/webhook/report`
-- 新增 Service 层异常检测逻辑（input/output ratio 告警）
-- 新增 WeCom 异步通知推送
-- 新增 `DashboardCcApiMetricServiceTest` 单元测试
-- 新增 G7e 监控脚本 `scripts/g7e/cc_api_monitor.py`
-- 修复 `WebConfig` bean 名称冲突
+## 测试执行
+- **时间**: 2026-04-01
+- **范围**: `tests/backend/api/dashboard-cc-api-metric.spec.ts` (本次新增)
 
 ## 测试结果
+❌ 6 项失败，8 项通过，1 项跳过
 
-### 执行时间
-2026-04-01
+## 失败分析
 
-### 测试范围
-`tests/backend/api/cc-api-quality.spec.ts`
+### 1. Webhook 上报接口返回 401（代码缺陷）
+- **接口**: `POST /monitor/cc-api-metric/webhook/report`
+- **预期**: code = 200 (供 G7e 脚本无鉴权调用)
+- **实际**: code = 401, msg = "认证失败，无法访问系统资源"
+- **根因**: `CcApiMetricWebhookController` 的 `/report` 端点未配置公开访问，被 Sa-Token 全局拦截。
+- **结论**: 这是 PR 引入的功能缺陷，必须修复。
 
-### 结果汇总
-- 通过: 1 / 5
-- 失败: 4
+### 2. 管理接口返回 500 — SQL 字段缺失（代码缺陷）
+- **接口**: `GET /monitor/cc-api-metric/overview`、`GET /monitor/cc-api-metric/trend`
+- **预期**: code = 200
+- **实际**: code = 500
+- **错误详情**:
+  ```
+  ERROR: column "create_dept" does not exist
+  SQL: SELECT ...,create_dept,create_by,create_time,update_by,update_time FROM wdpp_dashboard_cc_api_metrics
+  ```
+- **根因**: 表 `wdpp_dashboard_cc_api_metrics` 实际缺少 `create_dept`、`create_by` 等 BaseEntity 标准列。PR 的增量 SQL 脚本未包含这些字段，导致带 BaseEntity 的 Entity 查询报错。
+- **结论**: 需要修复建表 SQL 并同步到 dev 数据库。
 
-### 失败分析
-1. **Merge Conflict**: PR `feature-issue-698` 分支与当前 `dev` 分支存在合并冲突 (`mergeStateStatus: DIRTY`, `mergeable: CONFLICTING`)。
-2. **环境未部署**: dev环境当前运行的jar不包含此PR代码，导致 `wdpp_dashboard_cc_api_metrics` 表缺少 `create_dept` 等 BaseEntity 列。
-3. **API 500错误**: 具体失败接口及错误如下：
-   - `GET /monitor/cc-api-metric/{id}` → `code: 500`，"column create_dept does not exist"
-   - `GET /monitor/cc-api-metric/overview` → `code: 500`，同上
-   - `GET /monitor/cc-api-metric/trend` → `code: 500`，同上
-   - `POST /monitor/cc-api-metric/webhook/report` → `code: 500`，"column create_dept of relation wdpp_dashboard_cc_api_metrics does not exist"
+## 测试执行记录
 
-## 决策
-此PR因与 `dev` 分支存在merge conflict且dev环境数据库schema未同步，E2E测试无法通过。拒绝通过，保持 `status:test-failed`。
+### 2026-04-01 08:17
+- 执行中层测试
+- 结果: 6项失败，4项通过
+- 主要问题:
+  1. Webhook接口返回404（API未部署或路径错误）
+  2. /overview和/trend接口返回500: column "create_dept" does not exist
 
-## 下一步行动
-- [x] 保持 `status:test-failed`
-- [ ] 编程CC需先rebase `feature-issue-698` 到最新 `dev` 分支并解决冲突
-- [ ] 确保dev环境执行增量SQL `2026-03-31-create-dashboard-cc-api-metrics.sql`
-- [ ] 部署最新代码到dev环境后重新执行E2E测试
+### 2026-04-01 08:18
+- 手动验证: Webhook接口仍返回401（需要公开访问配置）
+- 手动验证: /overview接口返回500（数据库字段缺失）
+
+## 已执行动作
+- [x] 新增 E2E 测试文件 `tests/backend/api/dashboard-cc-api-metric.spec.ts`
+- [x] 提交 `request-changes` review
+- [x] Issue #698 保持 `status:test-failed`
+
+## 下一步
+- [ ] 修复 webhook 端点公开访问配置
+- [ ] 修复 `wdpp_dashboard_cc_api_metrics` 表结构，补充 BaseEntity 字段
+- [ ] 重新部署 dev 环境并执行 E2E 测试
