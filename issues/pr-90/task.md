@@ -34,7 +34,16 @@
 ## 根因分析
 `project mine API` 500 是因为后端数据库 schema 中 `wdpp_discovered_projects` 缺少 `status` 列，导致后端 Mapper SQL 执行失败。与 PR 中表名修正为 `wdpp_discovered_projects` 的变更有关，但缺少对应列的增量 SQL。
 
-## 处理结论
-- **PR 状态**: request-changes
+## 2026-04-01 14:48 更新
+
+**状态变更**: 🚫 DIRTY / merge conflict — 无法合并  
+backend dev 环境经排查已由 backend#953 的 MyBatis alias 冲突导致整体瘫痪，但本 PR 此前记录的 `project mine API 500` 问题现已有新的 backend schema 修复方向（backend#951 / backend#955）。
+
+尝试 `gh pr merge` 时返回: `Pull request is not mergeable: the merge commit cannot be cleanly created.` 表明 PR 与当前 `dev` 分支存在 merge conflict，需要编程CC先行解决冲突后再进入E2E测试流程。
+
+**当前状态**: 保持 open，待编程CC解决 merge conflict 后重测。
+
+## 处理结论（历史）
+- **首轮PR 状态**: request-changes
 - **修复依赖**: backend#951
 - **Issue 标签更新**: pipeline#17 已添加 `status:test-failed`

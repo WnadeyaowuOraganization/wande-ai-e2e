@@ -35,7 +35,14 @@
 ## 根因分析
 500 错误根因与 pipeline #88 相同：`wdpp_discovered_projects` 表缺少 `status` 列。这是 backend schema 与 mapper 定义不一致导致的阻塞问题，不是 PR #87 引入的新缺陷。
 
-## 处理结论
-- **PR 状态**: request-changes
+## 2026-04-01 14:48 更新
+
+**状态变更**: 🚫 DIRTY / merge conflict — 无法合并  
+尝试执行 `gh pr merge` 时 GitHub 返回: `Pull request is not mergeable: the merge commit cannot be cleanly created.`。说明该 PR 与当前 `dev` 分支存在 merge conflict。由于 PR #87 由编程CC（wandeyaowu App身份/同账号）创建，测试CC无法 approve 自己的 PR，加之存在 merge conflict，必须通过编程CC先行解决冲突后重新进入测试审批流程。
+
+**当前状态**: 保持 open，待解决 merge conflict 后重测。
+
+## 处理结论（历史）
+- **首轮PR 状态**: request-changes
 - **修复依赖**: backend#951
 - **Issue 标签更新**: pipeline#38 已添加 `status:test-failed`

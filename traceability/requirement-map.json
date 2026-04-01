@@ -23,9 +23,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts (14/14 passed)"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-01T21:52:48+08:00",
-      "last_result": "failed",
-      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951."
+      "last_tested": "2026-04-01T14:48:00+08:00",
+      "last_result": "blocked",
+      "notes": "PR #87 has merge conflict with dev and cannot be merged. Also PR author same as reviewer, approval blocked. Needs programming CC to resolve conflicts."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#213",
@@ -40,9 +40,9 @@
         "tests/front/smoke/ext-tool-health-card.spec.ts::cockpit page has no critical console errors"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-01T21:52:48+08:00",
-      "last_result": "failed",
-      "notes": "dashboard-card API 500 (dashboard_ext_tools missing), cockpit console 8 errors. Blocked by backend#477."
+      "last_tested": "2026-04-01T14:48:00+08:00",
+      "last_result": "blocked",
+      "notes": "Mid-layer test: blocked because backend dev environment is down (MyBatis alias conflict from backend#953). Front#437 cannot be validated. Retry after backend#955 fixed."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-front#162",
@@ -449,9 +449,9 @@
         "tests/backend/api/dashboard-claude-session.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-03-31T05:30:00",
-      "last_result": "passed",
-      "notes": "Mid-layer test passed. PR has merge conflict (dirty state) — blocked for merge."
+      "last_tested": "2026-04-01T14:48:00+08:00",
+      "last_result": "failed",
+      "notes": "Mid-layer test: backend dev startup failed due to MyBatis alias conflict introduced by PR #953 (DashboardTokenAlertHistoryVo / DashboardTokenPoolBo). Requested changes on PR #953. P0 fix issue backend#955 created."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#700",
