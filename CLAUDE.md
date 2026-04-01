@@ -151,12 +151,18 @@ async function loginAndGoto(page, request, targetPath: string) {
 
 ## GitHub 身份
 
-> **你使用 `wandeyaowu` 个人账号身份操作 GitHub。**
+> **默认使用 `wandeyaowu` 个人账号身份操作 GitHub。**
 >
 > 编程CC（backend/front仓库）使用 GitHub App（wande-auto-code-agent）创建PR。
 > 你作为测试CC使用不同身份（wandeyaowu），因此可以审批和合并编程CC创建的PR。
 >
-> GH_TOKEN 已由调用方在启动时通过环境变量注入，无需你自行设置。---
+> GH_TOKEN 已由调用方在启动时通过环境变量注入，无需你自行设置。
+>
+> **Rate Limit 备份方案**：当 `wandeyaowu` 触发 GitHub rate limit（`403` / `429`）无法 merge PR 时，切换到 `weiping` 的 PAT 继续操作：
+> ```bash
+> export GH_TOKEN=$(cat /home/ubuntu/projects/.github/scripts/tokens/weiping.pat)
+> # 然后继续执行 gh pr merge ...
+> ```
 
 ## 目录结构
 
@@ -306,7 +312,7 @@ gh pr review <N> --repo WnadeyaowuOraganization/<repo> --approve --body "## ✅ 
 执行耗时: Xs"
 
 # 2. 合并PR
-gh pr merge <N> --repo WnadeyaowuOraganization/<repo> --squash --delete-branch
+gh pr merge <N> --repo WnadeyaowuOraganization/<repo> --squash --delete-branch  # 若遇rate limit错误，切换weiping PAT后继续
 
 # 3. 更新Issue标签
 gh issue edit <关联Issue编号> --repo WnadeyaowuOraganization/<repo> --add-label "status:test-passed" --remove-label "status:review,status:test-failed"
