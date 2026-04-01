@@ -1,7 +1,7 @@
 {
     "version": "1.0",
     "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-    "updated_at": "2026-03-31T21:03:00+08:00",
+    "updated_at": "2026-04-01T07:55:00+08:00",
     "mappings": [
         {
             "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1975,9 +1975,9 @@
                 "tests/backend/api/cc-api-quality.spec.ts"
             ],
             "coverage": "partial",
-            "last_tested": "2026-04-01T03:38:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test blocked: Dev environment startup failed due to MyBatis alias 'UserFeedback' conflict. PRs #912, #906 cannot be tested."
+            "last_tested": "2026-04-01T07:55:00",
+            "last_result": "failed",
+            "notes": "Mid-layer test failed: PR #906 has merge conflict with dev (DIRTY). Dev environment missing wdpp_dashboard_cc_api_metrics schema (create_dept column). APIs return 500: overview, trend, webhook/report, getById. request-changes submitted."
         },
         {
             "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
@@ -2014,9 +2014,9 @@
                 "tests/backend/api/dealer.spec.ts"
             ],
             "coverage": "full",
-            "last_tested": "2026-04-01T03:38:00",
-            "last_result": "blocked",
-            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #839 cannot be tested."
+            "last_tested": "2026-04-01T07:55:00",
+            "last_result": "failed",
+            "notes": "Mid-layer test failed: PR #839 has merge conflict with dev (DIRTY). Dev environment shows TIMESTAMPTZ→LocalDateTime conversion error on stage_entered_at. Unauthenticated tests on import-from-tender/sync-to-crm/related-project do not return 401 (500 instead). request-changes submitted."
         }
     ],
     "uncovered_modules": []
