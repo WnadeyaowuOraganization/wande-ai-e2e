@@ -82,7 +82,7 @@ test.describe('Pipeline Data Tables - Backend API Verification @api @pipeline @i
 
   test('project mine API returns data with valid token', { tag: ['@api', '@pipeline', '@issue:pipeline#16'] }, async ({ request }) => {
     test.skip(!token, 'No auth token available');
-    const response = await request.get('/wande/project/mine/list', {
+    const response = await request.get('/wande/project/mine/list?pageNum=1&pageSize=10', {
       headers: { Authorization: `Bearer ${token}` },
     });
     expect(response.status()).toBe(200);
