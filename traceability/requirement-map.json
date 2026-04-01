@@ -1965,6 +1965,58 @@
             "last_tested": "2026-03-31T17:07:00",
             "last_result": "skipped",
             "notes": "Mid-layer test: 4/4 skipped due to missing sys_menu entries. Need backend incremental SQL. PR #373 not approved."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#698",
+            "repo": "wande-ai-backend",
+            "title": "CC API调用质量监控",
+            "module": "cc-api-metric",
+            "test_files": [
+                "tests/backend/api/cc-api-quality.spec.ts"
+            ],
+            "coverage": "partial",
+            "last_tested": "2026-04-01T03:38:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test blocked: Dev environment startup failed due to MyBatis alias 'UserFeedback' conflict. PRs #912, #906 cannot be tested."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#567",
+            "repo": "wande-ai-backend",
+            "title": "工具管理Service+API",
+            "module": "tool-management",
+            "test_files": [
+                "tests/backend/api/tool-management.spec.ts"
+            ],
+            "coverage": "full",
+            "last_tested": "2026-04-01T03:38:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #905 cannot be tested."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#485",
+            "repo": "wande-ai-backend",
+            "title": "修复开发阻塞主动提醒功能代码结构",
+            "module": "dashboard-blocker",
+            "test_files": [
+                "tests/backend/api/dashboard-blocker.spec.ts"
+            ],
+            "coverage": "full",
+            "last_tested": "2026-04-01T03:38:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #850 request-changes submitted."
+        },
+        {
+            "issue": "WnadeyaowuOraganization/wande-ai-backend#309",
+            "repo": "wande-ai-backend",
+            "title": "Dealer Phase3 模块间数据打通",
+            "module": "dealer",
+            "test_files": [
+                "tests/backend/api/dealer.spec.ts"
+            ],
+            "coverage": "full",
+            "last_tested": "2026-04-01T03:38:00",
+            "last_result": "blocked",
+            "notes": "Mid-layer test blocked: Dev environment startup failed (MyBatis alias conflict). PR #839 cannot be tested."
         }
     ],
     "uncovered_modules": []
