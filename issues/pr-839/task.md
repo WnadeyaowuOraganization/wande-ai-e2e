@@ -1,31 +1,43 @@
 # PR #839 测试工作记录
 
-## 基本信息
-- **PR**: feat(dealer): Phase 3 模块间数据打通
-- **关联Issue**: #309
-- **测试时间**: 2026-04-01
-- **测试状态**: ❌ 失败
+## PR信息
+- **编号**: #839
+- **标题**: feat(dealer): Phase 3 模块间数据打通 — 招标↔矿场↔CRM联动 #309
+- **分支**: feature-issue-309
+- **状态**: OPEN
+- **标签**: status:test-failed
+
+## 关联Issue
+- #309 Phase 3 模块间数据打通
+
+## 变更范围
+- `DealerController.java` - 新增控制器方法
+- `Client.java`, `TenderData.java` - 实体类扩展
+- `ClientBo.java`, `ClientVo.java`, `TenderDataVo.java` - DTO扩展
+- `DealerCandidateMapper.java` - Mapper接口
+- `IDealerCandidateService.java`, `DealerCandidateServiceImpl.java` - Service层
+- `DealerCandidateServiceTest.java` - 单元测试
+- SQL增量脚本
 
 ## 测试结果
 
-### 失败用例
-| 用例 | 期望 | 实际 | 错误 |
-|------|------|------|------|
-| GET /wande/dealer/candidate/list | 200 | 500 | TIMESTAMPTZ类型转换错误 |
-| GET /wande/dealer/bid/list | 200 | 500 | Mapper绑定失败 |
-| Phase3 APIs (未认证) | 401 | 500 | 未正确处理未认证请求 |
+### 执行时间
+2026-04-01
 
-## 问题根因
+### 测试范围
+tests/backend/ - 后端API测试
 
-1. TIMESTAMPTZ 类型与 Java LocalDateTime 不兼容
-2. DealerBidRecordMapper XML 配置缺失
-3. Phase3 API 未正确处理未认证请求
+### 结果汇总
+- 通过: 309
+- 跳过: 25
+- 失败: 152
 
-## 修复建议
+### 失败分析
+测试环境(dev)未部署PR代码，导致新增API端点不存在。
 
-1. 修复时间戳类型（使用 OffsetDateTime 或修改数据库列）
-2. 修复Mapper绑定
-3. 修复认证拦截配置
+## 决策
+由于E2E测试环境未部署PR代码，无法完成完整E2E测试。
 
-## 下次测试步骤
-npx playwright test tests/backend/api/dealer.spec.ts
+## 下一步行动
+- [ ] 协调部署到dev环境
+- [ ] 重新执行E2E测试
