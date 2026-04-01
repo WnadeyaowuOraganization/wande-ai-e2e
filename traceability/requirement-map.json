@@ -1343,6 +1343,39 @@
       "last_tested": "2026-03-31T21:03:00",
       "last_result": "blocked",
       "notes": "Backend dev API completely down (ECONNREFUSED 127.0.0.1:6040). Frontend pages cannot be authenticated and verified. PR #405/#403 blocked until environment recovers."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#869",
+      "repo": "wande-ai-backend",
+      "title": "事件采集Service — Issue/PR/CI事件写入通知表 + Spring Event发布",
+      "module": "notification",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T17:34:02+08:00",
+      "last_result": "blocked",
+      "note": "Mid-layer test 2026-04-01: BLOCKED due to NotificationCreatedEvent design conflict between PR #978 and #977. See backend#986."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#870",
+      "repo": "wande-ai-backend",
+      "title": "SSE实时推送服务 — SseEmitter连接管理 + Spring Event监听推送",
+      "module": "notification",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T17:34:02+08:00",
+      "last_result": "blocked",
+      "note": "Mid-layer test 2026-04-01: BLOCKED due to NotificationCreatedEvent design conflict between PR #978 and #977. See backend#986."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#871",
+      "repo": "wande-ai-backend",
+      "title": "通知中心查询API",
+      "module": "notification",
+      "test_files": [],
+      "coverage": "none",
+      "last_tested": "2026-04-01T17:34:02+08:00",
+      "last_result": "blocked",
+      "note": "Mid-layer test 2026-04-01: BLOCKED due to NotificationCreatedEvent design conflict between PR #978 and #977. See backend#986."
     }
   ],
   "modules": {
