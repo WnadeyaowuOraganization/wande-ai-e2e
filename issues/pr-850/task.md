@@ -27,7 +27,31 @@
 - 原MySQL语法: `id BIGINT AUTO_INCREMENT PRIMARY KEY`
 - 应改为PostgreSQL语法: `id BIGSERIAL PRIMARY KEY`
 
+## 测试轮次2 (2026-04-01 05:35)
+- 状态: **部分通过**
+- Dev环境: ✅ 已恢复
+
+| 测试用例 | 状态 | 说明 |
+|---------|------|------|
+| GET /list requires auth | ✅ 通过 | - |
+| GET /stats requires auth | ✅ 通过 | - |
+| POST requires auth | ❌ 失败 | 返回500而非401 |
+| GET /unresolved-count requires auth | ✅ 通过 | - |
+| GET /list (auth) | ✅ 通过 | - |
+| GET /stats (auth) | ❌ 失败 | 返回500 |
+| GET /unresolved-count (auth) | ❌ 失败 | 返回500 |
+| GET /group-by-type (auth) | ❌ 失败 | 返回500 |
+| POST should create | ✅ 通过 | - |
+| PUT /resolve/{id} | ✅ 通过 | - |
+| DELETE /{ids} | ✅ 通过 | - |
+
+### 失败详情
+- 部分端点返回500错误，可能是数据库表或查询问题
+
+### 操作
+- 提交 request-changes review
+- 保持 status:test-failed 标签
+
 ## 下一步
-1. 编程CC修复SQL语法
-2. 重新部署代码
-3. 重新执行中层测试
+1. 修复返回500的端点
+2. 重新触发测试

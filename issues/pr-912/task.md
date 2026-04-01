@@ -42,5 +42,34 @@ API端点未部署到dev环境，可能是：
 2. 部署失败
 3. 路由配置问题
 
+## 测试轮次2 (2026-04-01 05:35)
+- 状态: **部分失败**
+- Dev环境: ✅ 已恢复
+
+| 测试用例 | 状态 | 错误 |
+|---------|------|------|
+| GET /wande/dashboard/cc-metrics/list | ✅ 通过 | - |
+| GET /wande/dashboard/cc-metrics/all | ❌ 失败 | 500 - 数据库字段缺失 |
+| POST /wande/dashboard/cc-metrics/report | ❌ 失败 | 500 - 数据库字段缺失 |
+| POST /wande/dashboard/cc-metrics/report/batch | ❌ 失败 | 500 - 数据库字段缺失 |
+| GET /wande/dashboard/cc-metrics/alerts | ❌ 失败 | 404 - 静态资源不存在 |
+| GET /wande/dashboard/cc-metrics/stats/summary | ❌ 失败 | 500 - 数据库字段缺失 |
+
+### 错误详情
+```json
+{
+  "code": 500,
+  "msg": "ERROR: column \"create_dept\" does not exist"
+}
+```
+
+### 根因分析
+1. 数据库表 `wdpp_cc_api_metrics` 缺少 `create_dept`, `create_by`, `create_time`, `update_by`, `update_time` 等BaseEntity字段
+2. `/alerts` 端点未实现或路径错误
+
+### 操作
+- 提交 request-changes review
+- 保持 status:test-failed 标签
+
 ## 结论
-PR #912 测试失败，API端点不可访问。需要确认代码是否已正确部署到dev环境。
+PR #912 测试失败，数据库schema不完整，需要修复SQL迁移脚本添加缺失字段。

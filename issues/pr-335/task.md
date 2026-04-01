@@ -1,39 +1,51 @@
-# PR #335 测试记录
+# PR #335 测试任务
 
 ## PR信息
-- **仓库**: wande-ai-front
-- **标题**: feat(dashboard): 外部工具健康度卡片 #213
-- **分支**: feature-issue-213
-- **关联Issue**: #213
+- 仓库: wande-ai-front
+- 标题: feat(dashboard): 外部工具健康度卡片 #213
+- 关联Issue: #213
+- 状态: **阻塞** (Dev环境不可用)
 
-## 测试范围
-- 外部工具健康度卡片API: `/monitor/ext-tool/dashboard-card`
-- 驾驶舱页面集成
+## 变更范围
+- 新增: ExternalToolHealthCard.vue 组件
+- 新增: /monitor/ext-tool/dashboard-card API调用
+- 集成: 驾驶舱首页
+- 单元测试: ExternalToolHealthCard.test.ts
 
-## 测试结果
-❌ **失败** - 2026-04-01
+## 测试执行记录
+- 时间: 2026-04-01
+- 结果: **阻塞**
+- 原因: Dev环境后端服务未启动 (ECONNREFUSED 127.0.0.1:6040)
+- 前端服务: 正常 (8083)
 
-| 测试用例 | 状态 | 错误 |
+## 待测项目
+- [ ] dashboard-card API rejects unauthenticated requests
+- [ ] dashboard-card API returns valid data with auth
+- [ ] dashboard-card API response has expected fields
+- [ ] cockpit page loads with external tool health card
+- [ ] cockpit page has no critical console errors
+
+## 测试轮次2 (2026-04-01 05:35)
+- 状态: **部分通过**
+- Dev环境: ✅ 已恢复
+
+| 测试用例 | 状态 | 说明 |
 |---------|------|------|
-| dashboard-card API 拒绝未认证请求 | ✅ 通过 | - |
-| dashboard-card API 返回有效数据 | ❌ 失败 | 返回500错误 |
-| 驾驶舱页面加载健康卡片 | ✅ 通过 | - |
-| 驾驶舱页面无严重控制台错误 | ❌ 失败 | 8个严重错误 |
+| dashboard-card API rejects unauthenticated | ❌ 失败 | ECONNREFUSED |
+| dashboard-card API returns valid data | ❌ 失败 | ECONNREFUSED |
+| dashboard-card API response has expected fields | ⏭️ 跳过 | - |
+| cockpit page loads | ✅ 通过 | - |
+| cockpit page has no critical console errors | ❌ 失败 | 6个console错误 |
 
-## 错误详情
-API返回500错误：
-```json
-{
-  "code": 500,
-  "msg": "Name for argument of type [java.lang.Long] not specified, and parameter name information not available via reflection. Ensure that the compiler uses the '-parameters' flag."
-}
-```
+### 根因
+- 后端API `/monitor/ext-tool/dashboard-card` 未实现或不可用
+- PR已被标记为 `status:blocked`，等待后端API
 
-## 根因分析
-后端API的`@PathVariable`缺少显式名称参数，与PR #835修复的问题相同。
+### 操作
+- 保持 blocked 状态
+- 等待后端API实现
 
-## 依赖关系
-此PR依赖于后端修复（类似PR #835的`@PathVariable`显式命名修复）。
-
-## 结论
-PR #335 测试失败，需要后端修复API问题后才能合并。
+## 阻塞解除后操作
+1. 重新执行中层测试
+2. 通过后approve并merge
+3. 失败则request-changes并创建P0 Issue

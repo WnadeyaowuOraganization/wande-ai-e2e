@@ -20,6 +20,33 @@
 ## 阻塞原因
 PR代码尚未部署到G7e dev环境。
 
+## 测试轮次2 (2026-04-01 05:35)
+- 状态: **部分通过**
+- Dev环境: ✅ 已恢复
+
+| 测试用例 | 状态 | 说明 |
+|---------|------|------|
+| Admin GET /list requires auth | ✅ 通过 | - |
+| Admin GET /{id} requires auth | ❌ 失败 | 返回500而非401 |
+| Admin POST requires auth | ✅ 通过 | - |
+| User GET /list requires auth | ✅ 通过 | - |
+| User GET /{id} requires auth | ✅ 通过 | - |
+| Admin GET /list (auth) | ✅ 通过 | - |
+| Admin GET /{id} (auth) | ✅ 通过 | - |
+| Admin GET /{id}/versions | ✅ 通过 | - |
+| Admin GET /{id}/configs | ✅ 通过 | - |
+| User GET /list (auth) | ✅ 通过 | - |
+| User GET /{id} (auth) | ✅ 通过 | - |
+| User GET /{id}/versions | ✅ 通过 | - |
+| User GET /{id}/guide | ✅ 通过 | - |
+
+### 失败详情
+- `/api/admin/tool/{id}` 未认证访问时返回500，应为401
+
+### 操作
+- 提交 request-changes review
+- 保持 status:test-failed 标签
+
 ## 下一步
-1. 等待代码部署
-2. 重新执行中层测试
+1. 修复AdminToolController的异常处理，未认证时返回401
+2. 重新触发测试

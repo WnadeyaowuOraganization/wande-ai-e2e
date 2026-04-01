@@ -1,31 +1,28 @@
-# PR #920 测试记录
+# PR #920 测试任务
 
-## 基本信息
-- **PR**: [wande-ai-backend#920](https://github.com/WnadeyaowuOraganization/wande-ai-backend/pull/920)
-- **标题**: fix(security): SysNoticeController 添加权限注解修复未授权访问漏洞 #44
-- **分支**: feature-issue-44
-- **关联Issue**: #44
+## PR信息
+- 仓库: wande-ai-backend
+- 标题: fix(security): SysNoticeController 添加权限注解修复未授权访问漏洞 #44
+- 关联Issue: #44
+- 状态: **阻塞** (Dev环境不可用)
 
 ## 变更范围
-- 为 SysNoticeController 添加 @SaCheckPermission 注解
-- 新增 Docker 部署相关配置
-- 新增单元测试 SysNoticeControllerPermissionTest
+- SysNoticeController 添加 @SaCheckPermission 注解
+- GET /system/notice/list → system:notice:query
+- GET /system/notice/getNotice → system:notice:query
+- 新增回归测试: SysNoticeControllerPermissionTest
 
-## 测试执行
+## 测试执行记录
+- 时间: 2026-04-01
+- 结果: **阻塞**
+- 原因: Dev环境后端服务未启动 (ECONNREFUSED 127.0.0.1:6040)
 
-### 测试用例
-- `tests/backend/api/system-notice.spec.ts`
+## 待测项目
+- [ ] GET /system/notice/list - 未认证访问应返回401
+- [ ] GET /system/notice/1 - 未认证访问应返回401
+- [ ] 有权限用户正常访问
 
-### 结果
-```
-✓ notice list API requires authentication
-✓ notice detail API requires authentication
-✓ notice list API works with valid token
-
-3 passed (2.2s)
-```
-
-## 结论
-**✅ 测试通过**
-
-所有安全测试用例通过，权限修复有效。
+## 阻塞解除后操作
+1. 重新执行中层测试
+2. 通过后approve并merge（安全修复优先）
+3. 失败则request-changes并创建P0 Issue
