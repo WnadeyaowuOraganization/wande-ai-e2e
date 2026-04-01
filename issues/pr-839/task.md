@@ -30,5 +30,31 @@
 ## 错误详情
 API返回500错误，可能是数据库表缺失或代码问题。
 
+## 测试轮次2 (2026-04-01 05:47)
+- 状态: **❌ 失败**
+- Dev环境: ✅ 正常
+
+| 测试用例 | 状态 | 错误 |
+|---------|------|------|
+| GET /wande/dealer/candidate/list | ❌ 失败 | 500 - 类型转换错误 |
+
+### 错误详情
+```
+Cannot convert the column of type TIMESTAMPTZ to requested type java.time.LocalDateTime.
+列: stage_entered_at
+```
+
+### 根因分析
+PostgreSQL的TIMESTAMPTZ类型与Java的LocalDateTime类型不兼容。
+
+### 解决方案（二选一）
+1. **修改Mapper XML**: 使用类型处理器处理TIMESTAMPTZ
+2. **修改数据库字段**: 将TIMESTAMPTZ改为TIMESTAMP类型
+
+### 操作
+- [x] 添加PR评论，说明失败原因
+- [ ] 等待编程CC修复类型兼容问题
+- [ ] 重新测试
+
 ## 结论
-PR #839 测试失败，需要修复后端API问题。
+PR #839 测试失败，需要修复TIMESTAMPTZ与LocalDateTime的类型兼容问题。

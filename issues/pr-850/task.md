@@ -52,6 +52,25 @@
 - 提交 request-changes review
 - 保持 status:test-failed 标签
 
-## 下一步
-1. 修复返回500的端点
-2. 重新触发测试
+## 测试轮次3 (2026-04-01 05:47)
+- 状态: **✅ 全部通过**
+- Dev环境: ✅ 正常
+
+| 测试用例 | 状态 | 说明 |
+|---------|------|------|
+| GET /wande/dashboard/blockers/list | ✅ 通过 | 返回200 |
+| GET /wande/dashboard/blockers/stats | ✅ 通过 | 返回200 |
+| GET /wande/dashboard/blockers/unresolved-count | ✅ 通过 | 返回200 |
+| GET /wande/dashboard/blockers/group-by-type | ✅ 通过 | 返回200 |
+| POST /wande/dashboard/blockers | ✅ 通过 | 返回200 |
+| PUT /wande/dashboard/blockers/resolve/{id} | ✅ 通过 | 返回200 |
+| DELETE /wande/dashboard/blockers/{ids} | ✅ 通过 | 返回200 |
+
+### 操作
+- [x] 添加PR评论，标记测试通过
+- [ ] 手动移除 status:test-failed 标签
+- [ ] 手动添加 status:test-passed 标签
+- [ ] 合并PR
+
+## 结论
+PR #850 测试通过，Dashboard Blocker API功能正常，可以合并。
