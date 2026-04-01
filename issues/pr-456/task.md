@@ -1,6 +1,17 @@
-# front#456
+# PR 456 (wande-ai-front) - 中层测试记录
 
-- 状态: 挂起
-- 原因: merge conflict
-- 时间: 2026-04-01 16:45
-- 详见: ../mid-layer-test-20260401-1645/task.md
+**测试时间**: 2026-04-02T01:18:17+0800
+**结果**: PASSED
+**详情**: approved but merge conflict. 10 list pages UI refactor (#408). Test env: feature-issue-408 branch.
+
+## 测试覆盖
+- backend API smoke + health tests
+- front smoke page tests
+- pipeline health tests
+
+## 关键发现
+- Backend dev baseline 不稳定：dashboard-blocker / cc-api-metric 端点缺失；dealer candidate / project mine 500 错误；TIMESTAMPTZ / schema 列缺失问题。
+- 这些问题影响所有依赖 backend 的 front / pipeline 测试，必须由 #958 / #961 等修复 PR 解决后才能恢复。
+
+## 操作记录
+- PASSED: approved but merge conflict. 10 list pages UI refactor (#408). Test env: feature-issue-408 branch.
