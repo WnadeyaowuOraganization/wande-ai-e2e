@@ -108,7 +108,7 @@ npx playwright test tests/plugins/ --reporter=json,list   # plugins PR
 ```bash
 gh pr review <N> --repo WnadeyaowuOraganization/<repo> --approve \
   --body "✅ E2E测试通过 $(date '+%Y-%m-%d %H:%M')"
-gh pr merge <N> --repo WnadeyaowuOraganization/<repo> --squash --delete-branch
+gh pr merge <N> --repo WnadeyaowuOraganization/<repo> --squash --delete-branch  # 若遇rate limit错误，切换weiping PAT后继续
 gh issue edit <关联Issue> --repo WnadeyaowuOraganization/<repo> \
   --add-label "status:test-passed" --remove-label "status:test-failed"
 ```
@@ -177,7 +177,12 @@ npx playwright test tests/backend/smoke/ tests/front/smoke/ --reporter=json,list
 
 ## GitHub身份
 
-使用 `wandeyaowu` 个人账号（非App），可以审批和merge编程CC（App身份）创建的PR。GH_TOKEN由调用方注入。
+**默认使用 `wandeyaowu` 个人账号（非App）**，可以审批和merge编程CC（App身份）创建的PR。GH_TOKEN由调用方注入。
+
+**Rate Limit 备份方案**：当 `wandeyaowu` 触发 GitHub rate limit（`403` / `429`）无法继续时，切换到 `weiping` 的 PAT：
+```bash
+export GH_TOKEN=$(cat /home/ubuntu/projects/.github/scripts/tokens/weiping.pat)
+```
 
 ## 后端认证响应规范
 
