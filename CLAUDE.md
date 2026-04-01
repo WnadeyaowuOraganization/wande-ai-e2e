@@ -59,7 +59,7 @@ tests/
 1. 扫描4个仓库的open PR（base=dev）
 2. 对每个PR执行五步决策法（详见下方）
 3. 通过 → approve + merge PR + 标签status:test-passed
-4. 失败 → request-changes + 创建P0修复Issue + 标签status:test-failed
+4. 失败 → request-changes + 原Issue添加status:test-failed标签 + 看板状态改为Todo（研发经理CC优先重新排程）
 ```
 
 ### Step 1: 扫描待测PR
@@ -113,17 +113,35 @@ gh issue edit <关联Issue> --repo WnadeyaowuOraganization/<repo> \
   --add-label "status:test-passed" --remove-label "status:test-failed"
 ```
 
-**失败**：
+**失败**（单Issue方案，不新建Issue）：
 ```bash
+# 1. 在PR上标记失败信息
 gh pr review <N> --repo WnadeyaowuOraganization/<repo> --request-changes \
-  --body "❌ E2E测试失败\n\n失败用例: ...\n错误: ..."
+  --body "❌ E2E中层测试失败
+
+**失败时间**: $(date '+%Y-%m-%d %H:%M')
+**失败场景**: <场景名>
+**错误摘要**: <关键日志>
+
+### 修复检查清单
+- [ ] 分析失败原因（代码/测试/环境）
+- [ ] 本地验证通过: \`npx playwright test tests/<path> --reporter=list\`
+- [ ] 提交修复到原PR分支
+- [ ] 等待中层E2E自动重测
+
+### 关联信息
+- 原Issue: #<关联Issue号>
+- 失败PR: #<PR_N>"
+
+# 2. 给原Issue添加test-failed标签，改为Todo状态（研发经理CC会优先排程）
 gh issue edit <关联Issue> --repo WnadeyaowuOraganization/<repo> \
-  --add-label "status:test-failed"
-# 创建P0修复Issue（编程CC优先处理）
-gh issue create --repo WnadeyaowuOraganization/<repo> \
-  --title "[E2E失败] <摘要>" \
-  --label "priority/P0,type:bugfix,status:ready,status:test-failed"
+  --add-label "status:test-failed" --remove-label "status:in-progress"
+
+# 3. 更新Project看板状态为Todo（触发研发经理CC重新排程）
+bash /home/ubuntu/projects/.github/scripts/update-project-status.sh <repo> <关联Issue> "Todo"
 ```
+
+> **重要**: 不创建新的修复Issue！原Issue会保持打开状态，添加`test-failed`标签后由研发经理CC优先重新排程，在原指派目录恢复CC进行修复。
 
 每个PR创建工作记录：`./issues/pr-<N>/task.md`
 
