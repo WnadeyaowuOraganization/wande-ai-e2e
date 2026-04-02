@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-01T21:52:48+08:00",
+  "updated_at": "2026-04-02T00:35:45.374970",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1376,6 +1376,19 @@
       "last_tested": "2026-04-01T17:34:02+08:00",
       "last_result": "blocked",
       "note": "Mid-layer test 2026-04-01: BLOCKED due to NotificationCreatedEvent design conflict between PR #978 and #977. See backend#986."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-data-pipeline#11",
+      "repo": "wande-data-pipeline",
+      "title": "幼儿园客户发现 - 千里马招标网采集器",
+      "module": "kindergarten-qianlima",
+      "test_files": [
+        "tests/pipeline/api/kindergarten-qianlima.spec.ts (4/4 passed)"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T00:35:45.374952",
+      "last_result": "passed",
+      "notes": "Mid-layer test 2026-04-02: E2E passed. PR #99 approved."
     }
   ],
   "modules": {
