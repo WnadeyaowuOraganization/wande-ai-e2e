@@ -1,24 +1,60 @@
 # PR #1071 中层E2E测试记录
 
-## 测试时间
-2026-04-02 15:08
+## 基本信息
+- **PR**: #1071 - feat(d3): 实现模具库数据化功能 (Issue #623)
+- **分支**: feature-issue-623
+- **仓库**: wande-ai-backend
+- **测试时间**: 2026-04-02
+
+## 关联Issue
+- Issue #623
+
+## 测试范围
+- D3模具库数据化API (`/api/d3/molds/*`)
 
 ## 测试结果
-❌ **失败**
 
-## 失败原因
-API未部署到测试环境，返回500错误：
-- No static resource wande/d3/mold-definition/list
-- No static resource api/d3/molds
-- No static resource api/dashboard/efficiency/output
-- etc.
+### 测试文件: tests/backend/api/d3/mold-library.spec.ts
+| 测试项 | 结果 |
+|--------|------|
+| 模具库列表未认证应返回401 | ❌ 失败 (返回500) |
+| 模具库详情未认证应返回401 | ❌ 失败 (返回500) |
+| 应能获取模具库分页列表 | ❌ 失败 (返回500) |
+| 应支持按关键字搜索模具库 | ❌ 失败 (返回500) |
+| 应支持按品类编码过滤 | ❌ 失败 (返回500) |
+| 应能按模具编号查询 | ❌ 失败 (返回500) |
+| 应能按市场筛选模具库 | ❌ 失败 (返回500) |
+| 应能新增模具库记录 | ✅ 通过 |
+| 应能更新模具库记录 | ✅ 通过 |
+| 应能删除模具库记录 | ✅ 通过 |
 
-## 处理动作
-1. ✅ PR添加失败评论
-2. ✅ Issue添加status:test-failed标签
-3. ✅ Project看板状态更新为Todo
+**统计**: 5 passed, 5 failed
 
-## 修复后重测步骤
-1. 合并PR到dev分支
-2. 部署后端服务
-3. 等待中层E2E自动重测（每15分钟）
+## 失败原因分析
+- 查询API返回500，可能是数据库表未创建或SQL迁移未执行
+- PR #1075 包含了 #623 的功能，可能SQL迁移在 #1075 中
+
+## 合并状态
+- **状态**: CONFLICTING (有冲突)
+- **阻塞**: 需要先解决与dev分支的合并冲突
+
+## 决策
+**BLOCKED** - 合并冲突 + 可能与 #1075 重复
+
+注意：PR #1075 的说明中提到 "包含 Issue #623 的模具库数据化功能"，说明 #1075 已经包含了 #1071 的功能。
+
+建议：
+1. 优先合并 #1075 (无冲突且功能更完整)
+2. #1071 可能需要关闭或重新评估
+
+## 操作记录
+```bash
+# 测试执行
+npx playwright test tests/backend/api/d3/mold-library.spec.ts
+
+# 结果: 5 passed, 5 failed
+```
+
+## 关联Issue更新
+- 添加标签: `status:test-failed`
+- 看板状态: Todo (重新评估与#1075的关系)

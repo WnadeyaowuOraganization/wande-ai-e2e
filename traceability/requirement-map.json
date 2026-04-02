@@ -2266,19 +2266,28 @@
       "tests/backend/api/contract.spec.ts",
       "tests/backend/api/dict.spec.ts"
     ],
-    "status": "covered"
+    "status": "covered",
+    "last_tested": "2026-04-02T15:33:00+08:00",
+    "last_result": "passed",
+    "notes": "Mid-layer test: 4 passed, 1 skipped. PR #1072 has merge conflict (DIRTY) — blocked for merge."
   },
   "252": {
     "tests": [
       "tests/backend/api/dashboard-efficiency.spec.ts"
     ],
-    "status": "covered"
+    "status": "covered",
+    "last_tested": "2026-04-02T15:32:00+08:00",
+    "last_result": "failed",
+    "notes": "Mid-layer test: 0 passed, 12 failed. All API endpoints return 500. PR #1073 has merge conflict (DIRTY) — blocked."
   },
   "623": {
     "tests": [
       "tests/backend/api/d3/mold-library.spec.ts"
     ],
-    "status": "covered"
+    "status": "covered",
+    "last_tested": "2026-04-02T15:31:00+08:00",
+    "last_result": "failed",
+    "notes": "Mid-layer test: 5 passed, 5 failed. PR #1071 has merge conflict (DIRTY) — blocked. PR #1075 includes #623 functionality."
   },
   "624": {
     "tests": [
@@ -2290,6 +2299,9 @@
     "tests": [
       "tests/backend/api/d3/mold-definition.spec.ts"
     ],
-    "status": "covered"
+    "status": "covered",
+    "last_tested": "2026-04-02T15:31:00+08:00",
+    "last_result": "partial",
+    "notes": "Mid-layer test: 10 passed, 5 failed. Core CRUD operations passed. PR #1075 MERGEABLE."
   }
 }
