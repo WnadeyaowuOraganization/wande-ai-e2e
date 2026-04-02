@@ -111,6 +111,9 @@ gh pr review <N> --repo WnadeyaowuOraganization/<repo> --approve \
 gh pr merge <N> --repo WnadeyaowuOraganization/<repo> --squash --delete-branch  # 若遇rate limit错误，切换weiping PAT后继续
 gh issue edit <关联Issue> --repo WnadeyaowuOraganization/<repo> \
   --add-label "status:test-passed" --remove-label "status:test-failed"
+
+# PR合并后，更新Project看板状态为Done（关键！）
+bash /home/ubuntu/projects/.github/scripts/update-project-status.sh <repo> <关联Issue> "Done"
 ```
 
 **失败**（单Issue方案，不新建Issue）：
