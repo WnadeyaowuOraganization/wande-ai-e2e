@@ -64,7 +64,7 @@ async function loginAndGoto(page: any, request: any, targetPath: string) {
 
 test.describe('Login Flow E2E @e2e @auth', () => {
   test('should complete login and access dashboard', { tag: ['@e2e', '@auth'] }, async ({ page, request }) => {
-    await loginAndGoto(page, request, '/analytics');
+    await loginAndGoto(page, request, '/wande-ops/dashboard');
     expect(page.url()).not.toContain('/auth/login');
   });
 
