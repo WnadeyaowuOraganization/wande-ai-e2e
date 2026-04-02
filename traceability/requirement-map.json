@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-02T00:35:45.374970",
+  "updated_at": "2026-04-02T00:56:24",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1386,9 +1386,36 @@
         "tests/pipeline/api/kindergarten-qianlima.spec.ts (4/4 passed)"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T00:35:45.374952",
+      "last_tested": "2026-04-02T00:56:24",
       "last_result": "passed",
-      "notes": "Mid-layer test 2026-04-02: E2E passed. PR #99 approved."
+      "notes": "Mid-layer test 2026-04-02: E2E passed. PR #99 merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#934",
+      "repo": "wande-ai-backend",
+      "title": "工具管理表名统一添加 wdpp_ 前缀",
+      "module": "tool",
+      "test_files": [
+        "tests/backend/api/tool-management.spec.ts (13/13 passed)"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T00:56:24",
+      "last_result": "passed",
+      "notes": "Mid-layer test 2026-04-02: tool-management API tests passed after wdpp_ prefix fix. PR #1004 merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#943",
+      "repo": "wande-ai-backend",
+      "title": "修复工具管理API未认证场景返回500错误",
+      "module": "tool-auth",
+      "test_files": [
+        "tests/backend/api/tool-management.spec.ts (5/5 auth passed)",
+        "tests/backend/api/dashboard-cc-api-metric.spec.ts (14/14 passed)"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T00:56:24",
+      "last_result": "passed",
+      "notes": "Mid-layer test 2026-04-02: Tool auth fix and CcApiMetricsController @SaIgnore verified. PR #1000 merged."
     }
   ],
   "modules": {

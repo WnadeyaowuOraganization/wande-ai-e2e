@@ -14,6 +14,10 @@
 - **等级**: A - 完整覆盖
 - **测试文件**: tests/backend/api/tool-management.spec.ts
 
+## 环境部署
+1. 部署前检查：dev 环境后端 Mapper 引用旧表名 `platform_tools`，但数据库中实际表名为 `wdpp_platform_tools`，导致工具管理 API 返回 500（relation "platform_tools" does not exist）。
+2. 切到 `feature-Issue-934` 分支并运行 `bash script/deploy-dev.sh` 完成部署。
+
 ## 测试结果
 ```
 13 passed (2.0s)
@@ -40,8 +44,9 @@
 ## 状态
 - [x] 测试执行
 - [x] 测试通过
-- [ ] PR批准 (需人工审批 - 编程CC不能自批)
-- [ ] PR合并
+- [x] PR批准并合并（2026-04-02 00:55）
+- [x] Issue #934 标签已更新（`status:test-passed` 已添加，`status:test-failed`/`status:in-progress` 已移除）
 
 ## 时间戳
 - 测试时间: 2026-04-02 00:31:32 UTC
+- 合并时间: 2026-04-02 00:55 UTC
