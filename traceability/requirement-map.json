@@ -1455,9 +1455,10 @@
         "tests/backend/api/contract.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T22:35:00+0800",
-      "last_result": "passed",
-      "notes": "Mid-layer test passed (4/5, 1 skip). PR #1072 approved but merge blocked by conflict (DIRTY)."
+      "last_tested": "2026-04-02T14:55:05",
+      "last_result": "failed",
+      "notes": "Mid-layer test passed (4/5, 1 skip). PR #1072 approved but merge blocked by conflict (DIRTY).",
+      "note": "Contract number generation API returns 500. PR #1072 previously passed but now fails."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#70",
@@ -1468,9 +1469,10 @@
         "tests/backend/api/contract-auto-fill.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T22:35:00+0800",
+      "last_tested": "2026-04-02T14:55:05",
       "last_result": "blocked",
-      "notes": "API not deployed: No static resource wande/contract/auto-fill. PR #1019 blocked."
+      "notes": "API not deployed: No static resource wande/contract/auto-fill. PR #1019 blocked.",
+      "note": "Contract auto-fill API returns 500. PR #1019 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#624",
@@ -1481,9 +1483,10 @@
         "tests/backend/api/d3/mold.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T22:35:00+0800",
+      "last_tested": "2026-04-02T14:55:05",
       "last_result": "blocked",
-      "notes": "API not deployed: No static resource wande/d3/molds/select. PR #1018 blocked."
+      "notes": "API not deployed: No static resource wande/d3/molds/select. PR #1018 blocked.",
+      "note": "Mold selection API returns 500. PR #1018 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#623",
@@ -1494,9 +1497,10 @@
         "tests/backend/api/d3/mold-library.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T22:35:00+0800",
+      "last_tested": "2026-04-02T14:55:05",
       "last_result": "blocked",
-      "notes": "API not deployed: No static resource api/d3/molds. PR #1071 blocked."
+      "notes": "API not deployed: No static resource api/d3/molds. PR #1071 blocked.",
+      "note": "API returns 500 on all query endpoints. PR #1071 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#252",
@@ -1507,9 +1511,10 @@
         "tests/backend/api/dashboard-efficiency.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T22:35:00+0800",
+      "last_tested": "2026-04-02T14:55:05",
       "last_result": "blocked",
-      "notes": "API not deployed: No static resource api/dashboard/efficiency/output. PR #1073 blocked."
+      "notes": "API not deployed: No static resource api/dashboard/efficiency/output. PR #1073 blocked.",
+      "note": "API returns 500 on all endpoints. PR #1073 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#858",
@@ -1533,9 +1538,10 @@
         "tests/backend/api/d3/mold-definition.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T21:54:18+0800",
+      "last_tested": "2026-04-02T14:55:05",
       "last_result": "blocked",
-      "notes": "API not deployed: No static resource wande/d3/mold-definition/list. PR #1075 blocked."
+      "notes": "API not deployed: No static resource wande/d3/mold-definition/list. PR #1075 blocked.",
+      "note": "SQL file contains unresolved git merge conflicts. API returns 500. PR #1075 blocked."
     }
   ],
   "modules": {

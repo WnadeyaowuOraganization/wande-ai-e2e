@@ -4,30 +4,30 @@
 - **仓库**: wande-ai-backend
 - **PR**: #1072 - feat(contract): 实现合同编号生成API (Issue #171)
 - **分支**: feature-issue-56 → dev
-- **测试时间**: 2026-04-02 22:35 CST
+- **测试时间**: 2026-04-02 22:35 / 22:49 CST
 
-## 测试结果
-- **状态**: ✅ 通过（4/5 通过，1 跳过）
-- **通过用例**:
-  - 合同列表: ✅ 通过
-  - 合同编号生成: ✅ 通过
-  - 所有合同（不分页）: ✅ 通过
-  - 未认证访问: ✅ 通过
-- **跳过用例**: 合同详情（无数据）
+## 测试结果（2026-04-02 22:49 最新）
+- **状态**: ❌ 失败（状态回退）
+- **失败场景**: 合同编号生成 API 测试
+- **错误摘要**: `POST /wande/contract/generate` 返回 500 内部错误。contract.spec.ts 1/4 失败（3 pass, 1 skip）。
+- **测试数据**: 5 个用例，3 passed, 1 failed, 1 skipped
 
 ## 测试覆盖
 - `tests/backend/api/contract.spec.ts`
-- 已修复测试代码：contract list 返回结构为 `data.data.rows`，测试已适配
 
 ## 处理结果
-- [x] approve PR review
-- [ ] merge PR（Blocked by conflict - mergeStateStatus: DIRTY）
-- [x] 更新 Issue #171 标签: status:test-passed
-- [x] 更新 Project 看板: Done
+- [x] request-changes review 已更新（由之前 APPROVED 改为 request changes）
+- [x] 更新 Issue #171 标签: 移除 status:test-passed，添加 status:test-failed
+- [x] 更新 Project 看板: Done → Todo
 
-## 阻塞原因
-PR 与 dev 分支存在代码冲突，无法自动 squash merge。需要作者解决冲突后重新触发中层测试。
+## 失败原因分析
+此前（22:35）测试通过，但 22:49 重测时合同编号生成接口返回 500。可能原因：
+1. dev 环境代码被覆盖/回滚
+2. 下游依赖（如数据库、缓存）异常
+3. PR #1072 与后续合并代码产生冲突导致功能异常
 
-## 建议
-- 代码已测试通过，但需要解决合并冲突
-- 建议编程CC解决冲突后重新部署
+## 修复检查清单
+- [ ] 分析 `POST /wande/contract/generate` 500 根因
+- [ ] 本地验证: `npx playwright test tests/backend/api/contract.spec.ts --reporter=list`
+- [ ] 提交修复到原PR分支
+- [ ] 等待中层E2E自动重测
