@@ -4,7 +4,7 @@
 - **仓库**: wande-ai-backend
 - **PR**: #1075 - feat(d3): 完成新模具定义流程 (Issue #625)
 - **分支**: feature-issue-625 → dev
-- **测试时间**: 2026-04-02 14:05 CST
+- **测试时间**: 2026-04-02 22:35 CST
 
 ## 测试结果
 - **状态**: ❌ 失败
@@ -17,11 +17,12 @@
 
 ## 测试覆盖
 - `tests/backend/api/d3/mold-definition.spec.ts`
+- 11个测试用例：6 passed, 5 failed
 
 ## 处理结果
 - [x] PR comment 标记失败
 - [ ] request-changes review（作者为自己的PR，无法执行）
-- [x] 更新 Issue #625 标签: status:test-failed（移除 status:in-progress）
+- [x] 更新 Issue #625 标签: status:test-failed（已有）
 - [x] 更新 Project 看板: Todo
 
 ## 失败原因分析

@@ -61,7 +61,7 @@ test.describe('Tender API - Authenticated Access @api @tender', () => {
     }
     expect([200, 500]).toContain(body.code);
     if (body.code === 200) {
-      expect(body.data).toBeDefined();
+      expect(body.rows).toBeDefined();
     }
   });
 
