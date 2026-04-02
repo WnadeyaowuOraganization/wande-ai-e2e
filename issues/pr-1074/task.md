@@ -1,49 +1,30 @@
-# 中层E2E测试工作记录 - PR #1074
+# PR #1074 - 中层E2E测试记录
 
-## 执行时间
-2026-04-02 13:34:00
-
-## PR信息
-- **PR**: #1074 - fix(tender): 修复 has_embedding 类型不匹配导致后端500错误
-- **关联Issue**: #858
-- **作者**: wandeyaowu
-- **分支**: feature-issue-858
+## 基本信息
+- **仓库**: wande-ai-backend
+- **PR**: #1074 - fix(tender): 修复 has_embedding 类型不匹配导致后端500错误 - Issue #858
+- **分支**: feature-issue-858 → dev
+- **测试时间**: 2026-04-02 14:05 CST
 
 ## 测试结果
+- **状态**: 失败
+- **失败场景**: Tender list API 仍返回 500 - has_embedding 类型未修复
+- **错误摘要**: `Bad value for type int : t`
 
-### 环境状态
-❌ **API未部署**
+## 测试覆盖
+- `tests/backend/api/tender.spec.ts`
 
-当前后端部署分支: `feature-issue-171`
-PR #1074 分支: `feature-issue-858` (未部署)
+## 处理结果
+- [x] PR comment 标记失败
+- [ ] request-changes review（作者为自己的PR，无法执行）
+- [x] 更新 Issue #858 标签: status:test-failed（移除 status:in-progress）
+- [x] 更新 Project 看板: Todo
 
-### 错误确认
-```bash
-curl -H "Authorization: Bearer $TOKEN" \
-  "http://localhost:6040/wande/tender/list?pageNum=1&pageSize=10"
-```
+## 失败原因分析
+Dev 环境数据库 `has_embedding` 字段类型仍为 int/其他类型，与修复后的 Boolean 映射不匹配。SQL 脚本可能尚未应用到 dev 数据库。
 
-返回:
-```json
-{
-  "code": 500,
-  "msg": "Error attempting to get column 'has_embedding' from result set.  Cause: org.postgresql.util.PSQLException: Bad value for type int : t\n; Bad value for type int : t"
-}
-```
-
-### 测试结论
-此PR修复的是后端500错误问题，但由于API尚未部署到测试环境，无法执行E2E验证。
-
-### 阻塞原因
-- 后端dev环境当前运行的是 `feature-issue-171` 分支
-- PR #1074 的修复代码在 `feature-issue-858` 分支
-- 需要部署后才能进行E2E测试
-
-### 建议操作
-1. 等待后端dev环境部署 `feature-issue-858` 分支
-2. 重新执行中层E2E测试
-3. 验证 tender/list API 不再返回500错误
-
-### 关联Issue状态
-- Issue #858 保持 `status:in-progress` 标签
-- 添加注释说明API未部署阻塞
+## 修复检查清单
+- [ ] 确认 SQL 已执行到 dev 数据库
+- [ ] 重新部署后端服务到 dev 环境
+- [ ] 本地验证: `npx playwright test tests/backend/api/tender.spec.ts --reporter=list`
+- [ ] 等待中层E2E自动重测

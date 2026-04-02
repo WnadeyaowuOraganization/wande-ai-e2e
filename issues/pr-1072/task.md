@@ -1,59 +1,27 @@
-# 中层E2E测试工作记录 - PR #1072
+# PR #1072 - 中层E2E测试记录
 
-## 执行时间
-2026-04-02 13:34:00
-
-## PR信息
+## 基本信息
+- **仓库**: wande-ai-backend
 - **PR**: #1072 - feat(contract): 实现合同编号生成API (Issue #171)
-- **关联Issue**: #171
-- **作者**: david-hwp
-- **分支**: feature-issue-56
+- **分支**: feature-issue-56 → dev
+- **测试时间**: 2026-04-02 14:05 CST
 
 ## 测试结果
+- **状态**: 通过（部分）
+- **通过用例**: 4/5
+- **跳过用例**: 1/5（合同详情 - 无数据）
 
-### 测试执行
-```bash
-npx playwright test tests/backend/api/contract.spec.ts
-```
+## 测试覆盖
+- `tests/backend/api/contract.spec.ts`
+  - 合同列表: 通过
+  - 合同编号生成: 通过
+  - 所有合同（不分页）: 通过
 
-### 结果汇总
-- **总计**: 5 个测试
-- **通过**: 4
-- **失败**: 0
-- **跳过**: 1 (无合同数据，详情测试跳过)
+## 处理结果
+- [x] approve PR review
+- [ ] merge PR（Blocked by conflict - mergeStateStatus: DIRTY）
+- [x] 更新 Issue #171 标签: status:test-passed
+- [x] 更新 Project 看板: Done
 
-### 通过的测试
-| 测试场景 | 结果 |
-|---------|------|
-| 未认证访问返回401 | ✅ 通过 |
-| 合同列表查询 | ✅ 通过 |
-| 合同编号生成 | ✅ 通过 |
-| 获取所有合同 | ✅ 通过 |
-
-### 跳过的测试
-| 测试场景 | 原因 |
-|---------|------|
-| 合同详情查询 | 无合同数据 |
-
-### 关键验证点
-1. **认证检查**: 未认证请求正确返回401
-2. **列表查询**: GET /wande/contract/list 正常工作
-3. **编号生成**: GET /wande/contract/generate-number 正常工作
-4. **全量查询**: GET /wande/contract/all 正常工作
-
-### 测试结论
-✅ **测试通过**
-
-合同管理API已在后端dev环境部署并正常工作。
-
-### PR状态
-- 测试通过，可以审批
-- 但PR可能存在合并冲突，需要检查
-
-### 建议操作
-1. 审批PR
-2. 检查并解决合并冲突
-3. 合并到dev分支
-
-### 关联Issue状态
-- Issue #171 可以标记为 `status:test-passed`
+## 阻塞原因
+PR 与 dev 分支存在代码冲突，无法自动 squash merge。需要作者解决冲突后重新触发中层测试。
