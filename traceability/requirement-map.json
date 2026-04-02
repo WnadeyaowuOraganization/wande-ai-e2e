@@ -2248,5 +2248,48 @@
       "notes": "Mid-layer test failed: PR #839 has merge conflict with dev (DIRTY). Dev environment shows TIMESTAMPTZ→LocalDateTime conversion error on stage_entered_at. Unauthenticated tests on import-from-tender/sync-to-crm/related-project do not return 401 (500 instead). request-changes submitted."
     }
   ],
-  "uncovered_modules": []
+  "uncovered_modules": [],
+  "56": {
+    "tests": [
+      "tests/backend/api/contract.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "70": {
+    "tests": [
+      "tests/backend/api/contract-auto-fill.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "171": {
+    "tests": [
+      "tests/backend/api/contract.spec.ts",
+      "tests/backend/api/dict.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "252": {
+    "tests": [
+      "tests/backend/api/dashboard-efficiency.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "623": {
+    "tests": [
+      "tests/backend/api/d3/mold-library.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "624": {
+    "tests": [
+      "tests/backend/api/d3/mold.spec.ts"
+    ],
+    "status": "covered"
+  },
+  "625": {
+    "tests": [
+      "tests/backend/api/d3/mold-definition.spec.ts"
+    ],
+    "status": "covered"
+  }
 }
