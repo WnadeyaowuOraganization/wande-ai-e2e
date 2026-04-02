@@ -20,8 +20,9 @@ test.beforeAll(async ({ request }) => {
 test.describe('未认证访问测试', () => {
   test('应返回 401 未授权', async ({ request }) => {
     const response = await request.get(`${BASE_URL}/wande/contract/list`);
-    expect(response.status()).toBe(401);
     const data = await response.json();
+    // Sa-Token returns HTTP 200 with body.code 401 for auth failures
+    expect(response.status()).toBe(200);
     expect(data.code).toBe(401);
   });
 });
