@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-02T13:24:31.898660",
+  "updated_at": "2026-04-02T13:39:29+00:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -1455,9 +1455,9 @@
         "tests/backend/api/contract.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T13:24:31.898660",
-      "last_result": "blocked",
-      "notes": "Mid-layer test passed (4/4) but PR #1072 merge blocked by conflict (DIRTY). See PR comment."
+      "last_tested": "2026-04-02T13:39:29+00:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test passed (4/5, 1 skipped). PR #1072 ready for approval."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#70",
@@ -1468,9 +1468,9 @@
         "tests/backend/api/contract-auto-fill.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_tested": "2026-04-02T13:39:29+00:00",
       "last_result": "blocked",
-      "notes": "API not deployed: POST /wande/contract/auto-fill returns 500. PR #1019 blocked."
+      "notes": "API not deployed: 6/8 tests failed with 500 No static resource. PR #1019 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#624",
@@ -1481,9 +1481,9 @@
         "tests/backend/api/d3/mold.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_tested": "2026-04-02T13:39:29+00:00",
       "last_result": "blocked",
-      "notes": "API not deployed: GET /wande/d3/molds/select returns 500 No static resource. PR #1018 blocked."
+      "notes": "API not deployed: 7/14 tests failed with 500 No static resource. PR #1018 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#623",
@@ -1494,9 +1494,9 @@
         "tests/backend/api/d3/mold-library.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_tested": "2026-04-02T13:39:29+00:00",
       "last_result": "blocked",
-      "notes": "API not deployed: GET /api/d3/molds returns 500 No static resource. PR #1071 blocked."
+      "notes": "API not deployed: 7/10 tests failed with 500 No static resource. PR #1071 blocked."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#252",
@@ -1507,9 +1507,9 @@
         "tests/backend/api/dashboard-efficiency.spec.ts"
       ],
       "coverage": "full",
-      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_tested": "2026-04-02T13:39:29+00:00",
       "last_result": "blocked",
-      "notes": "API not deployed: GET /api/dashboard/efficiency/output returns 500 No static resource. PR #1073 blocked."
+      "notes": "API not deployed: All 12 tests failed with 500 No static resource. PR #1073 blocked."
     }
   ],
   "modules": {

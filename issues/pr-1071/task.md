@@ -1,50 +1,67 @@
-# PR #1071 测试工作记录
+# 中层E2E测试工作记录 - PR #1071
 
-## PR 信息
-- **仓库**: wande-ai-backend
-- **标题**: feat(d3): 实现模具库数据化功能 (Issue #623)
-- **分支**: feature-issue-623 → dev
+## 执行时间
+2026-04-02 13:34:00
+
+## PR信息
+- **PR**: #1071 - feat(d3): 实现模具库数据化功能 (Issue #623)
 - **关联Issue**: #623
+- **作者**: wandeyaowu
+- **分支**: feature-issue-623
 
-## 变更范围
-- D3模具库表 (d3_mold_library)
-- RESTful API `/api/d3/molds/`
-- Excel/S3批量导入功能
-- 市场适用性标注
+## 测试结果
 
-## API端点
-| 方法 | 端点 | 描述 |
-|------|------|------|
-| GET | /api/d3/molds | 分页查询 |
-| POST | /api/d3/molds | 新增 |
-| PUT | /api/d3/molds/{id} | 更新 |
-| DELETE | /api/d3/molds/{id} | 删除 |
-| POST | /api/d3/molds/import-excel | Excel导入 |
-| POST | /api/d3/molds/import-s3 | S3导入 |
-
-## 覆盖度评估
-- [x] 新增测试: tests/backend/api/d3/mold-library.spec.ts
-- **评估结果**: C → 补充用例后执行
-
-## 测试执行
-
-### 测试命令
+### 测试执行
 ```bash
-npx playwright test tests/backend/api/d3/mold-library.spec.ts --reporter=line
+npx playwright test tests/backend/api/d3/mold-library.spec.ts
 ```
 
-### 测试结果
-- **通过**: 1/9
-- **失败**: 8
+### 结果汇总
+- **总计**: 10 个测试
+- **通过**: 3
+- **失败**: 7
 - **跳过**: 0
 
-失败原因: API路径不存在 - `No static resource api/d3/molds`
+### 通过的测试
+| 测试场景 | 结果 |
+|---------|------|
+| 新增模具库记录 | ✅ 通过 |
+| 更新模具库记录 | ✅ 通过 |
+| 删除模具库记录 | ✅ 通过 |
 
-**诊断**: 模具库API尚未部署到dev环境，PR代码未合并。
+### 失败的测试
+| 测试场景 | 端点 | 错误 |
+|---------|------|------|
+| 未认证-列表 | GET /api/d3/molds | 500 No static resource |
+| 未认证-详情 | GET /api/d3/molds/{id} | 500 No static resource |
+| 分页列表 | GET /api/d3/molds | 500 No static resource |
+| 关键字搜索 | GET /api/d3/molds/search | 500 No static resource |
+| 品类编码过滤 | GET /api/d3/molds/category | 500 No static resource |
+| 模具编号查询 | GET /api/d3/molds/code | 500 No static resource |
+| 市场筛选 | GET /api/d3/molds/market | 500 No static resource |
 
-## 最终状态
-❌ **测试失败 - API未部署阻塞**
+### 错误示例
+```json
+{
+  "code": 500,
+  "msg": "No static resource api/d3/molds."
+}
+```
 
-- PR 已添加失败评论
-- Issue #623 已添加 status:test-failed 标签
-- Project 看板状态已更新为 Todo（触发研发经理CC重新排程）
+### 测试结论
+❌ **测试失败 - API未部署**
+
+模具库查询API端点未部署，但增删改操作通过（可能是不同的端点或缓存）。
+
+### 阻塞原因
+- 后端dev环境未完全部署 `feature-issue-623` 分支
+- D3MoldLibraryController 可能未加载或端点映射不同
+
+### 建议操作
+1. 等待后端dev环境完整部署 `feature-issue-623` 分支
+2. 重新执行中层E2E测试
+3. 验证所有查询端点正常工作
+
+### 关联Issue状态
+- Issue #623 保持 `status:in-progress` 标签
+- 添加注释说明API未部署阻塞

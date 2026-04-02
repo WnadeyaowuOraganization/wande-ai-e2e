@@ -1,44 +1,65 @@
-# PR #1019 测试工作记录
+# 中层E2E测试工作记录 - PR #1019
 
-## PR 信息
-- **仓库**: wande-ai-backend
-- **标题**: feat(contract): 实现 AI 合同自动填充功能 #70
-- **分支**: feature-issue-70 → dev
+## 执行时间
+2026-04-02 13:34:00
+
+## PR信息
+- **PR**: #1019 - feat(contract): 实现 AI 合同自动填充功能 #70
 - **关联Issue**: #70
+- **作者**: david-hwp
+- **分支**: feature-issue-70
 
-## 变更范围
-- 合同自动填充 API
-- 多数据源优先级 (CRM > 商机 > 招标)
-- AI提取非结构化信息
-- 置信度计算
-- 金额自动转换
+## 测试结果
 
-## API端点
-- POST /wande/contract/auto-fill
-
-## 覆盖度评估
-- [x] 已有测试: tests/backend/api/contract-auto-fill.spec.ts
-- **评估结果**: A - 完整覆盖
-
-## 测试执行
-
-### 测试命令
+### 测试执行
 ```bash
-npx playwright test tests/backend/api/contract-auto-fill.spec.ts --reporter=line
+npx playwright test tests/backend/api/contract-auto-fill.spec.ts
 ```
 
-### 测试结果
-- **通过**: 1/7
+### 结果汇总
+- **总计**: 8 个测试
+- **通过**: 2
 - **失败**: 6
 - **跳过**: 0
 
-失败原因: API返回500错误 - `Request method 'POST' is not supported`
+### 通过的测试
+| 测试场景 | 结果 |
+|---------|------|
+| 无效模板代码返回错误 | ✅ 通过 |
+| 缺少必要参数返回错误 | ✅ 通过 |
 
-**诊断**: 合同自动填充API尚未部署到dev环境，PR代码未合并。
+### 失败的测试
+| 测试场景 | 端点 | 错误 |
+|---------|------|------|
+| 未认证访问 | POST /wande/contract/auto-fill | 500 No static resource |
+| 执行自动填充 | POST /wande/contract/auto-fill | 500 No static resource |
+| 结果包含字段列表 | POST /wande/contract/auto-fill | 500 No static resource |
+| 从招标数据填充 | POST /wande/contract/auto-fill | 500 No static resource |
+| 金额自动转换 | POST /wande/contract/auto-fill | 500 No static resource |
+| 低置信度字段标记 | POST /wande/contract/auto-fill | 500 No static resource |
 
-## 最终状态
-❌ **测试失败 - API未部署阻塞**
+### 错误示例
+```json
+{
+  "code": 500,
+  "msg": "No static resource wande/contract/auto-fill."
+}
+```
 
-- PR 已添加失败评论（第4次检测）
-- Issue #70 已添加 status:test-failed 标签
-- Project 看板状态已更新为 Todo（触发研发经理CC重新排程）
+### 测试结论
+❌ **测试失败 - API未部署**
+
+合同自动填充API尚未部署到测试环境。
+
+### 阻塞原因
+- 后端dev环境未部署 `feature-issue-70` 分支
+- ContractAutoFillController 未加载
+
+### 建议操作
+1. 等待后端dev环境部署 `feature-issue-70` 分支
+2. 重新执行中层E2E测试
+3. 验证自动填充功能正常工作
+
+### 关联Issue状态
+- Issue #70 保持 `status:in-progress` 标签
+- 添加注释说明API未部署阻塞
