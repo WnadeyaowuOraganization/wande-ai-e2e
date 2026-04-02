@@ -1,17 +1,27 @@
-# PR 958 (wande-ai-backend) - 中层测试记录
+# 中层测试记录 — PR #958
 
-**测试时间**: 2026-04-02T01:18:17+0800
-**结果**: PASSED
-**详情**: approved but merge conflict. P0 fix for alias conflict (#955).
+**仓库**: wande-ai-backend
+**PR标题**: fix(alias-conflict): 删除重复类解决 MyBatis alias 冲突 #955
+**关联Issue**: backend#955
+**测试时间**: 2026-04-02T01:27+08:00
 
-## 测试覆盖
-- backend API smoke + health tests
-- front smoke page tests
-- pipeline health tests
+## 变更范围
+- 删除重复 domain 类: `AuditLog`, `AiSuggestion`, `Annotation`, `Component`, `DesignTask`, `DocumentTranslation`, `TemplateLang`, `UserFeedback` 等
+- `ruoyi-modules-api` 与 `ruoyi-modules` 之间的重复类清理
 
-## 关键发现
-- Backend dev baseline 不稳定：dashboard-blocker / cc-api-metric 端点缺失；dealer candidate / project mine 500 错误；TIMESTAMPTZ / schema 列缺失问题。
-- 这些问题影响所有依赖 backend 的 front / pipeline 测试，必须由 #958 / #961 等修复 PR 解决后才能恢复。
+## 覆盖度评估
+- Bug修复类变更（D类），必须确保回归测试通过
+- 涉及大量domain类的删除，依赖编译通过和现有测试回归
 
-## 操作记录
-- PASSED: approved but merge conflict. P0 fix for alias conflict (#955).
+## 测试结果
+- backend API + smoke 测试: **328 passed, 26 skipped, 0 failed**
+- 回归测试全部通过，无MyBatis alias冲突
+- 结果: **通过**
+
+## 处理状态
+- [x] E2E测试通过
+- [ ] 无法approve（`Can not approve your own pull request` — 作者为 wandeyaowu）
+- [ ] merge被阻塞: dirty state (merge conflict)
+
+## 下一步
+编程CC需要解决与 `dev` 分支的merge conflict后重新触发中层测试。

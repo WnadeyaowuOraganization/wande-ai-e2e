@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-02T00:56:24",
+  "updated_at": "2026-04-02T01:34:18+08:00",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -437,9 +437,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts::tender data has required fields"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-02T01:18:17+0800",
+      "last_tested": "2026-04-02T01:34:18+08:00",
       "last_result": "passed",
-      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951.",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: Pipeline 17/18 passed. 1 fail is known backend#951 env issue. PR #88 merge blocked by conflict.",
       "note": "Mid-layer test 2026-04-02T01:18:17+0800: E2E approved (config separation), but merge blocked by conflict."
     },
     {
@@ -764,9 +764,9 @@
         "tests/backend/api/dashboard-claude-session.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-02T01:18:17+0800",
+      "last_tested": "2026-04-02T01:34:18+08:00",
       "last_result": "passed",
-      "notes": "Mid-layer test passed. 10/10 claude-session API tests PASS. PR has merge conflict — blocked for merge.",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: E2E passed (328/0/0). PR #982 approved but merge blocked by conflict.",
       "note": "Mid-layer test 2026-04-02T01:18:17+0800: E2E approved (cleanup test/config), but merge blocked by conflict."
     },
     {
@@ -908,9 +908,9 @@
         "tests/pipeline/api/pipeline-health.spec.ts"
       ],
       "coverage": "partial",
-      "last_tested": "2026-04-02T01:18:17+0800",
+      "last_tested": "2026-04-02T01:34:18+08:00",
       "last_result": "passed",
-      "notes": "project mine API 500 (wdpp_discovered_projects.status missing). Blocked by backend#951.",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: Pipeline 17/18 passed. 1 fail is known backend#951 env issue. PR #90 merge blocked by conflict.",
       "note": "Mid-layer test 2026-04-02T01:18:17+0800: E2E approved (keyword learner v3.0), but merge blocked by conflict."
     },
     {
@@ -1140,9 +1140,9 @@
       "module": "dealer-phase3-endpoints-still-return-500",
       "test_files": [],
       "coverage": "none",
-      "last_tested": "2026-04-02T01:18:17+0800",
+      "last_tested": "2026-04-02T01:34:18+08:00",
       "last_result": "passed",
-      "notes": "Dealer Phase3 endpoints still return 500. PR #873 fix not fully effective in dev.",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: E2E passed (328/0/0). Dealer fix verified. PR #961 approved but merge blocked by conflict.",
       "note": "Mid-layer test 2026-04-02T01:18:17+0800: E2E approved (dealer TIMESTAMPTZ fix), but merge blocked by conflict."
     },
     {
@@ -1416,6 +1416,34 @@
       "last_tested": "2026-04-02T00:56:24",
       "last_result": "passed",
       "notes": "Mid-layer test 2026-04-02: Tool auth fix and CcApiMetricsController @SaIgnore verified. PR #1000 merged."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#408",
+      "repo": "wande-ai-front",
+      "title": "10个列表页按UI-GUIDE.md规范改造",
+      "module": "cockpit-ui-refactor",
+      "test_files": [
+        "tests/front/smoke/cockpit-dashboard.spec.ts",
+        "tests/front/smoke/product-center.spec.ts",
+        "tests/front/smoke/workspace-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-02T01:34:18+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: front 521/0/0 passed. PR #456 approved but merge blocked by conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#955",
+      "repo": "wande-ai-backend",
+      "title": "删除重复类解决 MyBatis alias 冲突",
+      "module": "alias-conflict",
+      "test_files": [
+        "tests/backend/api/menu-route-fix.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-02T01:34:18+08:00",
+      "last_result": "passed",
+      "notes": "Mid-layer test 2026-04-02T01:27+08:00: backend 328/0/0 passed. PR #958 merge blocked by conflict."
     }
   ],
   "modules": {

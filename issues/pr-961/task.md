@@ -1,17 +1,27 @@
-# PR 961 (wande-ai-backend) - 中层测试记录
+# 中层测试记录 — PR #961
 
-**测试时间**: 2026-04-02T01:18:17+0800
-**结果**: PASSED
-**详情**: approved but merge conflict. Fixes dealer TIMESTAMPTZ + Mapper XML (#840).
+**仓库**: wande-ai-backend
+**PR标题**: fix(dealer): 修复 E2E 测试失败 — TIMESTAMPTZ类型兼容 + Mapper XML缺失 #840
+**关联Issue**: backend#840
+**测试时间**: 2026-04-02T01:27+08:00
 
-## 测试覆盖
-- backend API smoke + health tests
-- front smoke page tests
-- pipeline health tests
+## 变更范围
+- `issues/issue-358/task.md`（实际上是 backend#840 的修复分支）
+- 注意: PR diff 只显示 task.md，但标题说明修复了 TIMESTAMPTZ 和 Mapper XML
 
-## 关键发现
-- Backend dev baseline 不稳定：dashboard-blocker / cc-api-metric 端点缺失；dealer candidate / project mine 500 错误；TIMESTAMPTZ / schema 列缺失问题。
-- 这些问题影响所有依赖 backend 的 front / pipeline 测试，必须由 #958 / #961 等修复 PR 解决后才能恢复。
+## 覆盖度评估
+- 矩阵映射: none（Issue #840 在 requirement-map 中 coverage=none，无专门E2E测试文件）
+- 分类: D（Bug修复）→  Dealer已有通用API测试覆盖
 
-## 操作记录
-- PASSED: approved but merge conflict. Fixes dealer TIMESTAMPTZ + Mapper XML (#840).
+## 测试结果
+- backend API + smoke 测试: **328 passed, 26 skipped, 0 failed**
+- Dealer相关API（dealer.spec.ts）全部通过
+- 结果: **通过**
+
+## 处理状态
+- [x] E2E测试通过
+- [ ] 无法approve（`Can not approve your own pull request` — 作者为 wandeyaowu）
+- [ ] merge被阻塞: merge conflict / dirty state
+
+## 下一步
+需要其他账号approve，或编程CC解决conflict后重新触发中层测试。

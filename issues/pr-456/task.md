@@ -1,17 +1,26 @@
-# PR 456 (wande-ai-front) - 中层测试记录
+# 中层测试记录 — PR #456
 
-**测试时间**: 2026-04-02T01:18:17+0800
-**结果**: PASSED
-**详情**: approved but merge conflict. 10 list pages UI refactor (#408). Test env: feature-issue-408 branch.
+**仓库**: wande-ai-front
+**PR标题**: refactor(front): 10个列表页按UI-GUIDE.md规范改造 — Issue #408
+**关联Issue**: front#408
+**测试时间**: 2026-04-02T01:27+08:00
 
-## 测试覆盖
-- backend API smoke + health tests
-- front smoke page tests
-- pipeline health tests
+## 变更范围
+- `apps/web-antd/src/views/wande/cockpit/` (config-list, news-list, index, data)
+- `credit-usage`, `dev`, `margin-config`, `monitor`, `product-center`, `task`, `wecom`, `worklog` 等10个页面
 
-## 关键发现
-- Backend dev baseline 不稳定：dashboard-blocker / cc-api-metric 端点缺失；dealer candidate / project mine 500 错误；TIMESTAMPTZ / schema 列缺失问题。
-- 这些问题影响所有依赖 backend 的 front / pipeline 测试，必须由 #958 / #961 等修复 PR 解决后才能恢复。
+## 覆盖度评估
+- 矩阵映射: 无（front#408 未在 requirement-map.json 中注册）
+- 分类: C（无覆盖）→ 依赖现有 front smoke 测试覆盖
+- 已有smoke测试覆盖了 cockpit-dashboard、product-center、worklog等页面
 
-## 操作记录
-- PASSED: approved but merge conflict. 10 list pages UI refactor (#408). Test env: feature-issue-408 branch.
+## 测试结果
+- front API + smoke + e2e 测试: **521 passed, 63 skipped, 0 failed**
+- 结果: **通过**
+
+## 处理状态
+- [x] E2E测试通过并approve
+- [ ] merge被阻塞: `merge commit cannot be cleanly created` (merge conflict)
+
+## 下一步
+编程CC需要解决与 `dev` 分支的merge conflict后重新触发中层测试。
