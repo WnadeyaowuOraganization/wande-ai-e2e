@@ -2309,17 +2309,53 @@
       "tests/backend/api/business-opportunity.spec.ts"
     ],
     "status": "covered",
-    "last_tested": "2026-04-02T16:30:00+08:00",
+    "last_tested": "2026-04-03T04:17:15+08:00",
     "last_result": "failed",
-    "notes": "ENV-FAIL: G7e dev backend cannot start due to moldLibraryMapper bean conflict (Issue #1098). Compile passed. PR #1090 MERGEABLE."
+    "notes": "CODE-BUG: INSERT business_opportunities fails with PostgreSQL integer out of range. PR #1090 request-changes."
   },
   "635": {
     "tests": [
       "tests/backend/api/intelligence-quality.spec.ts"
     ],
     "status": "covered",
-    "last_tested": "2026-04-02T16:30:00+08:00",
+    "last_tested": "2026-04-03T04:17:15+08:00",
+    "last_result": "passed",
+    "notes": "PASS: Intelligence API tests all passed via #1099 Controller. PR #1089 merged to dev."
+  },
+  "636": {
+    "tests": [
+      "tests/backend/api/intelligence.spec.ts"
+    ],
+    "status": "covered",
+    "last_tested": "2026-04-03T04:17:15+08:00",
+    "last_result": "passed",
+    "notes": "PASS: All 14 API tests passed. PR #1099 merged to dev."
+  },
+  "637": {
+    "tests": [
+      "tests/backend/api/client-intelligence-rule.spec.ts"
+    ],
+    "status": "covered",
+    "last_tested": "2026-04-03T04:17:15+08:00",
     "last_result": "failed",
-    "notes": "ENV-FAIL: G7e dev backend cannot start due to moldLibraryMapper bean conflict (Issue #1098). Compile passed. PR #1089 MERGEABLE."
+    "notes": "SQL-BUG: MySQL syntax (AUTO_INCREMENT/COMMENT) incompatible with PostgreSQL. Table wdpp_client_intelligence_rules not created. PR #1100 request-changes."
+  },
+  "638": {
+    "tests": [
+      "tests/backend/api/dealer-submission.spec.ts"
+    ],
+    "status": "covered",
+    "last_tested": "2026-04-03T04:17:15+08:00",
+    "last_result": "failed",
+    "notes": "MISSING-SQL: wdpp_dealer_submissions table not created (no SQL script in PR). PR #1097 request-changes."
+  },
+  "639": {
+    "tests": [
+      "tests/backend/api/due-diligence.spec.ts"
+    ],
+    "status": "covered",
+    "last_tested": "2026-04-03T04:17:15+08:00",
+    "last_result": "passed",
+    "notes": "PASS: All 8 API tests passed. PR #1101 merged to dev."
   }
 }
