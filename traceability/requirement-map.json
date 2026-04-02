@@ -2304,13 +2304,22 @@
     "last_result": "partial",
     "notes": "Mid-layer test: 10 passed, 5 failed. Core CRUD operations passed. PR #1075 MERGEABLE."
   },
+  "634": {
+    "tests": [
+      "tests/backend/api/business-opportunity.spec.ts"
+    ],
+    "status": "covered",
+    "last_tested": "2026-04-02T16:30:00+08:00",
+    "last_result": "failed",
+    "notes": "ENV-FAIL: G7e dev backend cannot start due to moldLibraryMapper bean conflict (Issue #1098). Compile passed. PR #1090 MERGEABLE."
+  },
   "635": {
     "tests": [
       "tests/backend/api/intelligence-quality.spec.ts"
     ],
     "status": "covered",
-    "last_tested": "2026-04-02T15:50:00+08:00",
-    "last_result": "partial",
-    "notes": "Mid-layer test: 9 passed, 4 failed. Unauthenticated access returns 500 instead of 401."
+    "last_tested": "2026-04-02T16:30:00+08:00",
+    "last_result": "failed",
+    "notes": "ENV-FAIL: G7e dev backend cannot start due to moldLibraryMapper bean conflict (Issue #1098). Compile passed. PR #1089 MERGEABLE."
   }
 }
