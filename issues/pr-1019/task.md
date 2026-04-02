@@ -1,42 +1,44 @@
-# PR #1019 测试任务
+# PR #1019 测试工作记录
 
-## 基本信息
-- **PR**: #1019 - feat(contract): 实现 AI 合同自动填充功能 #70
+## PR 信息
 - **仓库**: wande-ai-backend
+- **标题**: feat(contract): 实现 AI 合同自动填充功能 #70
+- **分支**: feature-issue-70 → dev
 - **关联Issue**: #70
-- **创建时间**: 2026-04-02
 
-## 变更分析
-- **主要变更**: 合同自动填充API + 模具选型API
-- **影响模块**: contract, d3/mold
-- **新增API**: POST /wande/contract/auto-fill
+## 变更范围
+- 合同自动填充 API
+- 多数据源优先级 (CRM > 商机 > 招标)
+- AI提取非结构化信息
+- 置信度计算
+- 金额自动转换
+
+## API端点
+- POST /wande/contract/auto-fill
 
 ## 覆盖度评估
-- **状态**: A - 完整覆盖
-- **已有测试**:
-  - `tests/backend/api/contract-auto-fill.spec.ts` (8个用例)
-  - `tests/backend/api/d3/mold.spec.ts` (16个用例)
+- [x] 已有测试: tests/backend/api/contract-auto-fill.spec.ts
+- **评估结果**: A - 完整覆盖
 
-## 执行记录
-### 第3次检测 (2026-04-02)
-- **状态**: ❌ API未部署阻塞
-- **错误摘要**:
-  - 合同自动填充API: `POST method not supported` - API端点不存在
-  - 模具选型API: `No static resource wande/d3/molds/select` - API端点不存在
-- **失败数**: 13个
-- **通过数**: 6个
-- **跳过数**: 3个
+## 测试执行
 
-### 关键错误日志
-```
-合同自动填充: {"code":500,"msg":"Request method 'POST' is not supported"}
-模具选型: {"code":500,"msg":"No static resource wande/d3/molds/select."}
+### 测试命令
+```bash
+npx playwright test tests/backend/api/contract-auto-fill.spec.ts --reporter=line
 ```
 
-## 结论
-PR代码尚未部署到测试环境，API端点不存在。需要等待部署完成后重测。
+### 测试结果
+- **通过**: 1/7
+- **失败**: 6
+- **跳过**: 0
 
-## 最终结果
-- [ ] 通过
-- [ ] 失败
-- [x] 阻塞 - 等待API部署
+失败原因: API返回500错误 - `Request method 'POST' is not supported`
+
+**诊断**: 合同自动填充API尚未部署到dev环境，PR代码未合并。
+
+## 最终状态
+❌ **测试失败 - API未部署阻塞**
+
+- PR 已添加失败评论（第4次检测）
+- Issue #70 已添加 status:test-failed 标签
+- Project 看板状态已更新为 Todo（触发研发经理CC重新排程）

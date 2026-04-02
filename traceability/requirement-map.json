@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "description": "需求追踪矩阵 — Issue 与测试用例的双向映射",
-  "updated_at": "2026-04-02T01:34:18+08:00",
+  "updated_at": "2026-04-02T13:24:31.898660",
   "mappings": [
     {
       "issue": "WnadeyaowuOraganization/wande-data-pipeline#29",
@@ -441,19 +441,6 @@
       "last_result": "passed",
       "notes": "Mid-layer test 2026-04-02T01:27+08:00: Pipeline 17/18 passed. 1 fail is known backend#951 env issue. PR #88 merge blocked by conflict.",
       "note": "Mid-layer test 2026-04-02T01:18:17+0800: E2E approved (config separation), but merge blocked by conflict."
-    },
-    {
-      "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
-      "repo": "wande-ai-backend",
-      "title": "Claude Code会话监控API",
-      "module": "claude-session",
-      "test_files": [
-        "tests/backend/api/dashboard-claude-session.spec.ts"
-      ],
-      "coverage": "full",
-      "last_tested": "2026-04-01T14:48:00+08:00",
-      "last_result": "failed",
-      "notes": "Mid-layer test: backend dev startup failed due to MyBatis alias conflict introduced by PR #953 (DashboardTokenAlertHistoryVo / DashboardTokenPoolBo). Requested changes on PR #953. P0 fix issue backend#955 created."
     },
     {
       "issue": "WnadeyaowuOraganization/wande-ai-backend#333",
@@ -1444,6 +1431,85 @@
       "last_tested": "2026-04-02T01:34:18+08:00",
       "last_result": "passed",
       "notes": "Mid-layer test 2026-04-02T01:27+08:00: backend 328/0/0 passed. PR #958 merge blocked by conflict."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-front#85",
+      "repo": "wande-ai-front",
+      "title": "合同管理跨模块打通 — CRM商机+执行管理导航",
+      "module": "contract",
+      "test_files": [
+        "tests/front/smoke/contract-page.spec.ts",
+        "tests/front/smoke/execution-page.spec.ts"
+      ],
+      "coverage": "partial",
+      "last_tested": "2026-04-02T11:20:00+08:00",
+      "last_result": "skipped",
+      "notes": "Mid-layer test: 4/4 skipped. Menu not registered in sys_menu. PR #474 needs deployment to dev environment."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#171",
+      "repo": "wande-ai-backend",
+      "title": "合同编号生成API",
+      "module": "contract",
+      "test_files": [
+        "tests/backend/api/contract.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_result": "blocked",
+      "notes": "Mid-layer test passed (4/4) but PR #1072 merge blocked by conflict (DIRTY). See PR comment."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#70",
+      "repo": "wande-ai-backend",
+      "title": "AI合同自动填充功能",
+      "module": "contract-auto-fill",
+      "test_files": [
+        "tests/backend/api/contract-auto-fill.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_result": "blocked",
+      "notes": "API not deployed: POST /wande/contract/auto-fill returns 500. PR #1019 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#624",
+      "repo": "wande-ai-backend",
+      "title": "模具选型引擎API",
+      "module": "d3-mold",
+      "test_files": [
+        "tests/backend/api/d3/mold.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_result": "blocked",
+      "notes": "API not deployed: GET /wande/d3/molds/select returns 500 No static resource. PR #1018 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#623",
+      "repo": "wande-ai-backend",
+      "title": "模具库数据化功能",
+      "module": "d3-mold-library",
+      "test_files": [
+        "tests/backend/api/d3/mold-library.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_result": "blocked",
+      "notes": "API not deployed: GET /api/d3/molds returns 500 No static resource. PR #1071 blocked."
+    },
+    {
+      "issue": "WnadeyaowuOraganization/wande-ai-backend#252",
+      "repo": "wande-ai-backend",
+      "title": "开发效率统计API",
+      "module": "dashboard-efficiency",
+      "test_files": [
+        "tests/backend/api/dashboard-efficiency.spec.ts"
+      ],
+      "coverage": "full",
+      "last_tested": "2026-04-02T13:24:31.898660",
+      "last_result": "blocked",
+      "notes": "API not deployed: GET /api/dashboard/efficiency/output returns 500 No static resource. PR #1073 blocked."
     }
   ],
   "modules": {
@@ -1613,6 +1679,17 @@
       "api_prefix": "/wande/brand/publish",
       "test_files": [
         "tests/backend/api/brand.spec.ts"
+      ]
+    },
+    "contract": {
+      "description": "合同管理",
+      "test_tags": [
+        "@contract"
+      ],
+      "api_prefix": "/wande/contract",
+      "test_files": [
+        "tests/front/smoke/contract-page.spec.ts",
+        "tests/front/smoke/execution-page.spec.ts"
       ]
     },
     "execution": {
