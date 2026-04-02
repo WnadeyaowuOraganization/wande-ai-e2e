@@ -36,7 +36,7 @@ test.describe('合同管理 API 测试', () => {
     expect(response.status()).toBe(200);
     const data = await response.json();
     expect(data.code).toBe(200);
-    expect(data.data).toBeDefined();
+    expect(data.rows).toBeDefined();
   });
 
   test('应能访问合同详情', async ({ request }) => {
