@@ -47,21 +47,23 @@
 - **阻塞**: 需要先解决与dev分支的合并冲突
 
 ## 决策
-**BLOCKED** - 合并冲突 + 环境未就绪
+❌ **TEST FAILED - REQUEST CHANGES**
 
-需要研发经理CC处理：
-1. 解决与dev分支的合并冲突
-2. 确保API部署到测试环境
-3. 重新触发中层E2E测试
+E2E测试失败，所有API端点返回500错误。
 
 ## 操作记录
 ```bash
 # 测试执行
 npx playwright test tests/backend/api/dashboard-efficiency.spec.ts
-
 # 结果: 0 passed, 12 failed (全部返回500)
+
+# 标记失败
+gh pr review 1073 --request-changes --body "❌ E2E中层测试失败..."
+# 结果: 成功
 ```
 
 ## 关联Issue更新
+- Issue: #252
 - 添加标签: `status:test-failed`
-- 看板状态: Todo (重新排程)
+- 移除标签: `status:in-progress`
+- 看板状态: Todo (触发研发经理CC重新排程)

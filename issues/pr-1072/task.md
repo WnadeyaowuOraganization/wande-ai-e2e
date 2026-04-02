@@ -27,13 +27,12 @@
 **统计**: 4 passed, 1 skipped
 
 ## 合并状态
-- **状态**: CONFLICTING (有冲突)
-- **阻塞**: 需要先解决与dev分支的合并冲突
+- **状态**: ❌ CONFLICT - 存在合并冲突，无法自动合并
 
 ## 决策
-**TEST PASSED, MERGE BLOCKED**
+**TEST PASSED, MERGE BLOCKED BY CONFLICT**
 
-E2E测试通过，但合并被冲突阻塞。需要研发经理CC：
+E2E测试通过，但存在合并冲突。需要研发经理CC：
 1. 解决与dev分支的合并冲突
 2. 重新触发中层E2E测试验证
 3. 测试通过后合并
@@ -42,10 +41,18 @@ E2E测试通过，但合并被冲突阻塞。需要研发经理CC：
 ```bash
 # 测试执行
 npx playwright test tests/backend/api/contract.spec.ts
-
 # 结果: 4 passed, 1 skipped
+
+# 审批操作
+gh pr review 1072 --approve --body "✅ E2E中层测试通过 2026-04-02 15:50"
+# 结果: 成功
+
+# 合并操作
+gh pr merge 1072 --squash --delete-branch
+# 结果: 失败 - Pull request is not mergeable: the merge commit cannot be cleanly created
 ```
 
 ## 关联Issue状态
-- 当前标签: `status:in-progress`
-- 建议保持，等待冲突解决后合并
+- Issue: #171
+- 标签: 添加 `status:test-passed`
+- Project看板: 保持当前状态，等待冲突解决

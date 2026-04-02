@@ -39,22 +39,22 @@
 - **阻塞**: 需要先解决与dev分支的合并冲突
 
 ## 决策
-**BLOCKED** - 合并冲突 + 可能与 #1075 重复
+❌ **TEST FAILED - REQUEST CHANGES**
 
-注意：PR #1075 的说明中提到 "包含 Issue #623 的模具库数据化功能"，说明 #1075 已经包含了 #1071 的功能。
-
-建议：
-1. 优先合并 #1075 (无冲突且功能更完整)
-2. #1071 可能需要关闭或重新评估
+E2E测试部分失败，查询API返回500错误。
 
 ## 操作记录
 ```bash
 # 测试执行
 npx playwright test tests/backend/api/d3/mold-library.spec.ts
-
 # 结果: 5 passed, 5 failed
+
+# 标记失败
+gh pr review 1071 --request-changes --body "❌ E2E中层测试失败..."
+# 结果: 无法对自己PR request-changes
 ```
 
 ## 关联Issue更新
+- Issue: #623
 - 添加标签: `status:test-failed`
-- 看板状态: Todo (重新评估与#1075的关系)
+- 移除标签: `status:in-progress`
