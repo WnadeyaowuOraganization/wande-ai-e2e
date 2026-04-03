@@ -57,9 +57,9 @@ test.describe('AI Render Workspace (PR #254) @smoke @ai-render @issue:front#187'
       const modeSelector = page.locator('.ant-radio-group');
       await expect(modeSelector).toBeVisible({ timeout: 10000 });
 
-      // 验证单张渲染和批量渲染选项
-      const singleMode = page.locator('.ant-radio-button:has-text("单张渲染")');
-      const batchMode = page.locator('.ant-radio-button:has-text("批量渲染")');
+      // 验证单张渲染和批量渲染选项（Ant Design Vue 4 使用 .ant-radio-button-wrapper）
+      const singleMode = page.locator('.ant-radio-button-wrapper:has-text("单张渲染")');
+      const batchMode = page.locator('.ant-radio-button-wrapper:has-text("批量渲染")');
 
       await expect(singleMode).toBeVisible({ timeout: 10000 });
       await expect(batchMode).toBeVisible({ timeout: 10000 });
@@ -69,8 +69,8 @@ test.describe('AI Render Workspace (PR #254) @smoke @ai-render @issue:front#187'
       await loginAndGoto(page, request, '/wande/ai-render');
       await page.waitForTimeout(2000);
 
-      // 验证图片上传组件存在（Ant Design Vue 使用 ant-upload-dragger）
-      const uploadComponent = page.locator('.ant-upload-dragger');
+      // 验证图片上传组件存在（Ant Design Vue 4 拖拽上传实际类名为 ant-upload-drag）
+      const uploadComponent = page.locator('.ant-upload-drag');
       await expect(uploadComponent).toBeVisible({ timeout: 10000 });
     });
 
@@ -113,22 +113,21 @@ test.describe('AI Render Workspace (PR #254) @smoke @ai-render @issue:front#187'
     });
   });
 
-  // History 页面路由未正确配置（getRouters 不返回 history 子菜单），跳过测试
-  test.describe.skip('AI Render History Page', () => {
+  test.describe('AI Render History Page', () => {
     test('ai-render history page loads successfully', { tag: ['@smoke', '@ai-render', '@issue:front#254'] }, async ({ page, request }) => {
       await loginAndGoto(page, request, '/wande/ai-render/history');
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(3000);
 
-      // 验证页面核心内容存在（表格或历史记录标题）
-      const table = page.locator('.ant-table, table');
-      const historyTitle = page.locator('text=渲染历史, text=历史记录');
-      // 任一元素存在即表示页面加载成功
-      await expect(table.or(historyTitle.first())).toBeVisible({ timeout: 10000 });
+      // 验证页面核心内容存在（检查主内容区的渲染历史卡片标题）
+      // 使用 main content area 限定范围，避免匹配到菜单等其他位置的"渲染历史"
+      const mainContent = page.locator('[id="__vben_main_content"]');
+      const historyCardTitle = mainContent.locator('.ant-card-head-title').filter({ hasText: '渲染历史' });
+      await expect(historyCardTitle).toBeVisible({ timeout: 20000 });
     });
 
     test('ai-render history page displays table', { tag: ['@smoke', '@ai-render', '@issue:front#254'] }, async ({ page, request }) => {
       await loginAndGoto(page, request, '/wande/ai-render/history');
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(3000);
 
       // 验证表格存在（Ant Design Vue 使用 ant-table）
       const table = page.locator('.ant-table');
@@ -137,10 +136,10 @@ test.describe('AI Render Workspace (PR #254) @smoke @ai-render @issue:front#187'
 
     test('ai-render history page displays filter options', { tag: ['@smoke', '@ai-render', '@issue:front#254'] }, async ({ page, request }) => {
       await loginAndGoto(page, request, '/wande/ai-render/history');
-      await page.waitForTimeout(2000);
+      await page.waitForTimeout(3000);
 
       // 验证筛选条件存在（状态筛选、时间筛选等）- Ant Design Vue 使用 ant- 前缀
-      const filterOptions = page.locator('.ant-select, .ant-radio-group, .ant-picker');
+      const filterOptions = page.locator('.ant-select, .ant-picker, .ant-picker-range');
       // 至少有一个筛选条件
       const filterCount = await filterOptions.count();
       expect(filterCount).toBeGreaterThan(0);
